@@ -1,0 +1,1954 @@
+@prefix : <https://w3id.org/iliad/> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix stat: <http://data.europa.eu/m8g/> .
+@prefix schema: <https://schema.org/> .
+@prefix af-inspire:	<http://inspire.ec.europa.eu/schemas/af/3.0#> .
+@prefix act-inspire:	<http://inspire.ec.europa.eu/schemas/act-core/3.0#> .
+@prefix foodie: <http://foodie-cloud.com/model/foodie#> .
+@prefix saref4agri: <https://saref.etsi.org/saref4agri/> .
+@prefix common: <http://portele.de/ont/inspire/baseInspire#> .
+@prefix fiware-agrifood: <https://smartdatamodels.org/dataModel.Agrifood/> .
+@prefix fiware: <https://smartdatamodels.org/> .
+@prefix iso19109: <http://def.seegrid.csiro.au/isotc211/iso19109/2005/feature#> .
+@prefix iso19150-2: <http://def.seegrid.csiro.au/isotc211/iso19150/-2/2012/basic#> .
+@prefix iso19103: <http://def.seegrid.csiro.au/isotc211/iso19103/2005/basic#> .
+@prefix iso19115-citation: <http://def.seegrid.csiro.au/isotc211/iso19115/2003/citation#> .
+@prefix geo:   <http://www.opengis.net/ont/geosparql#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix saref: <https://saref.etsi.org/core/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix demeterAgriCommon: <https://w3id.org/demeter/agri/agriCommon#> .
+@prefix oceanCommon: <https://w3id.org/iliad/oim/oceamCommon/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix dwc:  <http://rs.tdwg.org/dwc/terms/> .
+@base <https://w3id.org/iliad/> .
+
+<https://w3id.org/iliad/oceanCommon> a owl:Ontology ;
+                            owl:versionIRI <https://w3id.org/iliad/oceanCommon/1.0> ;
+                            dct:contributor [ schema:affiliation [ foaf:name "PSNC"
+                                                                 ] ;
+                                              foaf:name "Bogusz Janiak"
+                                            ] ;
+                            dct:creator [ schema:affiliation [ foaf:name "PSNC"
+                                                             ] ;
+                                          rdfs:seeAlso <http://orcid.org/0000-0003-4289-4922> ;
+                                          foaf:name "Raul Palma"
+                                        ] ;
+                            owl:imports <https://w3id.org/iliad/oim/crossDomain> ;
+                            dct:description "OceanCommon is the common ontology module of the Ocean Information Model (OIM) domain layer. This ontology was created by reusing and aligning well-known ontologies and vocabularies, including Darwin Core"@en ;
+                            dct:rights "This vocabulary is distributed under Creative Commons Attribution 4.0 License - http://creativecommons.org/licenses/by/4.0"@en ;
+                            dct:title "OIM OceanCommon"@en ;
+                            rdfs:label "OIM OceanCommon"@en ;
+                            rdfs:comment "The Ocean Information Model (OIM) is the common vocabulary in ILIAD project providing the basis for semantic interoperability across smart ocean solutions"@en ;
+                            owl:versionInfo "1.0" ;
+                            foaf:maker [ foaf:homepage <https://www.ocean-twin.eu/> ;
+                                                      foaf:name "ILIAD project"
+                                                    ] .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+dct:accessRights
+  a owl:AnnotationProperty ;
+  rdfs:comment "Access Rights may include information regarding access or restrictions based on privacy, security, or other policies."@en-us ;
+  rdfs:label "Access Rights"@en-us ;
+  skos:definition "Information about who can access the resource or an indication of its security status."@en-us ;
+  rdfs:subPropertyOf dct:rights .
+#  rdfs:range dc:RightsStatement .  
+
+dct:bibliographicCitation
+  a owl:AnnotationProperty ;
+  rdfs:comment "Recommended practice is to include sufficient bibliographic detail to identify the resource as unambiguously as possible."@en-us ;
+  rdfs:label "Bibliographic Citation"@en-us ;
+  skos:definition "A bibliographic reference for the resource."@en-us .
+#  rdfs:subPropertyOf dc:identifier ;
+#  rdfs:range rdfs:Literal ;
+#  rdfs:domain dc:BibliographicResource .
+
+dct:language
+  a owl:AnnotationProperty ;
+  dct:bibliographicCitation "[RFC4646] http://www.ietf.org/rfc/rfc4646.txt" ;
+  rdfs:comment "Recommended best practice is to use a controlled vocabulary such as RFC 4646 [RFC4646]."@en-us ;
+  rdfs:label "Language"@en-us ;
+  rdfs:seeAlso <http://www.ietf.org/rfc/rfc4646.txt> ;
+  skos:definition "A language of the resource."@en-us .
+#  rdfs:subPropertyOf dc11:language ;
+#  rdfs:range dc:LinguisticSystem .
+
+dct:license
+  a owl:AnnotationProperty ;
+  rdfs:label "License"@en-us ;
+  skos:definition "A legal document giving official permission to do something with the resource."@en-us ;
+  rdfs:subPropertyOf dct:rights .
+#  rdfs:range dc:LicenseDocument .
+
+dct:modified
+  a owl:AnnotationProperty ;
+  rdfs:label "Date Modified"@en-us ;
+  skos:definition "Date on which the resource was changed."@en-us .
+#  rdfs:subPropertyOf dc:date ;
+#  rdfs:range rdfs:Literal .
+
+dct:references
+  a owl:AnnotationProperty ;
+  rdfs:label "References"@en-us ;
+  skos:definition "A related resource that is referenced, cited, or otherwise pointed to by the described resource."@en-us ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/). As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en-us .
+  #rdfs:subPropertyOf dc:relation .
+
+dct:rights
+  a owl:AnnotationProperty ;
+  rdfs:comment "Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights."@en-us ;
+  rdfs:label "Rights"@en-us ;
+  skos:definition "Information about rights held in and over the resource."@en-us .
+#  rdfs:subPropertyOf dc11:rights ;
+#  rdfs:range dc:RightsStatement .  
+
+dct:rightsHolder
+  a owl:AnnotationProperty ;
+  rdfs:label "Rights Holder"@en-us ;
+  skos:definition "A person or organization owning or managing rights over the resource."@en-us .
+#  rdfs:range dc:Agent .
+
+dct:type
+  a owl:AnnotationProperty ;
+  dct:bibliographicCitation "[DCMITYPE] http://dublincore.org/documents/dcmi-type-vocabulary/" ;
+  rdfs:comment "Recommended best practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [DCMITYPE]. To describe the file format, physical medium, or dimensions of the resource, use the Format element."@en-us ;
+  rdfs:label "Type"@en-us ;
+  rdfs:seeAlso <http://dublincore.org/documents/dcmi-type-vocabulary/> ;
+  skos:definition "The nature or genre of the resource."@en-us .
+#  rdfs:subPropertyOf dc11:type ;
+#  rdfs:range dc11:contributor .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+#################################################################
+#    Object Properties
+#################################################################
+
+
+### https://smartdatamodels.org/dataModel.Agrifood/agroVocConcept
+fiware-agrifood:agroVocConcept	a      owl:ObjectProperty ;
+        rdfs:label   		"agroVocConcept"@en ;
+        rdfs:comment		"The link with the defined concept into the AgroVoc vocabulary" ;
+        rdfs:isDefinedBy <https://github.com/smart-data-models/dataModel.Agrifood/blob/master/AgriCrop/schema.json> .  
+
+###  https://w3id.org/demeter/agri/agriCommon#eppoConcept
+demeterAgriCommon:eppoConcept	a      owl:ObjectProperty ;
+        rdfs:label   		"eppoConcept"@en ;
+        rdfs:comment		"The link with the defined concept into the EPPO vocabulary" ;
+        rdfs:isDefinedBy <https://w3id.org/demeter/agri/agriCommon#> .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/demeter/agri/agriCommon#userName
+demeterAgriCommon:userName a owl:DatatypeProperty ;
+         rdfs:range xsd:string ;
+         rdfs:label "User Name" ;
+         rdfs:comment "User Name" ;
+         rdfs:isDefinedBy <https://w3id.org/demeter/agri/agriCommon#> .
+
+###  https://w3id.org/demeter/agri/agriCommon#password
+demeterAgriCommon:password a owl:DatatypeProperty ;
+         rdfs:range xsd:string ;
+         rdfs:label "Password" ;
+         rdfs:comment "Password" ;
+         rdfs:isDefinedBy <https://w3id.org/demeter/agri/agriCommon#> .
+        				
+###  <http://portele.de/ont/inspire/baseInspire#validFrom> 
+common:validFrom	a      owl:DatatypeProperty ;
+        rdfs:range       xsd:dateTime ;
+        skos:prefLabel   "valid from"@en ;
+        rdfs:label      "valid from" ;
+        rdfs:comment    "begin of real-world phenomenon" ;
+        rdfs:isDefinedBy <http://portele.de/ont/inspire/baseInspire#> .
+
+###  <http://portele.de/ont/inspire/baseInspire#validTo> 
+common:validTo	a        owl:DatatypeProperty ;
+        rdfs:range       xsd:dateTime ;        
+        skos:prefLabel   "valid to"@en ;
+        rdfs:label       "valid to" ;
+        rdfs:comment     "end of real-world phenomenon" ;
+        rdfs:isDefinedBy <http://portele.de/ont/inspire/baseInspire#> .
+        
+### https://smartdatamodels.org/dateCreated
+fiware:dateCreated	a      owl:DatatypeProperty ;
+        rdfs:range      xsd:dateTime ;  
+        rdfs:label   	"dateCreated"@en ;
+        rdfs:comment	"Entity creation timestamp. This will usually be allocated by the storage platform" ;
+        rdfs:isDefinedBy <https://github.com/smart-data-models/dataModel.Agrifood/blob/master/AgriApp/schemaDTDL.json> .
+
+### https://smartdatamodels.org/dateModified
+fiware:dateModified	a      owl:DatatypeProperty ;
+        rdfs:range      xsd:dateTime ;  
+        rdfs:label   	"dateModified"@en ;
+        rdfs:comment	"Timestamp of the last modification of the entity. This will usually be allocated by the storage platform" ;
+        rdfs:isDefinedBy <https://github.com/smart-data-models/dataModel.Agrifood/blob/master/AgriApp/schemaDTDL.json> .
+
+### https://smartdatamodels.org/source
+fiware:source	a      owl:DatatypeProperty ;
+        rdfs:label   	"source"@en ;
+        rdfs:comment	"A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object." ;
+        rdfs:isDefinedBy <https://github.com/smart-data-models/dataModel.Agrifood/blob/master/AgriApp/schemaDTDL.json> .
+                       
+### https://smartdatamodels.org/dataProvider
+fiware:dataProvider	a      owl:DatatypeProperty ;
+        rdfs:label   	"dataProvider"@en ;
+        rdfs:comment	"A sequence of characters identifying the provider of the harmonised data entity" ;
+        rdfs:isDefinedBy <https://github.com/smart-data-models/dataModel.Agrifood/blob/master/AgriApp/schemaDTDL.json> .
+
+### https://smartdatamodels.org/name
+fiware:name	a      owl:DatatypeProperty ;
+        rdfs:label   	"name"@en ;
+        rdfs:comment	"The name of this item" ;
+        rdfs:isDefinedBy <https://github.com/smart-data-models/dataModel.Agrifood/blob/master/AgriApp/schemaDTDL.json> .
+        
+### https://smartdatamodels.org/alternateName
+fiware:alternateName	a      owl:DatatypeProperty ;
+        rdfs:label   	"alternateName"@en ;
+        rdfs:comment	"An alternative name for this item" ;
+        rdfs:isDefinedBy <https://github.com/smart-data-models/dataModel.Agrifood/blob/master/AgriApp/schemaDTDL.json> .
+
+###  https://schema.org/addressCountry
+schema:addressCountry a owl:DatatypeProperty ;
+        rdfs:label "addressCountry" ;
+        rdfs:comment "The country. For example, USA. You can also provide the two-letter ISO 3166-1 alpha-2 country code" ;
+        rdfs:isDefinedBy <https://schema.org/addressCountry> .   
+
+###  https://schema.org/addressLocality
+schema:addressLocality a owl:DatatypeProperty ;
+        rdfs:label "addressLocality" ;
+        rdfs:comment "The locality in which the street address is, and which is in the region. For example, Mountain View" ;
+        rdfs:isDefinedBy <https://schema.org/addressLocality> .        
+
+###  https://schema.org/addressRegion
+schema:addressRegion a owl:DatatypeProperty ;
+        rdfs:label "addressRegion" ;
+        rdfs:comment "The region in which the locality is, and which is in the country. For example, California or another appropriate first-level Administrative division" ;
+        rdfs:isDefinedBy <https://schema.org/addressRegion> .  
+
+###  https://schema.org/streetAddress
+schema:streetAddress a owl:DatatypeProperty ;
+        rdfs:label "streetAddress" ;
+        rdfs:comment "The street address. For example, 1600 Amphitheatre Pkwy." ;
+        rdfs:isDefinedBy <https://schema.org/streetAddress> .                
+
+## http://rs.tdwg.org/dwc/terms/acceptedNameUsage
+dwc:acceptedNameUsage
+  a owl:DatatypeProperty ;
+  rdfs:label "accepted name usage" ;
+  rdfs:comment "The full name, with authorship and date information if known, of the currently valid (zoological) or accepted (botanical) dwc:Taxon." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/acceptedNameUsage> .
+
+
+## http://rs.tdwg.org/dwc/terms/acceptedNameUsageID
+dwc:acceptedNameUsageID
+  a owl:DatatypeProperty ;
+  rdfs:label "accepted name usage id" ;
+  rdfs:comment "An identifier for the name usage (documented meaning of the name according to a source) of the currently valid (zoological) or accepted (botanical) taxon." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/acceptedNameUsageID> .
+
+
+## http://rs.tdwg.org/dwc/terms/associatedMedia
+dwc:associatedMedia
+  a owl:DatatypeProperty ;
+  rdfs:label "associated media" ;
+  rdfs:comment "A list (concatenated and separated) of identifiers (publication, global unique identifier, URI) of media associated with the dwc:Occurrence." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/associatedMedia> .
+
+
+## http://rs.tdwg.org/dwc/terms/associatedOccurrences
+dwc:associatedOccurrences
+  a owl:DatatypeProperty ;
+  rdfs:label "associated occurrences" ;
+  rdfs:comment "A list (concatenated and separated) of identifiers of other dwc:Occurrence records and their associations to this dwc:Occurrence." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/associatedOccurrences> .
+
+
+## http://rs.tdwg.org/dwc/terms/associatedOrganisms
+dwc:associatedOrganisms
+  a owl:DatatypeProperty ;
+  rdfs:label "associated organisms" ;
+  rdfs:comment "A list (concatenated and separated) of identifiers of other dwc:Organisms and the associations of this dwc:Organism to each of them." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/associatedOrganisms> .
+
+
+## http://rs.tdwg.org/dwc/terms/associatedReferences
+dwc:associatedReferences
+  a owl:DatatypeProperty ;
+  rdfs:label "associated references" ;
+  rdfs:comment "A list (concatenated and separated) of identifiers (publication, bibliographic reference, global unique identifier, URI) of literature associated with the dwc:Occurrence." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/associatedReferences> .
+
+
+## http://rs.tdwg.org/dwc/terms/associatedSequences
+dwc:associatedSequences
+  a owl:DatatypeProperty ;
+  rdfs:label "associated sequences" ;
+  rdfs:comment "A list (concatenated and separated) of identifiers (publication, global unique identifier, URI) of genetic sequence information associated with the dwc:Occurrence." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/associatedSequences> .
+
+
+## http://rs.tdwg.org/dwc/terms/associatedTaxa
+dwc:associatedTaxa
+  a owl:DatatypeProperty ;
+  rdfs:label "associated taxa" ;
+  rdfs:comment "A list (concatenated and separated) of identifiers or names of dwc:Taxon records and the associations of this dwc:Occurrence to each of them." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/associatedTaxa> .
+
+
+## http://rs.tdwg.org/dwc/terms/basisOfRecord
+dwc:basisOfRecord
+  a owl:DatatypeProperty ;
+  rdfs:label "basis of record" ;
+  rdfs:comment "The specific nature of the data record." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/basisOfRecord> .
+
+
+## http://rs.tdwg.org/dwc/terms/bed
+dwc:bed
+  a owl:DatatypeProperty ;
+  rdfs:label "bed" ;
+  rdfs:comment "The full name of the lithostratigraphic bed from which the cataloged item was collected." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/bed> .
+
+
+## http://rs.tdwg.org/dwc/terms/behavior
+dwc:behavior
+  a owl:DatatypeProperty ;
+  rdfs:label "behavior" ;
+  rdfs:comment "The behavior shown by the subject at the time the dwc:Occurrence was recorded." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/behavior> .
+
+
+## http://rs.tdwg.org/dwc/terms/catalogNumber
+dwc:catalogNumber
+  a owl:DatatypeProperty ;
+  rdfs:label "catalog number" ;
+  rdfs:comment "An identifier (preferably unique) for the record within the data set or collection." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/catalogNumber> .
+
+
+## http://rs.tdwg.org/dwc/terms/class
+dwc:class
+  a owl:DatatypeProperty ;
+  rdfs:label "class" ;
+  rdfs:comment "The full scientific name of the class in which the dwc:Taxon is classified." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/class> .
+
+
+## http://rs.tdwg.org/dwc/terms/collectionCode
+dwc:collectionCode
+  a owl:DatatypeProperty ;
+  rdfs:label "collection code" ;
+  rdfs:comment "The name, acronym, coden, or initialism identifying the collection or data set from which the record was derived" ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/collectionCode> .
+
+
+## http://rs.tdwg.org/dwc/terms/collectionID
+dwc:collectionID
+  a owl:DatatypeProperty ;
+  rdfs:label "collection id" ;
+  rdfs:comment "An identifier for the collection or dataset from which the record was derived." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/collectionID> .
+
+
+## http://rs.tdwg.org/dwc/terms/continent
+dwc:continent
+  a owl:DatatypeProperty ;
+  rdfs:label "continent" ;
+  rdfs:comment "The name of the continent in which the dcterms:Location occurs." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/continent> .
+
+
+## http://rs.tdwg.org/dwc/terms/coordinatePrecision
+dwc:coordinatePrecision
+  a owl:DatatypeProperty ;
+  rdfs:label "coordinate precision" ;
+  rdfs:comment "A decimal representation of the precision of the coordinates given in the dwc:decimalLatitude and dwc:decimalLongitude." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/coordinatePrecision> .
+
+
+## http://rs.tdwg.org/dwc/terms/coordinateUncertaintyInMeters
+dwc:coordinateUncertaintyInMeters
+  a owl:DatatypeProperty ;
+  rdfs:label "coordinate uncertainty in meters" ;
+  rdfs:comment "The horizontal distance (in meters) from the given dwc:decimalLatitude and dwc:decimalLongitude describing the smallest circle containing the whole of the dcterms:Location. Leave the value empty if the uncertainty is unknown, cannot be estimated, or is not applicable (because there are no coordinates). Zero is not a valid value for this term." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/coordinateUncertaintyInMeters> .
+
+
+## http://rs.tdwg.org/dwc/terms/country
+dwc:country
+  a owl:DatatypeProperty ;
+  rdfs:label "country" ;
+  rdfs:comment "The name of the country or major administrative unit in which the dcterms:Location occurs." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/country> .
+
+
+## http://rs.tdwg.org/dwc/terms/countryCode
+dwc:countryCode
+  a owl:DatatypeProperty ;
+  rdfs:label "country code" ;
+  rdfs:comment "The standard code for the country in which the dcterms:Location occurs." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/countryCode> .
+
+
+## http://rs.tdwg.org/dwc/terms/county
+dwc:county
+  a owl:DatatypeProperty ;
+  rdfs:label "county" ;
+  rdfs:comment "The full, unabbreviated name of the next smaller administrative region than stateProvince (county, shire, department, etc.) in which the dcterms:Location occurs." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/county> .
+
+
+## http://rs.tdwg.org/dwc/terms/dataGeneralizations
+dwc:dataGeneralizations
+  a owl:DatatypeProperty ;
+  rdfs:label "data generalizations" ;
+  rdfs:comment "Actions taken to make the shared data less specific or complete than in its original form. Suggests that alternative data of higher quality may be available on request." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/dataGeneralizations> .
+
+
+## http://rs.tdwg.org/dwc/terms/datasetID
+dwc:datasetID
+  a owl:DatatypeProperty ;
+  rdfs:label "dataset id" ;
+  rdfs:comment "An identifier for the set of data. May be a global unique identifier or an identifier specific to a collection or institution" ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/datasetID> .
+
+
+## http://rs.tdwg.org/dwc/terms/datasetName
+dwc:datasetName
+  a owl:DatatypeProperty ;
+  rdfs:label "dataset name" ;
+  rdfs:comment "The name identifying the data set from which the record was derived." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/datasetName> .
+
+
+## http://rs.tdwg.org/dwc/terms/dateIdentified
+dwc:dateIdentified
+  a owl:DatatypeProperty ;
+  rdfs:label "date identified" ;
+  rdfs:comment "The date on which the subject was determined as representing the dwc:Taxon." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/dateIdentified> .
+
+
+## http://rs.tdwg.org/dwc/terms/day
+dwc:day
+  a owl:DatatypeProperty ;
+  rdfs:label "day" ;
+  rdfs:comment "The integer day of the month on which the dwc:Event occurred." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/day> .
+
+
+## http://rs.tdwg.org/dwc/terms/decimalLatitude
+dwc:decimalLatitude
+  a owl:DatatypeProperty ;
+  rdfs:label "decimal latitude" ;
+  rdfs:comment "The geographic latitude (in decimal degrees, using the spatial reference system given in dwc:geodeticDatum) of the geographic center of a dcterms:Location. Positive values are north of the Equator, negative values are south of it. Legal values lie between -90 and 90, inclusive." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/decimalLatitude> .
+
+
+## http://rs.tdwg.org/dwc/terms/decimalLongitude
+dwc:decimalLongitude
+  a owl:DatatypeProperty ;
+  rdfs:label "decimal longitude" ;
+  rdfs:comment "The geographic longitude (in decimal degrees, using the spatial reference system given in dwc:geodeticDatum) of the geographic center of a dcterms:Location. Positive values are east of the Greenwich Meridian, negative values are west of it. Legal values lie between -180 and 180, inclusive." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/decimalLongitude> .
+
+
+## http://rs.tdwg.org/dwc/terms/disposition
+dwc:disposition
+  a owl:DatatypeProperty ;
+  rdfs:label "disposition" ;
+  rdfs:comment "The current state of a specimen with respect to the collection identified in dwc:collectionCode or dwc:collectionID." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/disposition> .
+
+
+## http://rs.tdwg.org/dwc/terms/dynamicProperties
+dwc:dynamicProperties
+  a owl:DatatypeProperty ;
+  rdfs:label "dynamic properties" ;
+  rdfs:comment "A list of additional measurements, facts, characteristics, or assertions about the record. Meant to provide a mechanism for structured content." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/dynamicProperties> .
+
+
+## http://rs.tdwg.org/dwc/terms/earliestAgeOrLowestStage
+dwc:earliestAgeOrLowestStage
+  a owl:DatatypeProperty ;
+  rdfs:label "earliest age or lowest stage" ;
+  rdfs:comment "The full name of the earliest possible geochronologic age or lowest chronostratigraphic stage attributable to the stratigraphic horizon from which the cataloged item was collected." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/earliestAgeOrLowestStage> .
+
+
+## http://rs.tdwg.org/dwc/terms/earliestEonOrLowestEonothem
+dwc:earliestEonOrLowestEonothem
+  a owl:DatatypeProperty ;
+  rdfs:label "earliest eon or lowest eonothem" ;
+  rdfs:comment "The full name of the earliest possible geochronologic eon or lowest chrono-stratigraphic eonothem or the informal name (\"Precambrian\") attributable to the stratigraphic horizon from which the cataloged item was collected." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/earliestEonOrLowestEonothem> .
+
+
+## http://rs.tdwg.org/dwc/terms/earliestEpochOrLowestSeries
+dwc:earliestEpochOrLowestSeries
+  a owl:DatatypeProperty ;
+  rdfs:label "earliest epoch or lowest series" ;
+  rdfs:comment "The full name of the earliest possible geochronologic epoch or lowest chronostratigraphic series attributable to the stratigraphic horizon from which the cataloged item was collected." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/earliestEpochOrLowestSeries> .
+
+
+## http://rs.tdwg.org/dwc/terms/earliestEraOrLowestErathem
+dwc:earliestEraOrLowestErathem
+  a owl:DatatypeProperty ;
+  rdfs:label "earliest era or lowest erathem" ;
+  rdfs:comment "The full name of the earliest possible geochronologic era or lowest chronostratigraphic erathem attributable to the stratigraphic horizon from which the cataloged item was collected." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/earliestEraOrLowestErathem> .
+
+
+## http://rs.tdwg.org/dwc/terms/earliestPeriodOrLowestSystem
+dwc:earliestPeriodOrLowestSystem
+  a owl:DatatypeProperty ;
+  rdfs:label "earliest period or lowest system" ;
+  rdfs:comment "The full name of the earliest possible geochronologic period or lowest chronostratigraphic system attributable to the stratigraphic horizon from which the cataloged item was collected." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/earliestPeriodOrLowestSystem> .
+
+
+## http://rs.tdwg.org/dwc/terms/endDayOfYear
+dwc:endDayOfYear
+  a owl:DatatypeProperty ;
+  rdfs:label "end day of year" ;
+  rdfs:comment "The latest integer day of the year on which the dwc:Event occurred (1 for January 1, 365 for December 31, except in a leap year, in which case it is 366)." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/endDayOfYear> .
+
+
+## http://rs.tdwg.org/dwc/terms/establishmentMeans
+dwc:establishmentMeans
+  a owl:DatatypeProperty ;
+  rdfs:label "establishment means" ;
+  rdfs:comment "Statement about whether a dwc:Organism has been introduced to a given place and time through the direct or indirect activity of modern humans." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/establishmentMeans> .
+
+
+## http://rs.tdwg.org/dwc/terms/eventDate
+dwc:eventDate
+  a owl:DatatypeProperty ;
+  rdfs:label "event date" ;
+  rdfs:comment "The date-time or interval during which a dwc:Event occurred. For occurrences, this is the date-time when the dwc:Event was recorded. Not suitable for a time in a geological context." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/eventDate> .
+
+
+## http://rs.tdwg.org/dwc/terms/eventID
+dwc:eventID
+  a owl:DatatypeProperty ;
+  rdfs:label "event id" ;
+  rdfs:comment "An identifier for the set of information associated with a dwc:Event (something that occurs at a place and time). May be a global unique identifier or an identifier specific to the data set." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/eventID> .
+
+
+## http://rs.tdwg.org/dwc/terms/eventRemarks
+dwc:eventRemarks
+  a owl:DatatypeProperty ;
+  rdfs:label "event remarks" ;
+  rdfs:comment "Comments or notes about the dwc:Event." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/eventRemarks> .
+
+
+## http://rs.tdwg.org/dwc/terms/eventTime
+dwc:eventTime
+  a owl:DatatypeProperty ;
+  rdfs:label "event time" ;
+  rdfs:comment "The time or interval during which a dwc:Event occurred." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/eventTime> .
+
+
+## http://rs.tdwg.org/dwc/terms/family
+dwc:family
+  a owl:DatatypeProperty ;
+  rdfs:label "family" ;
+  rdfs:comment "The full scientific name of the family in which the dwc:Taxon is classified." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/family> .
+
+
+## http://rs.tdwg.org/dwc/terms/fieldNotes
+dwc:fieldNotes
+  a owl:DatatypeProperty ;
+  rdfs:label "field notes" ;
+  rdfs:comment "One of a) an indicator of the existence of, b) a reference to (publication, URI), or c) the text of notes taken in the field about the dwc:Event" ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/fieldNotes> .
+
+
+## http://rs.tdwg.org/dwc/terms/fieldNumber
+dwc:fieldNumber
+  a owl:DatatypeProperty ;
+  rdfs:label "field number" ;
+  rdfs:comment "An identifier given to the dwc:Event in the field. Often serves as a link between field notes and the dwc:Event." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/fieldNumber> .
+
+
+## http://rs.tdwg.org/dwc/terms/footprintSpatialFit
+dwc:footprintSpatialFit
+  a owl:DatatypeProperty ;
+  rdfs:label "footprint spatial fit" ;
+  rdfs:comment "The ratio of the area of the dwc:footprintWKT to the area of the true (original, or most specific) spatial representation of the dcterms:Location. Legal values are 0, greater than or equal to 1, or undefined. A value of 1 is an exact match or 100% overlap. A value of 0 should be used if the given dwc:footprintWKT does not completely contain the original representation. The dwc:footprintSpatialFit is undefined (and should be left empty) if the original representation is any geometry without area (e.g., a point or polyline) and without uncertainty and the given georeference is not that same geometry (without uncertainty). If both the original and the given georeference are the same point, the dwc:footprintSpatialFit is 1." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/footprintSpatialFit> .
+
+
+## http://rs.tdwg.org/dwc/terms/footprintSRS
+dwc:footprintSRS
+  a owl:DatatypeProperty ;
+  rdfs:label "footprint srs" ;
+  rdfs:comment "The ellipsoid, geodetic datum, or spatial reference system (SRS) upon which the geometry given in dwc:footprintWKT is based." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/footprintSRS> .
+
+
+## http://rs.tdwg.org/dwc/terms/footprintWKT
+dwc:footprintWKT
+  a owl:DatatypeProperty ;
+  rdfs:label "footprint wkt" ;
+  rdfs:comment "A Well-Known Text (WKT) representation of the shape (footprint, geometry) that defines the dcterms:Location. A dcterms:Location may have both a point-radius representation (see dwc:decimalLatitude) and a footprint representation, and they may differ from each other." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/footprintWKT> .
+
+
+## http://rs.tdwg.org/dwc/terms/formation
+dwc:formation
+  a owl:DatatypeProperty ;
+  rdfs:label "formation" ;
+  rdfs:comment "The full name of the lithostratigraphic formation from which the cataloged item was collected." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/formation> .
+
+
+## http://rs.tdwg.org/dwc/terms/genus
+dwc:genus
+  a owl:DatatypeProperty ;
+  rdfs:label "genus" ;
+  rdfs:comment "The full scientific name of the genus in which the dwc:Taxon is classified." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/genus> .
+
+
+## http://rs.tdwg.org/dwc/terms/geodeticDatum
+dwc:geodeticDatum
+  a owl:DatatypeProperty ;
+  rdfs:label "geodetic datum" ;
+  rdfs:comment "The ellipsoid, geodetic datum, or spatial reference system (SRS) upon which the geographic coordinates given in dwc:decimalLatitude and dwc:decimalLongitude are based." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/geodeticDatum> .
+
+
+## http://rs.tdwg.org/dwc/terms/geologicalContextID
+dwc:geologicalContextID
+  a owl:DatatypeProperty ;
+  rdfs:label "geological context id" ;
+  rdfs:comment "An identifier for the set of information associated with a dwc:GeologicalContext (the location within a geological context, such as stratigraphy). May be a global unique identifier or an identifier specific to the data set." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/geologicalContextID> .
+
+
+## http://rs.tdwg.org/dwc/terms/georeferencedBy
+dwc:georeferencedBy
+  a owl:DatatypeProperty ;
+  rdfs:label "georeferenced by" ;
+  rdfs:comment "A list (concatenated and separated) of names of people, groups, or organizations who determined the georeference (spatial representation) for the dcterms:Location." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/georeferencedBy> .
+
+
+## http://rs.tdwg.org/dwc/terms/georeferencedDate
+dwc:georeferencedDate
+  a owl:DatatypeProperty ;
+  rdfs:label "georeferenced date" ;
+  rdfs:comment "The date on which the dcterms:Location was georeferenced." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/georeferencedDate> .
+
+
+## http://rs.tdwg.org/dwc/terms/georeferenceProtocol
+dwc:georeferenceProtocol
+  a owl:DatatypeProperty ;
+  rdfs:label "georeference protocol" ;
+  rdfs:comment "A description or reference to the methods used to determine the spatial footprint, coordinates, and uncertainties." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/georeferenceProtocol> .
+
+
+## http://rs.tdwg.org/dwc/terms/georeferenceRemarks
+dwc:georeferenceRemarks
+  a owl:DatatypeProperty ;
+  rdfs:label "georeference remarks" ;
+  rdfs:comment "Notes or comments about the spatial description determination, explaining assumptions made in addition or opposition to the those formalized in the method referred to in dwc:georeferenceProtocol." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/georeferenceRemarks> .
+
+
+## http://rs.tdwg.org/dwc/terms/georeferenceSources
+dwc:georeferenceSources
+  a owl:DatatypeProperty ;
+  rdfs:label "georeference sources" ;
+  rdfs:comment "A list (concatenated and separated) of maps, gazetteers, or other resources used to georeference the dcterms:Location, described specifically enough to allow anyone in the future to use the same resources." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/georeferenceSources> .
+
+
+## http://rs.tdwg.org/dwc/terms/georeferenceVerificationStatus
+dwc:georeferenceVerificationStatus
+  a owl:DatatypeProperty ;
+  rdfs:label "georeference verification status" ;
+  rdfs:comment "A categorical description of the extent to which the georeference has been verified to represent the best possible spatial description for the dcterms:Location of the dwc:Occurrence." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/georeferenceVerificationStatus> .
+
+
+## http://rs.tdwg.org/dwc/terms/group
+dwc:group
+  a owl:DatatypeProperty ;
+  rdfs:label "group" ;
+  rdfs:comment "The full name of the lithostratigraphic group from which the cataloged item was collected" ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/group> .
+
+
+## http://rs.tdwg.org/dwc/terms/habitat
+dwc:habitat
+  a owl:DatatypeProperty ;
+  rdfs:label "habitat" ;
+  rdfs:comment "A category or description of the habitat in which the dwc:Event occurred." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/habitat> .
+
+
+## http://rs.tdwg.org/dwc/terms/higherClassification
+dwc:higherClassification
+  a owl:DatatypeProperty ;
+  rdfs:label "higher classification" ;
+  rdfs:comment "A list (concatenated and separated) of taxa names terminating at the rank immediately superior to the referenced dwc:Taxon." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/higherClassification> .
+
+
+## http://rs.tdwg.org/dwc/terms/higherGeography
+dwc:higherGeography
+  a owl:DatatypeProperty ;
+  rdfs:label "higher geography" ;
+  rdfs:comment "A list (concatenated and separated) of geographic names less specific than the information captured in the dwc:locality term." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/higherGeography> .
+
+
+## http://rs.tdwg.org/dwc/terms/higherGeographyID
+dwc:higherGeographyID
+  a owl:DatatypeProperty ;
+  rdfs:label "higher geography id" ;
+  rdfs:comment "An identifier for the geographic region within which the dcterms:Location occurred." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/higherGeographyID> .
+
+
+## http://rs.tdwg.org/dwc/terms/highestBiostratigraphicZone
+dwc:highestBiostratigraphicZone
+  a owl:DatatypeProperty ;
+  rdfs:label "highest biostratigraphic zone" ;
+  rdfs:comment "The full name of the highest possible geological biostratigraphic zone of the stratigraphic horizon from which the cataloged item was collected." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/highestBiostratigraphicZone> .
+
+
+## http://rs.tdwg.org/dwc/terms/identificationID
+dwc:identificationID
+  a owl:DatatypeProperty ;
+  rdfs:label "identification id" ;
+  rdfs:comment "An identifier for the dwc:Identification (the body of information associated with the assignment of a scientific name). May be a global unique identifier or an identifier specific to the data set." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/identificationID> .
+
+
+## http://rs.tdwg.org/dwc/terms/identificationQualifier
+dwc:identificationQualifier
+  a owl:DatatypeProperty ;
+  rdfs:label "identification qualifier" ;
+  rdfs:comment "A brief phrase or a standard term (\"cf.\", \"aff.\") to express the determiner's doubts about the dwc:Identification." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/identificationQualifier> .
+
+
+## http://rs.tdwg.org/dwc/terms/identificationReferences
+dwc:identificationReferences
+  a owl:DatatypeProperty ;
+  rdfs:label "identification references" ;
+  rdfs:comment "A list (concatenated and separated) of references (publication, global unique identifier, URI) used in the dwc:Identification." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/identificationReferences> .
+
+
+## http://rs.tdwg.org/dwc/terms/identificationRemarks
+dwc:identificationRemarks
+  a owl:DatatypeProperty ;
+  rdfs:label "identification remarks" ;
+  rdfs:comment "Comments or notes about the dwc:Identification." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/identificationRemarks> .
+
+
+## http://rs.tdwg.org/dwc/terms/identificationVerificationStatus
+dwc:identificationVerificationStatus
+  a owl:DatatypeProperty ;
+  rdfs:label "identification verification status" ;
+  rdfs:comment "A categorical indicator of the extent to which the taxonomic identification has been verified to be correct" ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/identificationVerificationStatus> .
+
+
+## http://rs.tdwg.org/dwc/terms/identifiedBy
+dwc:identifiedBy
+  a owl:DatatypeProperty ;
+  rdfs:label "identified by" ;
+  rdfs:comment "A list (concatenated and separated) of names of people, groups, or organizations who assigned the dwc:Taxon to the subject." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/identifiedBy> .
+
+
+## http://rs.tdwg.org/dwc/terms/individualCount
+dwc:individualCount
+  a owl:DatatypeProperty ;
+  rdfs:label "individual count" ;
+  rdfs:comment "The number of individuals present at the time of the dwc:Occurrence." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/individualCount> .
+
+
+## http://rs.tdwg.org/dwc/terms/informationWithheld
+dwc:informationWithheld
+  a owl:DatatypeProperty ;
+  rdfs:label "information withheld" ;
+  rdfs:comment "Additional information that exists, but that has not been shared in the given record." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/informationWithheld> .
+
+
+## http://rs.tdwg.org/dwc/terms/infraspecificEpithet
+dwc:infraspecificEpithet
+  a owl:DatatypeProperty ;
+  rdfs:label "infraspecific epithet" ;
+  rdfs:comment "The name of the lowest or terminal infraspecific epithet of the dwc:scientificName, excluding any rank designation." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/infraspecificEpithet> .
+
+
+## http://rs.tdwg.org/dwc/terms/institutionCode
+dwc:institutionCode
+  a owl:DatatypeProperty ;
+  rdfs:label "institution code" ;
+  rdfs:comment "The name (or acronym) in use by the institution having custody of the object(s) or information referred to in the record." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/institutionCode> .
+
+
+## http://rs.tdwg.org/dwc/terms/institutionID
+dwc:institutionID
+  a owl:DatatypeProperty ;
+  rdfs:label "institution id" ;
+  rdfs:comment "An identifier for the institution having custody of the object(s) or information referred to in the record" ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/institutionID> .
+
+
+## http://rs.tdwg.org/dwc/terms/island
+dwc:island
+  a owl:DatatypeProperty ;
+  rdfs:label "island" ;
+  rdfs:comment "The name of the island on or near which the dcterms:Location occurs." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/island> .
+
+
+## http://rs.tdwg.org/dwc/terms/islandGroup
+dwc:islandGroup
+  a owl:DatatypeProperty ;
+  rdfs:label "island group" ;
+  rdfs:comment "The name of the island group in which the dcterms:Location occurs." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/islandGroup> .
+
+
+## http://rs.tdwg.org/dwc/terms/kingdom
+dwc:kingdom
+  a owl:DatatypeProperty ;
+  rdfs:label "kingdom" ;
+  rdfs:comment "The full scientific name of the kingdom in which the dwc:Taxon is classified." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/kingdom> .
+
+
+## http://rs.tdwg.org/dwc/terms/latestAgeOrHighestStage
+dwc:latestAgeOrHighestStage
+  a owl:DatatypeProperty ;
+  rdfs:label "latest age or highest stage" ;
+  rdfs:comment "The full name of the latest possible geochronologic age or highest chronostratigraphic stage attributable to the stratigraphic horizon from which the cataloged item was collected." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/latestAgeOrHighestStage> .
+
+
+## http://rs.tdwg.org/dwc/terms/latestEonOrHighestEonothem
+dwc:latestEonOrHighestEonothem
+  a owl:DatatypeProperty ;
+  rdfs:label "latest eon or highest eonothem" ;
+  rdfs:comment "The full name of the latest possible geochronologic eon or highest chrono-stratigraphic eonothem or the informal name (\"Precambrian\") attributable to the stratigraphic horizon from which the cataloged item was collected." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/latestEonOrHighestEonothem> .
+
+
+## http://rs.tdwg.org/dwc/terms/latestEpochOrHighestSeries
+dwc:latestEpochOrHighestSeries
+  a owl:DatatypeProperty ;
+  rdfs:label "latest epoch or highest series" ;
+  rdfs:comment "The full name of the latest possible geochronologic epoch or highest chronostratigraphic series attributable to the stratigraphic horizon from which the cataloged item was collected." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/latestEpochOrHighestSeries> .
+
+
+## http://rs.tdwg.org/dwc/terms/latestEraOrHighestErathem
+dwc:latestEraOrHighestErathem
+  a owl:DatatypeProperty ;
+  rdfs:label "latest era or highest erathem" ;
+  rdfs:comment "The full name of the latest possible geochronologic era or highest chronostratigraphic erathem attributable to the stratigraphic horizon from which the cataloged item was collected." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/latestEraOrHighestErathem> .
+
+
+## http://rs.tdwg.org/dwc/terms/latestPeriodOrHighestSystem
+dwc:latestPeriodOrHighestSystem
+  a owl:DatatypeProperty ;
+  rdfs:label "latest period or highest system" ;
+  rdfs:comment "The full name of the latest possible geochronologic period or highest chronostratigraphic system attributable to the stratigraphic horizon from which the cataloged item was collected." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/latestPeriodOrHighestSystem> .
+
+
+## http://rs.tdwg.org/dwc/terms/lifeStage
+dwc:lifeStage
+  a owl:DatatypeProperty ;
+  rdfs:label "life stage" ;
+  rdfs:comment "The age class or life stage of the dwc:Organism(s) at the time the dwc:Occurrence was recorded." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/lifeStage> .
+
+
+## http://rs.tdwg.org/dwc/terms/lithostratigraphicTerms
+dwc:lithostratigraphicTerms
+  a owl:DatatypeProperty ;
+  rdfs:label "lithostratigraphic terms" ;
+  rdfs:comment "The combination of all litho-stratigraphic names for the rock from which the cataloged item was collected." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/lithostratigraphicTerms> .
+
+
+## http://rs.tdwg.org/dwc/terms/locality
+dwc:locality
+  a owl:DatatypeProperty ;
+  rdfs:label "locality" ;
+  rdfs:comment "The specific description of the place." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/locality> .
+
+
+## http://rs.tdwg.org/dwc/terms/locationAccordingTo
+dwc:locationAccordingTo
+  a owl:DatatypeProperty ;
+  rdfs:label "location according to" ;
+  rdfs:comment "Information about the source of this dcterms:Location information. Could be a publication (gazetteer), institution, or team of individuals." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/locationAccordingTo> .
+
+
+## http://rs.tdwg.org/dwc/terms/locationID
+dwc:locationID
+  a owl:DatatypeProperty ;
+  rdfs:label "location id" ;
+  rdfs:comment "An identifier for the set of dcterms:Location information. May be a global unique identifier or an identifier specific to the data set." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/locationID> .
+
+
+## http://rs.tdwg.org/dwc/terms/locationRemarks
+dwc:locationRemarks
+  a owl:DatatypeProperty ;
+  rdfs:label "location remarks" ;
+  rdfs:comment "Comments or notes about the dcterms:Location." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/locationRemarks> .
+
+
+## http://rs.tdwg.org/dwc/terms/lowestBiostratigraphicZone
+dwc:lowestBiostratigraphicZone
+  a owl:DatatypeProperty ;
+  rdfs:label "lowest biostratigraphic zone" ;
+  rdfs:comment "The full name of the lowest possible geological biostratigraphic zone of the stratigraphic horizon from which the cataloged item was collected." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/lowestBiostratigraphicZone> .
+
+
+## http://rs.tdwg.org/dwc/terms/materialSampleID
+dwc:materialSampleID
+  a owl:DatatypeProperty ;
+  rdfs:label "material sample id" ;
+  rdfs:comment "An identifier for the dwc:MaterialSample (as opposed to a particular digital record of the dwc:MaterialSample). In the absence of a persistent global unique identifier, construct one from a combination of identifiers in the record that will most closely make the dwc:materialSampleID globally unique." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/materialSampleID> .
+
+
+## http://rs.tdwg.org/dwc/terms/maximumDepthInMeters
+dwc:maximumDepthInMeters
+  a owl:DatatypeProperty ;
+  rdfs:label "maximum depth in meters" ;
+  rdfs:comment "The greater depth of a range of depth below the local surface, in meters." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/maximumDepthInMeters> .
+
+
+## http://rs.tdwg.org/dwc/terms/maximumDistanceAboveSurfaceInMeters
+dwc:maximumDistanceAboveSurfaceInMeters
+  a owl:DatatypeProperty ;
+  rdfs:label "maximum distance above surface in meters" ;
+  rdfs:comment "The greater distance in a range of distance from a reference surface in the vertical direction, in meters. Use positive values for locations above the surface, negative values for locations below. If depth measures are given, the reference surface is the location given by the depth, otherwise the reference surface is the location given by the elevation." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/maximumDistanceAboveSurfaceInMeters> .
+
+
+## http://rs.tdwg.org/dwc/terms/maximumElevationInMeters
+dwc:maximumElevationInMeters
+  a owl:DatatypeProperty ;
+  rdfs:label "maximum elevation in meters" ;
+  rdfs:comment "The upper limit of the range of elevation (altitude, usually above sea level), in meters." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/maximumElevationInMeters> .
+
+
+## http://rs.tdwg.org/dwc/terms/measurementAccuracy
+dwc:measurementAccuracy
+  a owl:DatatypeProperty ;
+  rdfs:label "measurement accuracy" ;
+  rdfs:comment "The description of the potential error associated with the dwc:measurementValue." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/measurementAccuracy> .
+
+
+## http://rs.tdwg.org/dwc/terms/measurementDeterminedBy
+dwc:measurementDeterminedBy
+  a owl:DatatypeProperty ;
+  rdfs:label "measurement determined by" ;
+  rdfs:comment "A list (concatenated and separated) of names of people, groups, or organizations who determined the value of the dwc:MeasurementOrFact." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/measurementDeterminedBy> .
+
+
+## http://rs.tdwg.org/dwc/terms/measurementDeterminedDate
+dwc:measurementDeterminedDate
+  a owl:DatatypeProperty ;
+  rdfs:label "measurement determined date" ;
+  rdfs:comment "The date on which the dwc:MeasurementOrFact was made." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/measurementDeterminedDate> .
+
+
+## http://rs.tdwg.org/dwc/terms/measurementID
+dwc:measurementID
+  a owl:DatatypeProperty ;
+  rdfs:label "measurement id" ;
+  rdfs:comment "An identifier for the dwc:MeasurementOrFact (information pertaining to measurements, facts, characteristics, or assertions). May be a global unique identifier or an identifier specific to the data set." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/measurementID> .
+
+
+## http://rs.tdwg.org/dwc/terms/measurementMethod
+dwc:measurementMethod
+  a owl:DatatypeProperty ;
+  rdfs:label "measurement method" ;
+  rdfs:comment "A description of or reference to (publication, URI) the method or protocol used to determine the measurement, fact, characteristic, or assertion." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/measurementMethod> .
+
+
+## http://rs.tdwg.org/dwc/terms/measurementRemarks
+dwc:measurementRemarks
+  a owl:DatatypeProperty ;
+  rdfs:label "measurement remarks" ;
+  rdfs:comment "Comments or notes accompanying the dwc:MeasurementOrFact." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/measurementRemarks> .
+
+
+## http://rs.tdwg.org/dwc/terms/measurementType
+dwc:measurementType
+  a owl:DatatypeProperty ;
+  rdfs:label "measurement type" ;
+  rdfs:comment "The nature of the measurement, fact, characteristic, or assertion." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/measurementType> .
+
+
+## http://rs.tdwg.org/dwc/terms/measurementUnit
+dwc:measurementUnit
+  a owl:DatatypeProperty ;
+  rdfs:label "measurement unit" ;
+  rdfs:comment "The units associated with the dwc:measurementValue." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/measurementUnit> .
+
+
+## http://rs.tdwg.org/dwc/terms/measurementValue
+dwc:measurementValue
+  a owl:DatatypeProperty ;
+  rdfs:label "measurement value" ;
+  rdfs:comment "The value of the measurement, fact, characteristic, or assertion" ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/measurementValue> .
+
+
+## http://rs.tdwg.org/dwc/terms/member
+dwc:member
+  a owl:DatatypeProperty ;
+  rdfs:label "member" ;
+  rdfs:comment "The full name of the lithostratigraphic member from which the cataloged item was collected." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/member> .
+
+
+## http://rs.tdwg.org/dwc/terms/minimumDepthInMeters
+dwc:minimumDepthInMeters
+  a owl:DatatypeProperty ;
+  rdfs:label "minimum depth in meters" ;
+  rdfs:comment "The lesser depth of a range of depth below the local surface, in meters." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/minimumDepthInMeters> .
+
+
+## http://rs.tdwg.org/dwc/terms/minimumDistanceAboveSurfaceInMeters
+dwc:minimumDistanceAboveSurfaceInMeters
+  a owl:DatatypeProperty ;
+  rdfs:label "minimum distance above surface in meters" ;
+  rdfs:comment "The lesser distance in a range of distance from a reference surface in the vertical direction, in meters. Use positive values for locations above the surface, negative values for locations below. If depth measures are given, the reference surface is the location given by the depth, otherwise the reference surface is the location given by the elevation." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/minimumDistanceAboveSurfaceInMeters> .
+
+
+## http://rs.tdwg.org/dwc/terms/minimumElevationInMeters
+dwc:minimumElevationInMeters
+  a owl:DatatypeProperty ;
+  rdfs:label "minimum elevation in meters" ;
+  rdfs:comment "The lower limit of the range of elevation (altitude, usually above sea level), in meters." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/minimumElevationInMeters> .
+
+
+## http://rs.tdwg.org/dwc/terms/month
+dwc:month
+  a owl:DatatypeProperty ;
+  rdfs:label "month" ;
+  rdfs:comment "The integer month in which the dwc:Event occurred." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/month> .
+
+
+## http://rs.tdwg.org/dwc/terms/municipality
+dwc:municipality
+  a owl:DatatypeProperty ;
+  rdfs:label "municipality" ;
+  rdfs:comment "The full, unabbreviated name of the next smaller administrative region than county (city, municipality, etc.) in which the dcterms:Location occurs. Do not use this term for a nearby named place that does not contain the actual dcterms:Location." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/municipality> .
+
+
+## http://rs.tdwg.org/dwc/terms/nameAccordingTo
+dwc:nameAccordingTo
+  a owl:DatatypeProperty ;
+  rdfs:label "name according to" ;
+  rdfs:comment "The reference to the source in which the specific taxon concept circumscription is defined or implied - traditionally signified by the Latin \"sensu\" or \"sec.\" (from secundum, meaning \"according to\"). For taxa that result from identifications, a reference to the keys, monographs, experts and other sources should be given." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/nameAccordingTo> .
+
+
+## http://rs.tdwg.org/dwc/terms/nameAccordingToID
+dwc:nameAccordingToID
+  a owl:DatatypeProperty ;
+  rdfs:label "name according to id" ;
+  rdfs:comment "An identifier for the source in which the specific taxon concept circumscription is defined or implied. See dwc:nameAccordingTo." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/nameAccordingToID> .
+
+
+## http://rs.tdwg.org/dwc/terms/namePublishedIn
+dwc:namePublishedIn
+  a owl:DatatypeProperty ;
+  rdfs:label "name published in" ;
+  rdfs:comment "A reference for the publication in which the dwc:scientificName was originally established under the rules of the associated dwc:nomenclaturalCode." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/namePublishedIn> .
+
+
+## http://rs.tdwg.org/dwc/terms/namePublishedInID
+dwc:namePublishedInID
+  a owl:DatatypeProperty ;
+  rdfs:label "name published in id" ;
+  rdfs:comment "An identifier for the publication in which the dwc:scientificName was originally established under the rules of the associated dwc:nomenclaturalCode." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/namePublishedInID> .
+
+
+## http://rs.tdwg.org/dwc/terms/namePublishedInYear
+dwc:namePublishedInYear
+  a owl:DatatypeProperty ;
+  rdfs:label "name published in year" ;
+  rdfs:comment "The four-digit year in which the dwc:scientificName was published." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/namePublishedInYear> .
+
+
+## http://rs.tdwg.org/dwc/terms/nomenclaturalCode
+dwc:nomenclaturalCode
+  a owl:DatatypeProperty ;
+  rdfs:label "nomenclatural code" ;
+  rdfs:comment "The nomenclatural code (or codes in the case of an ambiregnal name) under which the dwc:scientificName is constructed." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/nomenclaturalCode> .
+
+
+## http://rs.tdwg.org/dwc/terms/nomenclaturalStatus
+dwc:nomenclaturalStatus
+  a owl:DatatypeProperty ;
+  rdfs:label "nomenclatural status" ;
+  rdfs:comment "The status related to the original publication of the name and its conformance to the relevant rules of nomenclature. It is based essentially on an algorithm according to the business rules of the code. It requires no taxonomic opinion." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/nomenclaturalStatus> .
+
+
+## http://rs.tdwg.org/dwc/terms/occurrenceID
+dwc:occurrenceID
+  a owl:DatatypeProperty ;
+  rdfs:label "occurrence id" ;
+  rdfs:comment "An identifier for the dwc:Occurrence (as opposed to a particular digital record of the dwc:Occurrence). In the absence of a persistent global unique identifier, construct one from a combination of identifiers in the record that will most closely make the dwc:occurrenceID globally unique" ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/occurrenceID> .
+
+
+## http://rs.tdwg.org/dwc/terms/occurrenceRemarks
+dwc:occurrenceRemarks
+  a owl:DatatypeProperty ;
+  rdfs:label "occurrence remarks" ;
+  rdfs:comment "Comments or notes about the dwc:Occurrence." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/occurrenceRemarks> .
+
+
+## http://rs.tdwg.org/dwc/terms/occurrenceStatus
+dwc:occurrenceStatus
+  a owl:DatatypeProperty ;
+  rdfs:label "occurrence status" ;
+  rdfs:comment "A statement about the presence or absence of a dwc:Taxon at a dcterms:Location." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/occurrenceStatus> .
+
+
+## http://rs.tdwg.org/dwc/terms/order
+dwc:order
+  a owl:DatatypeProperty ;
+  rdfs:label "order" ;
+  rdfs:comment "The full scientific name of the order in which the dwc:Taxon is classified." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/order> .
+
+
+## http://rs.tdwg.org/dwc/terms/organismID
+dwc:organismID
+  a owl:DatatypeProperty ;
+  rdfs:label "organism id" ;
+  rdfs:comment "An identifier for the dwc:Organism instance (as opposed to a particular digital record of the dwc:Organism). May be a globally unique identifier or an identifier specific to the data set." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/organismID> .
+
+
+## http://rs.tdwg.org/dwc/terms/organismName
+dwc:organismName
+  a owl:DatatypeProperty ;
+  rdfs:label "organism name" ;
+  rdfs:comment "A textual name or label assigned to a dwc:Organism instance." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/organismName> .
+
+
+## http://rs.tdwg.org/dwc/terms/organismQuantity
+dwc:organismQuantity
+  a owl:DatatypeProperty ;
+  rdfs:label "organism quantity" ;
+  rdfs:comment "A number or enumeration value for the quantity of dwc:Organisms." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/organismQuantity> .
+
+
+## http://rs.tdwg.org/dwc/terms/organismQuantityType
+dwc:organismQuantityType
+  a owl:DatatypeProperty ;
+  rdfs:label "organism quantity type" ;
+  rdfs:comment "The type of quantification system used for the quantity of dwc:Organisms." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/organismQuantityType> .
+
+
+## http://rs.tdwg.org/dwc/terms/organismRemarks
+dwc:organismRemarks
+  a owl:DatatypeProperty ;
+  rdfs:label "organism remarks" ;
+  rdfs:comment "Comments or notes about the dwc:Organism instance." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/organismRemarks> .
+
+
+## http://rs.tdwg.org/dwc/terms/organismScope
+dwc:organismScope
+  a owl:DatatypeProperty ;
+  rdfs:label "organism scope" ;
+  rdfs:comment "A description of the kind of dwc:Organism instance. Can be used to indicate whether the dwc:Organism instance represents a discrete organism or if it represents a particular type of aggregation." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/organismScope> .
+
+
+## http://rs.tdwg.org/dwc/terms/originalNameUsage
+dwc:originalNameUsage
+  a owl:DatatypeProperty ;
+  rdfs:label "original name usage" ;
+  rdfs:comment "The taxon name, with authorship and date information if known, as it originally appeared when first established under the rules of the associated dwc:nomenclaturalCode. The basionym (botany) or basonym (bacteriology) of the dwc:scientificName or the senior/earlier homonym for replaced names." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/originalNameUsage> .
+
+
+## http://rs.tdwg.org/dwc/terms/originalNameUsageID
+dwc:originalNameUsageID
+  a owl:DatatypeProperty ;
+  rdfs:label "original name usage id" ;
+  rdfs:comment "An identifier for the name usage (documented meaning of the name according to a source) in which the terminal element of the dwc:scientificName was originally established under the rules of the associated dwc:nomenclaturalCode." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/originalNameUsageID> .
+
+
+## http://rs.tdwg.org/dwc/terms/otherCatalogNumbers
+dwc:otherCatalogNumbers
+  a owl:DatatypeProperty ;
+  rdfs:label "other catalog numbers" ;
+  rdfs:comment "A list (concatenated and separated) of previous or alternate fully qualified catalog numbers or other human-used identifiers for the same dwc:Occurrence, whether in the current or any other data set or collection." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/otherCatalogNumbers> .
+
+
+## http://rs.tdwg.org/dwc/terms/ownerInstitutionCode
+dwc:ownerInstitutionCode
+  a owl:DatatypeProperty ;
+  rdfs:label "owner institution code" ;
+  rdfs:comment "The name (or acronym) in use by the institution having ownership of the object(s) or information referred to in the record." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/ownerInstitutionCode> .
+
+
+## http://rs.tdwg.org/dwc/terms/parentEventID
+dwc:parentEventID
+  a owl:DatatypeProperty ;
+  rdfs:label "parent event id" ;
+  rdfs:comment "An identifier for the broader dwc:Event that groups this and potentially other dwc:Events." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/parentEventID> .
+
+
+## http://rs.tdwg.org/dwc/terms/parentNameUsage
+dwc:parentNameUsage
+  a owl:DatatypeProperty ;
+  rdfs:label "parent name usage" ;
+  rdfs:comment "The full name, with authorship and date information if known, of the direct, most proximate higher-rank parent dwc:Taxon (in a classification) of the most specific element of the dwc:scientificName." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/parentNameUsage> .
+
+
+## http://rs.tdwg.org/dwc/terms/parentNameUsageID
+dwc:parentNameUsageID
+  a owl:DatatypeProperty ;
+  rdfs:label "parent name usage id" ;
+  rdfs:comment "An identifier for the name usage (documented meaning of the name according to a source) of the direct, most proximate higher-rank parent taxon (in a classification) of the most specific element of the dwc:scientificName." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/parentNameUsageID> .
+
+
+## http://rs.tdwg.org/dwc/terms/phylum
+dwc:phylum
+  a owl:DatatypeProperty ;
+  rdfs:label "phylum" ;
+  rdfs:comment "The full scientific name of the phylum or division in which the dwc:Taxon is classified." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/phylum> .
+
+
+## http://rs.tdwg.org/dwc/terms/pointRadiusSpatialFit
+dwc:pointRadiusSpatialFit
+  a owl:DatatypeProperty ;
+  rdfs:label "point radius spatial fit" ;
+  rdfs:comment "The ratio of the area of the point-radius (dwc:decimalLatitude, dwc:decimalLongitude, dwc:coordinateUncertaintyInMeters) to the area of the true (original, or most specific) spatial representation of the dcterms:Location. Legal values are 0, greater than or equal to 1, or undefined. A value of 1 is an exact match or 100% overlap. A value of 0 should be used if the given point-radius does not completely contain the original representation. The dwc:pointRadiusSpatialFit is undefined (and should be left empty) if the original representation is any geometry without area (e.g., a point or polyline) and without uncertainty and the given georeference is not that same geometry (without uncertainty). If both the original and the given georeference are the same point, the dwc:pointRadiusSpatialFit is 1." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/pointRadiusSpatialFit> .
+
+
+## http://rs.tdwg.org/dwc/terms/preparations
+dwc:preparations
+  a owl:DatatypeProperty ;
+  rdfs:label "preparations" ;
+  rdfs:comment "A list (concatenated and separated) of preparations and preservation methods for a specimen." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/preparations> .
+
+
+## http://rs.tdwg.org/dwc/terms/previousIdentifications
+dwc:previousIdentifications
+  a owl:DatatypeProperty ;
+  rdfs:label "previous identifications" ;
+  rdfs:comment "A list (concatenated and separated) of previous assignments of names to the dwc:Organism" ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/previousIdentifications> .
+
+
+## http://rs.tdwg.org/dwc/terms/recordedBy
+dwc:recordedBy
+  a owl:DatatypeProperty ;
+  rdfs:label "recorded by" ;
+  rdfs:comment "A list (concatenated and separated) of names of people, groups, or organizations responsible for recording the original dwc:Occurrence. The primary collector or observer, especially one who applies a personal identifier (dwc:recordNumber), should be listed first." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/recordedBy> .
+
+
+## http://rs.tdwg.org/dwc/terms/recordNumber
+dwc:recordNumber
+  a owl:DatatypeProperty ;
+  rdfs:label "record number" ;
+  rdfs:comment "An identifier given to the dwc:Occurrence at the time it was recorded. Often serves as a link between field notes and a dwc:Occurrence record, such as a specimen collector's number." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/recordNumber> .
+
+
+## http://rs.tdwg.org/dwc/terms/relatedResourceID
+dwc:relatedResourceID
+  a owl:DatatypeProperty ;
+  rdfs:label "related resource id" ;
+  rdfs:comment "An identifier for a related resource (the object, rather than the subject of the relationship)." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/relatedResourceID> .
+
+
+## http://rs.tdwg.org/dwc/terms/relationshipAccordingTo
+dwc:relationshipAccordingTo
+  a owl:DatatypeProperty ;
+  rdfs:label "relationship according to" ;
+  rdfs:comment "The source (person, organization, publication, reference) establishing the relationship between the two resources." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/relationshipAccordingTo> .
+
+
+## http://rs.tdwg.org/dwc/terms/relationshipEstablishedDate
+dwc:relationshipEstablishedDate
+  a owl:DatatypeProperty ;
+  rdfs:label "relationship established date" ;
+  rdfs:comment "The date-time on which the relationship between the two resources was established." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/relationshipEstablishedDate> .
+
+
+## http://rs.tdwg.org/dwc/terms/relationshipOfResource
+dwc:relationshipOfResource
+  a owl:DatatypeProperty ;
+  rdfs:label "relationship of resource" ;
+  rdfs:comment "The relationship of the subject (identified by dwc:resourceID) to the object (identified by dwc:relatedResourceID)." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/relationshipOfResource> .
+
+
+## http://rs.tdwg.org/dwc/terms/relationshipRemarks
+dwc:relationshipRemarks
+  a owl:DatatypeProperty ;
+  rdfs:label "relationship remarks" ;
+  rdfs:comment "Comments or notes about the relationship between the two resources." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/relationshipRemarks> .
+
+
+## http://rs.tdwg.org/dwc/terms/reproductiveCondition
+dwc:reproductiveCondition
+  a owl:DatatypeProperty ;
+  rdfs:label "reproductive condition" ;
+  rdfs:comment "The reproductive condition of the biological individual(s) represented in the dwc:Occurrence." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/reproductiveCondition> .
+
+
+## http://rs.tdwg.org/dwc/terms/resourceID
+dwc:resourceID
+  a owl:DatatypeProperty ;
+  rdfs:label "resource id" ;
+  rdfs:comment "An identifier for the resource that is the subject of the relationship." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/resourceID> .
+
+
+## http://rs.tdwg.org/dwc/terms/resourceRelationshipID
+dwc:resourceRelationshipID
+  a owl:DatatypeProperty ;
+  rdfs:label "resource relationship id" ;
+  rdfs:comment "An identifier for an instance of relationship between one resource (the subject) and another (dwc:relatedResource, the object)." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/resourceRelationshipID> .
+
+
+## http://rs.tdwg.org/dwc/terms/sampleSizeUnit
+dwc:sampleSizeUnit
+  a owl:DatatypeProperty ;
+  rdfs:label "sample size unit" ;
+  rdfs:comment "The unit of measurement of the size (time duration, length, area, or volume) of a sample in a sampling dwc:Event." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/sampleSizeUnit> .
+
+
+## http://rs.tdwg.org/dwc/terms/sampleSizeValue
+dwc:sampleSizeValue
+  a owl:DatatypeProperty ;
+  rdfs:label "sample size value" ;
+  rdfs:comment "A numeric value for a measurement of the size (time duration, length, area, or volume) of a sample in a sampling dwc:Event." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/sampleSizeValue> .
+
+
+## http://rs.tdwg.org/dwc/terms/samplingEffort
+dwc:samplingEffort
+  a owl:DatatypeProperty ;
+  rdfs:label "sampling effort" ;
+  rdfs:comment "The amount of effort expended during a dwc:Event." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/samplingEffort> .
+
+
+## http://rs.tdwg.org/dwc/terms/samplingProtocol
+dwc:samplingProtocol
+  a owl:DatatypeProperty ;
+  rdfs:label "sampling protocol" ;
+  rdfs:comment "The names of, references to, or descriptions of the methods or protocols used during a dwc:Event." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/samplingProtocol> .
+
+
+## http://rs.tdwg.org/dwc/terms/scientificName
+dwc:scientificName
+  a owl:DatatypeProperty ;
+  rdfs:label "scientific name" ;
+  rdfs:comment "The full scientific name, with authorship and date information if known. When forming part of a dwc:Identification, this should be the name in lowest level taxonomic rank that can be determined. This term should not contain identification qualifications, which should instead be supplied in the dwc:identificationQualifier term." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/scientificName> .
+
+
+## http://rs.tdwg.org/dwc/terms/scientificNameAuthorship
+dwc:scientificNameAuthorship
+  a owl:DatatypeProperty ;
+  rdfs:label "scientific name authorship" ;
+  rdfs:comment "The authorship information for the dwc:scientificName formatted according to the conventions of the applicable dwc:nomenclaturalCode." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/scientificNameAuthorship> .
+
+
+## http://rs.tdwg.org/dwc/terms/scientificNameID
+dwc:scientificNameID
+  a owl:DatatypeProperty ;
+  rdfs:label "scientific name id" ;
+  rdfs:comment "An identifier for the nomenclatural (not taxonomic) details of a scientific name." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/scientificNameID> .
+
+
+## http://rs.tdwg.org/dwc/terms/sex
+dwc:sex
+  a owl:DatatypeProperty ;
+  rdfs:label "sex" ;
+  rdfs:comment "The sex of the biological individual(s) represented in the dwc:Occurrence." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/sex> .
+
+
+## http://rs.tdwg.org/dwc/terms/specificEpithet
+dwc:specificEpithet
+  a owl:DatatypeProperty ;
+  rdfs:label "specific epithet" ;
+  rdfs:comment "The name of the first or species epithet of the dwc:scientificName." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/specificEpithet> .
+
+
+## http://rs.tdwg.org/dwc/terms/startDayOfYear
+dwc:startDayOfYear
+  a owl:DatatypeProperty ;
+  rdfs:label "start day of year" ;
+  rdfs:comment "The earliest integer day of the year on which the dwc:Event occurred (1 for January 1, 365 for December 31, except in a leap year, in which case it is 366)." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/startDayOfYear> .
+
+
+## http://rs.tdwg.org/dwc/terms/stateProvince
+dwc:stateProvince
+  a owl:DatatypeProperty ;
+  rdfs:label "state province" ;
+  rdfs:comment "The name of the next smaller administrative region than country (state, province, canton, department, region, etc.) in which the dcterms:Location occurs." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/stateProvince> .
+
+
+## http://rs.tdwg.org/dwc/terms/subgenus
+dwc:subgenus
+  a owl:DatatypeProperty ;
+  rdfs:label "subgenus" ;
+  rdfs:comment "The full scientific name of the subgenus in which the dwc:Taxon is classified. Values should include the genus to avoid homonym confusion." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/subgenus> .
+
+
+## http://rs.tdwg.org/dwc/terms/taxonConceptID
+dwc:taxonConceptID
+  a owl:DatatypeProperty ;
+  rdfs:label "taxon concept id" ;
+  rdfs:comment "An identifier for the taxonomic concept to which the record refers - not for the nomenclatural details of a dwc:Taxon." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/taxonConceptID> .
+
+
+## http://rs.tdwg.org/dwc/terms/taxonID
+dwc:taxonID
+  a owl:DatatypeProperty ;
+  rdfs:label "taxon id" ;
+  rdfs:comment "An identifier for the set of dwc:Taxon information. May be a global unique identifier or an identifier specific to the data set." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/taxonID> .
+
+
+## http://rs.tdwg.org/dwc/terms/taxonomicStatus
+dwc:taxonomicStatus
+  a owl:DatatypeProperty ;
+  rdfs:label "taxonomic status" ;
+  rdfs:comment "The status of the use of the dwc:scientificName as a label for a taxon. Requires taxonomic opinion to define the scope of a dwc:Taxon. Rules of priority then are used to define the taxonomic status of the nomenclature contained in that scope, combined with the experts opinion. It must be linked to a specific taxonomic reference that defines the concept." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/taxonomicStatus> .
+
+
+## http://rs.tdwg.org/dwc/terms/taxonRank
+dwc:taxonRank
+  a owl:DatatypeProperty ;
+  rdfs:label "taxon rank" ;
+  rdfs:comment "The taxonomic rank of the most specific name in the dwc:scientificName." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/taxonRank> .
+
+
+## http://rs.tdwg.org/dwc/terms/taxonRemarks
+dwc:taxonRemarks
+  a owl:DatatypeProperty ;
+  rdfs:label "taxon remarks" ;
+  rdfs:comment "Comments or notes about the taxon or name." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/taxonRemarks> .
+
+
+## http://rs.tdwg.org/dwc/terms/typeStatus
+dwc:typeStatus
+  a owl:DatatypeProperty ;
+  rdfs:label "type status" ;
+  rdfs:comment "A list (concatenated and separated) of nomenclatural types (type status, typified scientific name, publication) applied to the subject." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/typeStatus> .
+
+
+## http://rs.tdwg.org/dwc/terms/verbatimCoordinates
+dwc:verbatimCoordinates
+  a owl:DatatypeProperty ;
+  rdfs:label "verbatim coordinates" ;
+  rdfs:comment "The verbatim original spatial coordinates of the dcterms:Location. The coordinate ellipsoid, geodeticDatum, or full Spatial Reference System (SRS) for these coordinates should be stored in dwc:verbatimSRS and the coordinate system should be stored in dwc:verbatimCoordinateSystem." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/verbatimCoordinates> .
+
+
+## http://rs.tdwg.org/dwc/terms/verbatimCoordinateSystem
+dwc:verbatimCoordinateSystem
+  a owl:DatatypeProperty ;
+  rdfs:label "verbatim coordinate system" ;
+  rdfs:comment "The coordinate format for the dwc:verbatimLatitude and dwc:verbatimLongitude or the dwc:verbatimCoordinates of the dcterms:Location." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/verbatimCoordinateSystem> .
+
+
+## http://rs.tdwg.org/dwc/terms/verbatimDepth
+dwc:verbatimDepth
+  a owl:DatatypeProperty ;
+  rdfs:label "verbatim depth" ;
+  rdfs:comment "The original description of the depth below the local surface." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/verbatimDepth> .
+
+
+## http://rs.tdwg.org/dwc/terms/verbatimElevation
+dwc:verbatimElevation
+  a owl:DatatypeProperty ;
+  rdfs:label "verbatim elevation" ;
+  rdfs:comment "The original description of the elevation (altitude, usually above sea level) of the Location." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/verbatimElevation> .
+
+
+## http://rs.tdwg.org/dwc/terms/verbatimEventDate
+dwc:verbatimEventDate
+  a owl:DatatypeProperty ;
+  rdfs:label "verbatim event date" ;
+  rdfs:comment "The verbatim original representation of the date and time information for a dwc:Event." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/verbatimEventDate> .
+
+
+## http://rs.tdwg.org/dwc/terms/verbatimLatitude
+dwc:verbatimLatitude
+  a owl:DatatypeProperty ;
+  rdfs:label "verbatim latitude" ;
+  rdfs:comment "The verbatim original latitude of the dcterms:Location. The coordinate ellipsoid, geodeticDatum, or full Spatial Reference System (SRS) for these coordinates should be stored in dwc:verbatimSRS and the coordinate system should be stored in dwc:verbatimCoordinateSystem." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/verbatimLatitude> .
+
+
+## http://rs.tdwg.org/dwc/terms/verbatimLocality
+dwc:verbatimLocality
+  a owl:DatatypeProperty ;
+  rdfs:label "verbatim locality" ;
+  rdfs:comment "The original textual description of the place." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/verbatimLocality> .
+
+
+## http://rs.tdwg.org/dwc/terms/verbatimLongitude
+dwc:verbatimLongitude
+  a owl:DatatypeProperty ;
+  rdfs:label "verbatim longitude" ;
+  rdfs:comment "The verbatim original longitude of the dcterms:Location. The coordinate ellipsoid, geodeticDatum, or full Spatial Reference System (SRS) for these coordinates should be stored in dwc:verbatimSRS and the coordinate system should be stored in dwc:verbatimCoordinateSystem." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/verbatimLongitude> .
+
+
+## http://rs.tdwg.org/dwc/terms/verbatimSRS
+dwc:verbatimSRS
+  a owl:DatatypeProperty ;
+  rdfs:label "verbatim srs" ;
+  rdfs:comment "The ellipsoid, geodetic datum, or spatial reference system (SRS) upon which coordinates given in dwc:verbatimLatitude and dwc:verbatimLongitude, or dwc:verbatimCoordinates are based." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/verbatimSRS> .
+
+
+## http://rs.tdwg.org/dwc/terms/verbatimTaxonRank
+dwc:verbatimTaxonRank
+  a owl:DatatypeProperty ;
+  rdfs:label "verbatim taxon rank" ;
+  rdfs:comment "The taxonomic rank of the most specific name in the dwc:scientificName as it appears in the original record." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/verbatimTaxonRank> .
+
+
+## http://rs.tdwg.org/dwc/terms/vernacularName
+dwc:vernacularName
+  a owl:DatatypeProperty ;
+  rdfs:label "vernacular name" ;
+  rdfs:comment "A common or vernacular name." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/vernacularName> .
+
+
+## http://rs.tdwg.org/dwc/terms/waterBody
+dwc:waterBody
+  a owl:DatatypeProperty ;
+  rdfs:label "water body" ;
+  rdfs:comment "The name of the water body in which the dcterms:Location occurs." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/waterBody> .
+
+
+## http://rs.tdwg.org/dwc/terms/year
+dwc:year
+  a owl:DatatypeProperty ;
+  rdfs:label "year" ;
+  rdfs:comment "The four-digit year in which the dwc:Event occurred, according to the Common Era Calendar." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/year> .
+
+
+## http://rs.tdwg.org/dwc/terms/pathway
+dwc:pathway
+  a owl:DatatypeProperty ;
+  rdfs:label "pathway" ;
+  rdfs:comment "The process by which a dwc:Organism came to be in a given place at a given time." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/pathway> .
+
+
+## http://rs.tdwg.org/dwc/terms/degreeOfEstablishment
+dwc:degreeOfEstablishment
+  a owl:DatatypeProperty ;
+  rdfs:label "degree of establishment" ;
+  rdfs:comment "The degree to which a dwc:Organism survives, reproduces, and expands its range at the given place and time." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/degreeOfEstablishment> .
+
+
+## http://rs.tdwg.org/dwc/terms/recordedByID
+dwc:recordedByID
+  a owl:DatatypeProperty ;
+  rdfs:label "recorded by id" ;
+  rdfs:comment "A list (concatenated and separated) of the globally unique identifier for the person, people, groups, or organizations responsible for recording the original dwc:Occurrence." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/recordedByID> .
+
+
+## http://rs.tdwg.org/dwc/terms/verticalDatum
+dwc:verticalDatum
+  a owl:DatatypeProperty ;
+  rdfs:label "vertical datum" ;
+  rdfs:comment "The vertical datum used as the reference upon which the values in the elevation terms are based." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/verticalDatum> .
+
+
+## http://rs.tdwg.org/dwc/terms/verbatimIdentification
+dwc:verbatimIdentification
+  a owl:DatatypeProperty ;
+  rdfs:label "verbatim identification" ;
+  rdfs:comment "A string representing the taxonomic identification as it appeared in the original record." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/verbatimIdentification> .
+
+
+## http://rs.tdwg.org/dwc/terms/identifiedByID
+dwc:identifiedByID
+  a owl:DatatypeProperty ;
+  rdfs:label "identified by id" ;
+  rdfs:comment "A list (concatenated and separated) of the globally unique identifier for the person, people, groups, or organizations responsible for assigning the dwc:Taxon to the subject." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/identifiedByID> .
+
+
+## http://rs.tdwg.org/dwc/terms/subfamily
+dwc:subfamily
+  a owl:DatatypeProperty ;
+  rdfs:label "subfamily" ;
+  rdfs:comment "The full scientific name of the subfamily in which the dwc:Taxon is classified." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/subfamily> .
+
+
+## http://rs.tdwg.org/dwc/terms/genericName
+dwc:genericName
+  a owl:DatatypeProperty ;
+  rdfs:label "generic name" ;
+  rdfs:comment "The genus part of the dwc:scientificName without authorship." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/genericName> .
+
+
+## http://rs.tdwg.org/dwc/terms/infragenericEpithet
+dwc:infragenericEpithet
+  a owl:DatatypeProperty ;
+  rdfs:label "infrageneric epithet" ;
+  rdfs:comment "The infrageneric part of a binomial name at ranks above species but below genus." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/infragenericEpithet> .
+
+
+## http://rs.tdwg.org/dwc/terms/cultivarEpithet
+dwc:cultivarEpithet
+  a owl:DatatypeProperty ;
+  rdfs:label "cultivar epithet" ;
+  rdfs:comment "Part of the name of a cultivar, cultivar group or grex that follows the dwc:scientificName." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/cultivarEpithet> .
+
+
+## http://rs.tdwg.org/dwc/terms/relationshipOfResourceID
+dwc:relationshipOfResourceID
+  a owl:DatatypeProperty ;
+  rdfs:label "relationship of resource id" ;
+  rdfs:comment "An identifier for the relationship type (predicate) that connects the subject identified by dwc:resourceID to its object identified by dwc:relatedResourceID." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/relationshipOfResourceID> .
+
+
+## http://rs.tdwg.org/dwc/terms/caste
+dwc:caste
+  a owl:DatatypeProperty ;
+  rdfs:label "caste" ;
+  rdfs:comment "Categorisation of individuals for eusocial species (including some mammals and arthropods)." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/caste> .
+
+
+## http://rs.tdwg.org/dwc/terms/vitality
+dwc:vitality
+  a owl:DatatypeProperty ;
+  rdfs:label "vitality" ;
+  rdfs:comment "An indication of whether a dwc:Organism was alive or dead at the time of collection or observation." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/vitality> .
+
+
+## http://rs.tdwg.org/dwc/terms/verbatimLabel
+dwc:verbatimLabel
+  a owl:DatatypeProperty ;
+  rdfs:label "verbatim label" ;
+  rdfs:comment "A serialized encoding intended to represent the literal, i.e., character by character, textual content of a label affixed on, near, or explicitly associated with a material entity, free from interpretation, translation, or transliteration." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/verbatimLabel> .
+
+
+## http://rs.tdwg.org/dwc/terms/eventType
+dwc:eventType
+  a owl:DatatypeProperty ;
+  rdfs:label "event type" ;
+  rdfs:comment "The nature of the dwc:Event." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/eventType> .
+
+
+## http://rs.tdwg.org/dwc/terms/superfamily
+dwc:superfamily
+  a owl:DatatypeProperty ;
+  rdfs:label "superfamily" ;
+  rdfs:comment "The full scientific name of the superfamily in which the dwc:Taxon is classified." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/superfamily> .
+
+
+## http://rs.tdwg.org/dwc/terms/tribe
+dwc:tribe
+  a owl:DatatypeProperty ;
+  rdfs:label "tribe" ;
+  rdfs:comment "The full scientific name of the tribe in which the dwc:Taxon is classified." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/tribe> .
+
+
+## http://rs.tdwg.org/dwc/terms/subtribe
+dwc:subtribe
+  a owl:DatatypeProperty ;
+  rdfs:label "subtribe" ;
+  rdfs:comment "The full scientific name of the subtribe in which the dwc:Taxon is classified." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/subtribe> .
+
+
+## http://rs.tdwg.org/dwc/terms/parentMeasurementID
+dwc:parentMeasurementID
+  a owl:DatatypeProperty ;
+  rdfs:label "parent measurement id" ;
+  rdfs:comment "An identifier for a broader dwc:MeasurementOrFact that groups this and potentially other dwc:MeasurementOrFacts" ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/parentMeasurementID> .
+
+#################################################################
+#    Classes
+#################################################################
+                                                                    
+## http://rs.tdwg.org/dwc/terms/Event
+dwc:Event
+  a owl:Class ;
+  rdfs:label "event" ;
+  rdfs:comment "An action that occurs at some location during some time." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/Event> .
+
+
+## http://rs.tdwg.org/dwc/terms/FossilSpecimen
+dwc:FossilSpecimen
+  a owl:Class ;
+  rdfs:label "fossil specimen" ;
+  rdfs:comment "A preserved specimen that is a fossil." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/FossilSpecimen> .
+
+
+## http://rs.tdwg.org/dwc/terms/GeologicalContext
+dwc:GeologicalContext
+  a owl:Class ;
+  rdfs:label "geological context" ;
+  rdfs:comment "Geological information, such as stratigraphy, that qualifies a region or place." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/GeologicalContext> .
+
+
+## http://rs.tdwg.org/dwc/terms/HumanObservation
+dwc:HumanObservation
+  a owl:Class ;
+  rdfs:label "human observation" ;
+  rdfs:comment "An output of a human observation process." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/HumanObservation> .
+
+
+## http://rs.tdwg.org/dwc/terms/Identification
+dwc:Identification
+  a owl:Class ;
+  rdfs:label "identification" ;
+  rdfs:comment "A taxonomic determination (e.g., the assignment to a dwc:Taxon)." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/Identification> .
+
+
+## http://rs.tdwg.org/dwc/terms/LivingSpecimen
+dwc:LivingSpecimen
+  a owl:Class ;
+  rdfs:label "living specimen" ;
+  rdfs:comment "A specimen that is alive." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/LivingSpecimen> .
+
+
+## http://rs.tdwg.org/dwc/terms/MachineObservation
+dwc:MachineObservation
+  a owl:Class ;
+  rdfs:label "machine observation" ;
+  rdfs:comment "An output of a machine observation process." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/MachineObservation> .
+
+
+## http://rs.tdwg.org/dwc/terms/MaterialSample
+dwc:MaterialSample
+  a owl:Class ;
+  rdfs:label "material sample" ;
+  rdfs:comment "A physical result of a sampling (or subsampling) event. In biological collections, the material sample is typically collected, and either preserved or destructively processed." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/MaterialSample> .
+
+
+## http://rs.tdwg.org/dwc/terms/MeasurementOrFact
+dwc:MeasurementOrFact
+  a owl:Class ;
+  rdfs:label "measurement or fact" ;
+  rdfs:comment "A measurement of or fact about an rdfs:Resource (http://www.w3.org/2000/01/rdf-schema#Resource)." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/MeasurementOrFact> .
+
+
+## http://rs.tdwg.org/dwc/terms/Occurrence
+dwc:Occurrence
+  a owl:Class ;
+  rdfs:label "occurrence" ;
+  rdfs:comment "An existence of a dwc:Organism at a particular place at a particular time." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/Occurrence> .
+
+
+## http://rs.tdwg.org/dwc/terms/Organism
+dwc:Organism
+  a owl:Class ;
+  rdfs:label "organism" ;
+  rdfs:comment "A particular organism or defined group of organisms considered to be taxonomically homogeneous." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/Organism> .
+
+
+## http://rs.tdwg.org/dwc/terms/PreservedSpecimen
+dwc:PreservedSpecimen
+  a owl:Class ;
+  rdfs:label "preserved specimen" ;
+  rdfs:comment "A specimen that has been preserved." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/PreservedSpecimen> .
+
+
+## http://rs.tdwg.org/dwc/terms/ResourceRelationship
+dwc:ResourceRelationship
+  a owl:Class ;
+  rdfs:label "resource relationship" ;
+  rdfs:comment "A relationship of one rdfs:Resource (http://www.w3.org/2000/01/rdf-schema#Resource) to another." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/ResourceRelationship> .
+
+
+## http://rs.tdwg.org/dwc/terms/Taxon
+dwc:Taxon
+  a owl:Class ;
+  rdfs:label "taxon" ;
+  rdfs:comment "A group of organisms (sensu http://purl.obolibrary.org/obo/OBI_0100026) considered by taxonomists to form a homogeneous unit." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/Taxon> .
+
+
+## http://rs.tdwg.org/dwc/terms/MaterialCitation
+dwc:MaterialCitation
+  a owl:Class ;
+  rdfs:label "material citation" ;
+  rdfs:comment "A reference to or citation of one, a part of, or multiple specimens in scholarly publications." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/MaterialCitation> .
+
+#################################################################
+#    Alignments
+#################################################################
+
+fiware:name rdfs:subPropertyOf schema:name .
+saref4agri:hasName owl:equivalentProperty fiware:name .
+iso19115-citation:ResponsibleParty owl:equivalentClass foaf:Agent .
+
+#################################################################
+#    Individuals
+#################################################################
+

@@ -1,4 +1,4 @@
-@prefix : <https://w3id.org/demeter/crossDomain#> .
+@prefix : <https://w3id.org/iliad/crossDomain#> .
 @prefix qb: <http://purl.org/linked-data/cube#> .
 @prefix qu: <http://purl.oclc.org/NET/ssnx/qu/qu#> .
 @prefix sf: <http://www.opengis.net/ont/sf#> .
@@ -18,7 +18,6 @@
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix aim-core: <https://w3id.org/demeter/core> .
 @prefix schema: <https://schema.org/> .
 @prefix iso19109: <http://def.seegrid.csiro.au/isotc211/iso19109/2005/feature#> .
 @prefix quantity: <http://purl.oclc.org/NET/ssnx/qu/quantity#> .
@@ -28,35 +27,36 @@
 @prefix iso19156_GFI: 	<http://def.isotc211.org/iso19156/2011/GeneralFeatureInstance#> .
 @prefix iso19156_OB: <http://def.isotc211.org/iso19156/2011/Observation#> .
 @prefix iso19103: <http://def.seegrid.csiro.au/isotc211/iso19103/2005/basic#> .
-@base <https://w3id.org/demeter/crossDomain> .
+@base <https://w3id.org/iliad/crossDomain> .
 
-<https://w3id.org/demeter/crossDomain> a owl:Ontology ;
-                                         owl:versionIRI <https://w3id.org/demeter/crossDomain/3.0> ;
-                                         dct:contributor [ rdfs:seeAlso <http://orcid.org/0000-0003-4289-4922> ;
-                                                           foaf:name "Raul Palma" ;
-                                                           schema:affiliation [ foaf:name "PSNC"
-                                                                              ]
-                                                         ] ,
-                                                         [ foaf:name "Rob Atkinson" ;
+<https://w3id.org/iliad/crossDomain> a owl:Ontology ;
+                                         owl:versionIRI <https://w3id.org/iliad/crossDomain/3.0> ;
+                                         dct:contributor [ foaf:name "Rob Atkinson" ;
                                                            schema:affiliation [ foaf:name "OGC"
                                                                               ]
                                                          ] ,
                                                          [ foaf:name "Ioanna Roussaki" ;
                                                            schema:affiliation [ foaf:name "ICCS"
                                                                               ]
-                                                         ] ;
-                                         dct:creator [ foaf:name "Till Döhmen" ;
+                                                         ] ,
+                                                         [ foaf:name "Till Döhmen" ;
                                                        schema:affiliation [ foaf:name "Fraunhofer FIT"
                                                                           ]
+                                                         ];
+                                         dct:creator [ rdfs:seeAlso <http://orcid.org/0000-0003-4289-4922> ;
+                                                           foaf:name "Raul Palma" ;
+                                                           schema:affiliation [ foaf:name "PSNC"
+                                                                              ]
                                                      ] ;
-                                         dct:description "The DEMETER cross domain ontology i) defines concepts and terms that are generic and applicable to various domains; ii) avoids conflicting or redundant definitions of the same concept in different domain specific models; iii) provides the basis for interoperability. The ontology is specified by reusing concepts and terms from a number of standard ontologies and vocabularies including OGC/W3C SOSA/SSN, OGC GeoSparql, W3C RDF data cube, QUDT, FOAF, schema.org and others. It includes alignment to ISO standards and with DEMETER core meta-model (NGSI-LD)."@en ;
+                                         dct:description "The ILIAD cross domain ontology i) defines concepts and terms that are generic and applicable to various domains; ii) avoids conflicting or redundant definitions of the same concept in different domain specific models; iii) provides the basis for interoperability. The ontology is specified by reusing concepts and terms from a number of standard ontologies and vocabularies including OGC/W3C SOSA/SSN, OGC GeoSparql, W3C RDF data cube, QUDT, FOAF, schema.org and others."@en ;
                                          dct:rights "This vocabulary is distributed under Creative Commons Attribution 4.0 License - http://creativecommons.org/licenses/by/4.0"@en ;
-                                         dct:title "DEMETER Cross-Domain"@en ;
-                                         rdfs:label "DEMETER Cross Domain"@en ;
-                                         rdfs:comment "The DEMETER Agriculture Information Model (AIM) is the common vocabulary in DEMETER project providing the basis for semantic interoperability across smart farming solutions"@en ;
+                                         dct:title "ILIAD Cross-Domain"@en ;
+                                         rdfs:label "ILIAD Cross Domain"@en ;
+                                         rdfs:comment "The ILIAD Ocean Information Model (OIM) is the common vocabulary in ILIAD project providing the basis for semantic interoperability across smart ocean solutions"@en ;
+                                         rdfs:comment "The ILIAD Ocean Information Model (OIM) cross domain ontology is based on the DEMETER Agriculture Information Model (AIM) cross domain ontology"@en ;
                                          owl:versionInfo "3.0" ;
-                                         foaf:maker [ foaf:homepage <https://h2020-demeter.eu/> ;
-                                                      foaf:name "DEMETER project"
+                                         foaf:maker [ foaf:homepage <https://www.ocean-twin.eu/> ;
+                                                      foaf:name "ILIAD project"
                                                     ] .
 
 #################################################################
