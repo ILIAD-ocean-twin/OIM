@@ -32,6 +32,8 @@
 @prefix oceanCommon: <https://w3id.org/iliad/oim/oceamCommon/> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix dwc:  <http://rs.tdwg.org/dwc/terms/> .
+@prefix dwc-mbg: <http://mmisw.org/ont/ioos/marine_biogeography/> .
+@prefix dwc-hc: <http://rs.tdwg.org/hc/terms/> .
 @base <https://w3id.org/iliad/> .
 
 <https://w3id.org/iliad/oceanCommon> a owl:Ontology ;
@@ -131,6 +133,51 @@ dct:type
   skos:definition "The nature or genre of the resource."@en-us .
 #  rdfs:subPropertyOf dc11:type ;
 #  rdfs:range dc11:contributor .
+
+dct:title
+  a owl:AnnotationProperty ;
+  rdfs:label "Title"@en-us ;
+  skos:definition "A name given to the resource."@en-us ;
+  skos:note "In current practice, this term is used primarily with literal values; however, there are important uses with non-literal values as well. As of December 2007, the DCMI Usage Board is leaving this range unspecified pending an investigation of options."@en-us .
+#  rdfs:subPropertyOf dc11:title .
+
+dct:publisher
+  a owl:AnnotationProperty ;
+  rdfs:comment "Examples of a Publisher include a person, an organization, or a service. Typically, the name of a Publisher should be used to indicate the entity."@en-us ;
+  rdfs:label "Publisher"@en-us ;
+  skos:definition "An entity responsible for making the resource available."@en-us .
+#  rdfs:subPropertyOf dc11:publisher ;
+#  rdfs:range dc:Agent .
+
+dct:identifier
+  a owl:AnnotationProperty ;
+  rdfs:comment "Recommended best practice is to identify the resource by means of a string conforming to a formal identification system."@en-us ;
+  rdfs:label "Identifier"@en-us ;
+  skos:definition "An unambiguous reference to the resource within a given context."@en-us .
+#  rdfs:subPropertyOf dc11:identifier ;
+#  rdfs:range rdfs:Literal .
+
+dct:spatial
+  a owl:AnnotationProperty ;
+  rdfs:label "Spatial Coverage"@en-us ;
+  skos:definition "Spatial characteristics of the resource."@en-us .
+#  rdfs:subPropertyOf dc:coverage ;
+#  rdfs:range dc:Location .
+
+dct:subject
+  a owl:AnnotationProperty ;
+  rdfs:comment "Typically, the subject will be represented using keywords, key phrases, or classification codes. Recommended best practice is to use a controlled vocabulary. To describe the spatial or temporal topic of the resource, use the Coverage element."@en-us ;
+  rdfs:label "Subject"@en-us ;
+  skos:definition "The topic of the resource."@en-us ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/). As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en-us .
+#  rdfs:subPropertyOf dc11:subject .
+
+dct:temporal
+  a owl:AnnotationProperty ;
+  rdfs:label "Temporal Coverage"@en-us ;
+  skos:definition "Temporal characteristics of the resource."@en-us .
+#  rdfs:subPropertyOf dc:coverage ;
+#  rdfs:range dc:PeriodOfTime .
 
 #################################################################
 #    Datatypes
@@ -1817,6 +1864,216 @@ dwc:parentMeasurementID
   rdfs:comment "An identifier for a broader dwc:MeasurementOrFact that groups this and potentially other dwc:MeasurementOrFacts" ;
   rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/parentMeasurementID> .
 
+## http://mmisw.org/ont/ioos/marine_biogeography/observationLocation
+dwc-mbg:observationLocation
+  a owl:DatatypeProperty ;
+  rdfs:label "observation location" ;
+  rdfs:comment "For aerial surveys: Description of where on the airplane the observer was located when the animal was first detected For example observer location could be “Left side” or “Right side and front” of the airplane. For boat-based surveys: Description of where on the vessel the observer was located when the animal was first detected (e.g. tower, bridge). Any verbatim codes used in this term must be explained in the metadata." ;
+  rdfs:isDefinedBy <http://mmisw.org/ont/ioos/marine_biogeography/observationLocation> .
+
+## http://mmisw.org/ont/ioos/marine_biogeography/quantificationMethod
+dwc-mbg:quantificationMethod
+  a owl:DatatypeProperty ;
+  rdfs:label "quantification method" ;
+  rdfs:comment "A reference to the method used to determine the quantification. This will be different from the method used to make the observation of biological occurrence; it will be the companion calculation method that followed the observation method. Quantification information is expected to be useful only if method is sufficiently documented, so this term is vitally important for use of quantification terms for derived values. This term can contain a code or other abbreviated reference to a method. In all cases quantificationMethod should be explained in metadata and supporting publications or related resources identified." ;
+  rdfs:isDefinedBy <http://mmisw.org/ont/ioos/marine_biogeography/quantificationMethod> .
+
+## http://mmisw.org/ont/ioos/marine_biogeography/sightingCue
+dwc-mbg:sightingCue
+  a owl:DatatypeProperty ;
+  rdfs:label "sighting cue" ;
+  rdfs:comment "Description of what was seen first of the group, that is, the cue associated with the first sighting of the animal (or group of animals). A behavioral code may be used (e.g. BL = blow). Additional explanation of the role of cues in sighting may be helpful to explain in metadata. If behavioral codes are used in sightingCue, they must be used consistently within a dataset and they must be explained in metadata" ;
+  rdfs:isDefinedBy <http://mmisw.org/ont/ioos/marine_biogeography/sightingCue> .  
+
+## http://mmisw.org/ont/ioos/marine_biogeography/sampleLengthInMeters
+dwc-mbg:sampleLengthInMeters
+  a owl:DatatypeProperty ;
+  rdfs:label "sample length in meters" ;
+  rdfs:comment "The length in meters of the sample space in which the observation was made." ;
+  rdfs:isDefinedBy <http://mmisw.org/ont/ioos/marine_biogeography/sampleLengthInMeters> .
+
+## http://mmisw.org/ont/ioos/marine_biogeography/recordType
+dwc-mbg:recordType
+  a owl:DatatypeProperty ;
+  rdfs:label "record type" ;
+  rdfs:comment "Use recordType to refine the information in basisOfRecord. For one example, within the 'basisOfRecord' that is 'HumanObservation' use 'recordType' to distinguish a an animal captured, identified, and recorded in human possession (such as outcome of a trawl) from an animal observed and identified at a distance and recorded by a human (such as VLTS observations)." ;
+  rdfs:isDefinedBy <http://mmisw.org/ont/ioos/marine_biogeography/recordType> .  
+
+## http://mmisw.org/ont/ioos/marine_biogeography/sightingDistanceInMeters
+dwc-mbg:sightingDistanceInMeters
+  a owl:DatatypeProperty ;
+  rdfs:label "sighting distance in meters" ;
+  rdfs:comment "For boat-based surveys: Radial distance in meters between the animal (or center of group of animals) and the vessel when the first sighting was made. This value is can be reported if 1) prior calibrations of radial distances have been made using the known observation height and the reticles on the specific types of binoculars used during the survey, and 2) sighting was detected by eye if ‘Naked Eye’ is specified in distanceEstimationMethod. *Optional use for aerial surveys: Typically these radial sighting distances are not recorded, but they can be calculated from clinometer readings (verticalAngle) and altitude (observationHeight). If distances between the plane and the animals are provided (e.g. using lasers, or calculating distance to the trackline using GPS locations above the initial animal sightings) this information can be included in this term." ;
+  rdfs:isDefinedBy <http://mmisw.org/ont/ioos/marine_biogeography/sightingDistanceInMeters> .        
+
+## http://mmisw.org/ont/ioos/marine_biogeography/sampleWidthInMeters
+dwc-mbg:sampleWidthInMeters
+  a owl:DatatypeProperty ;
+  rdfs:label "sample width in meters" ;
+  rdfs:comment "The width in meters of the sample space in which the observation was made." ;
+  rdfs:isDefinedBy <http://mmisw.org/ont/ioos/marine_biogeography/sampleWidthInMeters> .    
+
+## http://mmisw.org/ont/ioos/marine_biogeography/observedMaxLengthInCm
+dwc-mbg:observedMaxLengthInCm
+  a owl:DatatypeProperty ;
+  rdfs:label "observed max length in cm" ;
+  rdfs:comment "If measuring more than one individual for aggregate length values, record maximum length in centimeters here." ;
+  rdfs:isDefinedBy <http://mmisw.org/ont/ioos/marine_biogeography/observedMaxLengthInCm> .          
+
+## http://mmisw.org/ont/ioos/marine_biogeography/quantificationUnit
+dwc-mbg:quantificationUnit
+  a owl:DatatypeProperty ;
+  rdfs:label "quantification unit" ;
+  rdfs:comment "The units in which the value expresses the quantification, for example, kg/m^2 surface or kilograms per square meter of ocean surface." ;
+  rdfs:isDefinedBy <http://mmisw.org/ont/ioos/marine_biogeography/quantificationUnit> .          
+
+## http://mmisw.org/ont/ioos/marine_biogeography/visibilityInMeters
+dwc-mbg:visibilityInMeters
+  a owl:DatatypeProperty ;
+  rdfs:label "visibility in meters" ;
+  rdfs:comment "For aerial surveys: Estimated maximum distance from the plane in meters at which an animal can be observed on the water surface given the present environmental conditions. Different visibilities can be reported separately for left and right side of the plane if these are recorded. In this case the term will consist of two values separated by semicolons. The first term will describe the estimated visibility in meters for left side of the plane, and the second term will describe visibility in meters for the observer on the right side of the plane. If more than two observers record visibility information in meters these can be incorporated by formatting the contents using the Darwin core dynamic properties approach to key-value pairs (http://rs.tdwg.org/dwc/terms/#dynamicProperties). For boat-based surveys: Estimated maximum distance from the vessel in meters at which an animal can be observed on the water surface given the present environmental conditions, such as glare, rain, fog, sea state, swell height. For underwater surveys: Visibility through the water column in meters." ;
+  rdfs:isDefinedBy <http://mmisw.org/ont/ioos/marine_biogeography/visibilityInMeters> . 
+
+## http://mmisw.org/ont/ioos/marine_biogeography/aphiaID
+dwc-mbg:aphiaID
+  a owl:DatatypeProperty ;
+  rdfs:label "aphia ID" ;
+  rdfs:comment "A unique taxon identifier obtained by validation of the taxon name with the World Register of Marine Species (WoRMS), www.marinespecies.org." ;
+  rdfs:isDefinedBy <http://mmisw.org/ont/ioos/marine_biogeography/aphiaID> .  
+
+## http://mmisw.org/ont/ioos/marine_biogeography/visibilityType
+dwc-mbg:visibilityType
+  a owl:DatatypeProperty ;
+  rdfs:label "visibility type" ;
+  rdfs:comment "The direction of estimated visibility, horizontal or vertical" ;
+  rdfs:isDefinedBy <http://mmisw.org/ont/ioos/marine_biogeography/visibilityType> . 
+
+## http://mmisw.org/ont/ioos/marine_biogeography/sampleAreaInSquareMeters
+dwc-mbg:sampleAreaInSquareMeters
+  a owl:DatatypeProperty ;
+  rdfs:label "sample area in square meters" ;
+  rdfs:comment "The area in square meters, if projected vertically to a plane representing the ocean surface, of the sample space in which the observation was made" ;
+  rdfs:isDefinedBy <http://mmisw.org/ont/ioos/marine_biogeography/sampleAreaInSquareMeters> .                
+
+## http://mmisw.org/ont/ioos/marine_biogeography/weightInKg
+dwc-mbg:weightInKg
+  a owl:DatatypeProperty ;
+  rdfs:label "weight in Kg" ;
+  rdfs:comment "The recorded weight in kilograms of the individuals in the observation. Capture in metadata details about weight, such as what kind of weight (e.g., dry weight), calculation or estimation procedures, or other details applied in determining weight. This is in contrast to totalInSample, that can report the total in the original sample in cases of subsampling. In cases of subsampling, weightInKg will be the weight of the subject of this occurrence record, be it an individual or more than one individual total weight." ;
+  rdfs:isDefinedBy <http://mmisw.org/ont/ioos/marine_biogeography/weightInKg> .  
+
+## http://mmisw.org/ont/ioos/marine_biogeography/sampleHeightInMeters
+dwc-mbg:sampleHeightInMeters
+  a owl:DatatypeProperty ;
+  rdfs:label "sample height in meters" ;
+  rdfs:comment "The height in meters of the sample space in which the observation was made." ;
+  rdfs:isDefinedBy <http://mmisw.org/ont/ioos/marine_biogeography/sampleHeightInMeters> . 
+
+## http://mmisw.org/ont/ioos/marine_biogeography/totalInSample
+dwc-mbg:totalInSample
+  a owl:DatatypeProperty ;
+  rdfs:label "total in sample" ;
+  rdfs:comment "In cases where subsampling has been done and the data record represents a subsample, the totalInSample term contains information about the total quantity in the original sample, usually expressed as total count or weight, for example 'Count=85' or 'WeightInKilograms=4.4'. Specific details about how subsampling was done in relation to the total sample must be explained in samplingProtocol, and/or in metadata." ;
+  rdfs:isDefinedBy <http://mmisw.org/ont/ioos/marine_biogeography/totalInSample> . 
+
+## http://mmisw.org/ont/ioos/marine_biogeography/lengthType
+dwc-mbg:lengthType
+  a owl:DatatypeProperty ;
+  rdfs:label "length type" ;
+  rdfs:comment "The type or method of length measurement used in this observation record, such as TL for total length, FL for fork length, SL for standard length." ;
+  rdfs:isDefinedBy <http://mmisw.org/ont/ioos/marine_biogeography/lengthType> .     
+
+## http://mmisw.org/ont/ioos/marine_biogeography/sampleShape
+dwc-mbg:sampleShape
+  a owl:DatatypeProperty ;
+  rdfs:label "sample shape" ;
+  rdfs:comment "The shape of the sample space in which the observation was made, such as R for rectangular, C for cylindrical." ;
+  rdfs:isDefinedBy <http://mmisw.org/ont/ioos/marine_biogeography/sampleShape> . 
+
+## http://mmisw.org/ont/ioos/marine_biogeography/sampleVolumeInCubicMeters
+dwc-mbg:sampleVolumeInCubicMeters
+  a owl:DatatypeProperty ;
+  rdfs:label "sample volume in cubic meters" ;
+  rdfs:comment "The volume in cubic meters of the sample space in which the observation was made." ;
+  rdfs:isDefinedBy <http://mmisw.org/ont/ioos/marine_biogeography/sampleVolumeInCubicMeters> . 
+
+## http://mmisw.org/ont/ioos/marine_biogeography/observedMeanLengthInCm
+dwc-mbg:observedMeanLengthInCm
+  a owl:DatatypeProperty ;
+  rdfs:label "observed mean length in cm" ;
+  rdfs:comment "If measuring more than one individual for aggregate length values, record mean length in centimeters here." ;
+  rdfs:isDefinedBy <http://mmisw.org/ont/ioos/marine_biogeography/observedMeanLengthInCm> . 
+
+## http://mmisw.org/ont/ioos/marine_biogeography/observedMinLengthInCm
+dwc-mbg:observedMinLengthInCm
+  a owl:DatatypeProperty ;
+  rdfs:label "observed min length in cm" ;
+  rdfs:comment "If measuring more than one individual for aggregate length values, record minimum length in centimeters here." ;
+  rdfs:isDefinedBy <http://mmisw.org/ont/ioos/marine_biogeography/observedMinLengthInCm> .   
+
+## http://mmisw.org/ont/ioos/marine_biogeography/observedIndividualLengthInCm
+dwc-mbg:observedIndividualLengthInCm
+  a owl:DatatypeProperty ;
+  rdfs:label "observed individual length in cm" ;
+  rdfs:comment "If a single individual is observed and measured, record length in centimeters here." ;
+  rdfs:isDefinedBy <http://mmisw.org/ont/ioos/marine_biogeography/observedIndividualLengthInCm> .
+
+## http://mmisw.org/ont/ioos/marine_biogeography/waterTemperatureInCelsius
+dwc-mbg:waterTemperatureInCelsius
+  a owl:DatatypeProperty ;
+  rdfs:label "water temperature in celsius" ;
+  rdfs:comment "The temperature of the water at the time of the observation, expressed in Celsius." ;
+  rdfs:isDefinedBy <http://mmisw.org/ont/ioos/marine_biogeography/waterTemperatureInCelsius> . 
+
+## http://rs.tdwg.org/hc/terms/samplingPerformedBy
+dwc-hc:samplingPerformedBy
+  a owl:DatatypeProperty ;
+  rdfs:label "sampling performed by" ;
+  rdfs:comment "The sampling Event could be at any level of hierarchy. In the case of a higher level Event (parent), include all the organizations or people involved in the child Events that contributed to the parent Event. Recommended best practice is to separate multiple values in a list with space vertical bar space ( | )" ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/hc/terms/samplingPerformedBy> . 
+
+## http://rs.tdwg.org/hc/terms/siteCount
+dwc-hc:siteCount
+  a owl:DatatypeProperty ;
+  rdfs:label "site count" ;
+  rdfs:comment "Total number of individual sites surveyed during the Event" ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/hc/terms/siteCount> .             
+
+## http://rs.tdwg.org/hc/terms/verbatimSiteNames
+dwc-hc:verbatimSiteNames
+  a owl:DatatypeProperty ;
+  rdfs:label "verbatim site names" ;
+  rdfs:comment "A list (concatenated and separated) of original site names" ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/hc/terms/verbatimSiteNames> . 
+
+## http://rs.tdwg.org/hc/terms/verbatimSiteDescriptions
+dwc-hc:verbatimSiteDescriptions
+  a owl:DatatypeProperty ;
+  rdfs:label "verbatim site descriptions" ;
+  rdfs:comment "Original textual description of the site(s)." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/hc/terms/verbatimSiteDescriptions> .       
+
+## http://rs.tdwg.org/hc/terms/eventDuration
+dwc-hc:eventDuration
+  a owl:DatatypeProperty ;
+  rdfs:label "event duration" ;
+  rdfs:comment "The length of the Event in the unit reported in hc:eventDurationUnit." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/hc/terms/eventDuration> .   
+
+## http://rs.tdwg.org/hc/terms/eventDurationUnit
+dwc-hc:eventDurationUnit
+  a owl:DatatypeProperty ;
+  rdfs:label "event duration unit" ;
+  rdfs:comment "The temporal unit used to report hc:eventDuration." ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/hc/terms/eventDurationUnit> . 
+
+## http://rs.tdwg.org/hc/terms/reportedWeather
+dwc-hc:reportedWeather
+  a owl:DatatypeProperty ;
+  rdfs:label "reported weather" ;
+  rdfs:comment "A list of weather or climatic conditions present at the time of the Event" ;
+  rdfs:isDefinedBy <http://rs.tdwg.org/hc/terms/reportedWeather> .   
+
 #################################################################
 #    Classes
 #################################################################
@@ -1939,6 +2196,20 @@ dwc:MaterialCitation
   rdfs:label "material citation" ;
   rdfs:comment "A reference to or citation of one, a part of, or multiple specimens in scholarly publications." ;
   rdfs:isDefinedBy <http://rs.tdwg.org/dwc/terms/MaterialCitation> .
+
+## http://purl.org/dc/terms/Location
+dct:Location
+  a owl:Class ; #, owl:NamedIndividual, dc11:contributor ;
+#  rdfs:subClassOf dc:LocationPeriodOrJurisdiction ;
+  skos:definition "A spatial region or named place."@en-us ;
+  rdfs:label "Location"@en-us .
+
+## http://purl.org/dc/terms/PeriodOfTime
+dct:PeriodOfTime
+  a owl:Class ; #, owl:NamedIndividual, dc11:contributor ;
+#  rdfs:subClassOf dc:LocationPeriodOrJurisdiction ;
+  rdfs:label "Period of Time"@en-us ;
+  skos:definition "An interval of time that is named or defined by its start and end dates."@en-us .
 
 #################################################################
 #    Alignments
