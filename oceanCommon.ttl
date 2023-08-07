@@ -297,6 +297,12 @@ schema:streetAddress a owl:DatatypeProperty ;
         rdfs:comment "The street address. For example, 1600 Amphitheatre Pkwy." ;
         rdfs:isDefinedBy <https://schema.org/streetAddress> .                
 
+###  https://schema.org/status
+schema:status a owl:DatatypeProperty ;
+        rdfs:label "status" ;
+        rdfs:comment "The status of the study (enumerated)" ;
+        rdfs:isDefinedBy <https://schema.org/status> .
+
 ## http://rs.tdwg.org/dwc/terms/acceptedNameUsage
 dwc:acceptedNameUsage
   a owl:DatatypeProperty ;
