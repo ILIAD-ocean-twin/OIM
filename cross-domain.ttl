@@ -1,4 +1,4 @@
-@prefix : <https://w3id.org/iliad/crossDomain#> .
+@prefix : <https://w3id.org/iliad/oim/crossDomain/> .
 @prefix qb: <http://purl.org/linked-data/cube#> .
 @prefix qu: <http://purl.oclc.org/NET/ssnx/qu/qu#> .
 @prefix sf: <http://www.opengis.net/ont/sf#> .
@@ -27,9 +27,9 @@
 @prefix iso19156_GFI: 	<http://def.isotc211.org/iso19156/2011/GeneralFeatureInstance#> .
 @prefix iso19156_OB: <http://def.isotc211.org/iso19156/2011/Observation#> .
 @prefix iso19103: <http://def.seegrid.csiro.au/isotc211/iso19103/2005/basic#> .
-@base <https://w3id.org/iliad/crossDomain> .
+@base <https://w3id.org/iliad/oim/crossDomain/> .
 
-<https://w3id.org/iliad/crossDomain> a owl:Ontology ;
+<https://w3id.org/iliad/oim/crossDomain> a owl:Ontology ;
                                          owl:versionIRI <https://w3id.org/iliad/crossDomain/3.0> ;
                                          dct:contributor [ foaf:name "Rob Atkinson" ;
                                                            schema:affiliation [ foaf:name "OGC"

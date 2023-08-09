@@ -1,4 +1,4 @@
-@prefix : <https://w3id.org/iliad/> .
+@prefix : <https://w3id.org/iliad/oim/> .
 @prefix qb: <http://purl.org/linked-data/cube#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -34,10 +34,10 @@
 @prefix dwc:  <http://rs.tdwg.org/dwc/terms/> .
 @prefix dwc-mbg: <http://mmisw.org/ont/ioos/marine_biogeography/> .
 @prefix dwc-hc: <http://rs.tdwg.org/hc/terms/> .
-@base <https://w3id.org/iliad/> .
+@base <https://w3id.org/iliad/oim/> .
 
-<https://w3id.org/iliad/oceanCommon> a owl:Ontology ;
-                            owl:versionIRI <https://w3id.org/iliad/oceanCommon/1.0> ;
+<https://w3id.org/iliad/oim/oceanCommon> a owl:Ontology ;
+                            owl:versionIRI <https://w3id.org/iliad/oim/oceanCommon/1.0> ;
                             dct:contributor [ schema:affiliation [ foaf:name "PSNC"
                                                                  ] ;
                                               foaf:name "Bogusz Janiak"
