@@ -2224,6 +2224,8 @@ dct:PeriodOfTime
 fiware:name rdfs:subPropertyOf schema:name .
 saref4agri:hasName owl:equivalentProperty fiware:name .
 iso19115-citation:ResponsibleParty owl:equivalentClass foaf:Agent .
+dwc:HumanObservation rdfs:subClassOf sosa:Observation .
+dwc:MachineObservation rdfs:subClassOf sosa:Observation .
 
 #################################################################
 #    Individuals

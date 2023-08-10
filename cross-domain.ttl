@@ -948,6 +948,98 @@ dim:VelocityOrSpeed a owl:Class ;
                     rdfs:label "Velocity Or Speed" ;
                     rdfs:comment "A VelocityOrSpeed is something that is a QuantityKind and has a unitKind property who must be a VelocityOrSpeedUnit" ;
                     rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> .
+                    
+###  http://purl.oclc.org/NET/ssnx/qu/dim#Angle
+dim:Angle a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Angle" ;
+                    rdfs:comment "A dim:Angle is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:AngleUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> . 
+                    
+###  http://purl.oclc.org/NET/ssnx/qu/dim#Area
+dim:Area a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Area" ;
+                    rdfs:comment "A dim:Area is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:AreaUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> . 
+                    
+###  http://purl.oclc.org/NET/ssnx/qu/dim#DiffusionCoefficient
+dim:DiffusionCoefficient a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "DiffusionCoefficient" ;
+                    rdfs:comment "A dim:DiffusionCoefficient is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:DiffusionCoefficientUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> . 
+                    
+###  http://purl.oclc.org/NET/ssnx/qu/dim#Duration
+dim:Duration a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Duration" ;
+                    rdfs:comment "A dim:Duration is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:DurationUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> . 
+                    
+###  http://purl.oclc.org/NET/ssnx/qu/dim#ElectricConductivity
+dim:ElectricConductivity a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Electric Conductivity" ;
+                    rdfs:comment "A dim:ElectricConductivity is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:ElectricConductivityUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> . 
+                    
+###  http://purl.oclc.org/NET/ssnx/qu/dim#Mass
+dim:Mass a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Mass" ;
+                    rdfs:comment "A dim:Mass is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:MassUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> . 
+                    
+###  http://purl.oclc.org/NET/ssnx/qu/dim#MassFlowRate
+dim:MassFlowRate a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Mass Flow Rate" ;
+                    rdfs:comment "A dim:MassFlowRate is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:MassFlowRateUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> .                                                                                                     
+                                                           
+
+###  http://purl.oclc.org/NET/ssnx/qu/dim#NumberPerLength
+dim:NumberPerLength a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Number Per Length" ;
+                    rdfs:comment "A dim:NumberPerLength is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:NumberPerLengthUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> . 
+                    
+###  http://purl.oclc.org/NET/ssnx/qu/dim#PhotonFluxDensity
+dim:PhotonFluxDensity a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Photon Flux Density" ;
+                    rdfs:comment "A dim:PhotonFluxDensity is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:PhotonFluxDensityUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> . 
+                                        
+###  http://purl.oclc.org/NET/ssnx/qu/dim#Radiance
+dim:Radiance a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Radiance" ;
+                    rdfs:comment "A dim:Radiance is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:RadianceUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> . 
+                    
+###  http://purl.oclc.org/NET/ssnx/qu/dim#TemperatureDrift
+dim:TemperatureDrift a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Temperature Drift" ;
+                    rdfs:comment "A dim:TemperatureDrift is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:TemperatureDriftUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> . 
+                    
+###  http://purl.oclc.org/NET/ssnx/qu/dim#Volume
+dim:Volume a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Volume" ;
+                    rdfs:comment "A dim:Volume is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:VolumeUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> . 
+                    
+###  http://purl.oclc.org/NET/ssnx/qu/dim#VolumeFlowRate
+dim:VolumeFlowRate a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Volume Flow Rate" ;
+                    rdfs:comment "A dim:VolumeFlowRate is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:VolumeFlowRateUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> .                                                                                                     
 
 #### QU
 ###  http://purl.oclc.org/NET/ssnx/qu/qu#PropertyKind

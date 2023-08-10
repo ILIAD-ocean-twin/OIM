@@ -420,6 +420,19 @@ cf-feature:SurfaceLayer a owl:Class ;
                         rdfs:comment "A cf-feature:SurfaceLayer is something that is a ssn:FeatureOfInterest" ;
                         rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-feature> .
 
+###  http://purl.oclc.org/NET/ssnx/cf/cf-feature#SurfaceMedium
+cf-feature:SurfaceMedium a owl:Class ;
+                        rdfs:subClassOf sosa:FeatureOfInterest ;
+                        rdfs:label "Surface Medium" ;
+                        rdfs:comment "A cf-feature:SurfaceMedium is something that is a ssn:FeatureOfInterest" ;
+                        rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-feature> .
+                        
+###  http://purl.oclc.org/NET/ssnx/cf/cf-feature#SurfaceMediumMedium
+cf-feature:SurfaceMediumMedium a owl:Class ;
+                        rdfs:subClassOf sosa:FeatureOfInterest ;
+                        rdfs:label "Surface Medium Medium" ;
+                        rdfs:comment "A cf-feature:SurfaceMediumMedium is something that is a ssn:FeatureOfInterest" ;
+                        rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-feature> .                        
 
 ###  http://purl.oclc.org/NET/ssnx/cf/cf-feature#Wind
 cf-feature:Wind a owl:Class ;
@@ -467,6 +480,7 @@ fiware-weather:solarRadiation rdfs:subPropertyOf saref:hasValue .
 fiware-weather:illuminance rdfs:subPropertyOf saref:hasValue .
 fiware-weather:streamGauge rdfs:subPropertyOf saref:hasValue .
 fiware-weather:snowHeight rdfs:subPropertyOf saref:hasValue .
+saref:Device owl:equivalentClass ssn:System .
 
 
 #################################################################
