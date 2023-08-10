@@ -1,0 +1,1887 @@
+@prefix : <https://w3id.org/iliad/oim/> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix stat: <http://data.europa.eu/m8g/> .
+@prefix schema: <https://schema.org/> .
+@prefix af-inspire:	<http://inspire.ec.europa.eu/schemas/af/3.0#> .
+@prefix act-inspire:	<http://inspire.ec.europa.eu/schemas/act-core/3.0#> .
+@prefix foodie: <http://foodie-cloud.com/model/foodie#> .
+@prefix saref4agri: <https://saref.etsi.org/saref4agri/> .
+@prefix common: <http://portele.de/ont/inspire/baseInspire#> .
+@prefix fiware: <https://smartdatamodels.org/> .
+@prefix fiware-agrifood: <https://smartdatamodels.org/dataModel.Agrifood/> .
+@prefix fiware-weather: <https://smartdatamodels.org/dataModel.Weather/> .
+@prefix iso19109: <http://def.seegrid.csiro.au/isotc211/iso19109/2005/feature#> .
+@prefix iso19150-2: <http://def.seegrid.csiro.au/isotc211/iso19150/-2/2012/basic#> .
+@prefix iso19103: <http://def.seegrid.csiro.au/isotc211/iso19103/2005/basic#> .
+@prefix geo:   <http://www.opengis.net/ont/geosparql#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix saref: <https://saref.etsi.org/core/> .
+@prefix cf-feature: <http://purl.oclc.org/NET/ssnx/cf/cf-feature#> .
+@prefix quantity: <http://purl.oclc.org/NET/ssnx/qu/quantity#> .
+@prefix cf: <http://purl.oclc.org/NET/ssnx/cf/cf-property#> .
+@prefix qu: <http://purl.oclc.org/NET/ssnx/qu/qu#> .
+@prefix dim: <http://purl.oclc.org/NET/ssnx/qu/dim#> .
+@base <https://w3id.org/iliad/oim> .
+
+<https://w3id.org/iliad/oim/oceanProperty> a owl:Ontology ;
+                            owl:versionIRI <https://w3id.org/iliad/oim/oceanProperty/1.0> ;
+                            dct:contributor [ schema:affiliation [ foaf:name "OGC"
+                                                                 ] ;
+                                              foaf:name "Rob Atkinson"
+                                            ] ;
+                            dct:creator [ schema:affiliation [ foaf:name "PSNC"
+                                                             ] ;
+                                          rdfs:seeAlso <http://orcid.org/0000-0003-4289-4922> ;
+                                          foaf:name "Raul Palma"
+                                        ] ;
+                            owl:imports <https://w3id.org/iliad/oim/oceanCommon> ;
+                            dct:description "The ILIAD Ocean Property module is one of the ocean domain profiles of ILIAD OIM. This profile was created by reusing and aligning well-known ontologies and vocabularies"@en ;
+                            dct:rights "This vocabulary is distributed under Creative Commons Attribution 4.0 License - http://creativecommons.org/licenses/by/4.0"@en ;
+                            dct:title "DEMETER AgriProperty"@en ;
+                            rdfs:label "DEMETER AgriProperty" ;
+                            rdfs:comment "The Ocean Information Model (OIM) is the common vocabulary in ILIAD project providing the basis for semantic interoperability across smart ocean solutions"@en ;
+                            owl:versionInfo "1.0" ;
+                            foaf:maker [ foaf:homepage <https://www.ocean-twin.eu/> ;
+                                         foaf:name "ILIAD project"
+                                       ] .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://saref.etsi.org/core/isControlledByDevice
+saref:isControlledByDevice a owl:ObjectProperty ;
+                                              rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                              rdfs:comment "A relationship specifying the devices that can control a certain property" ;
+                                              rdfs:label "is controlled by device"@en .
+
+###  https://saref.etsi.org/core/isMeasuredByDevice
+saref:isMeasuredByDevice a owl:ObjectProperty ;
+                                            rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                            rdfs:comment "A relationship specifying the devices that can measure a certain property" ;
+                                            rdfs:label "is measured by device"@en .
+
+###  https://saref.etsi.org/core/relatesToMeasurement
+saref:relatesToMeasurement a owl:ObjectProperty ;
+                                              rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                              rdfs:comment "A relationship between a property and the measurements it relates to" ;
+                                              rdfs:label "relates to measurement"@en .
+
+###  https://saref.etsi.org/core/isMeasuredIn
+saref:isMeasuredIn a owl:ObjectProperty ;
+                                      rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                      rdfs:comment "A relationship identifying the unit of measure used for a certain entity." ;
+                                      rdfs:label "is measured in"@en .
+
+###  https://saref.etsi.org/core/relatesToProperty
+saref:relatesToProperty a owl:ObjectProperty ;
+                                           rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                           rdfs:comment "A relationship between a measurement and the property it relates to" ;
+                                           rdfs:label "relates to property"@en .
+
+###  https://saref.etsi.org/core/makesMeasurement
+saref:makesMeasurement a owl:ObjectProperty ;
+                                          owl:inverseOf saref:measurementMadeBy ;
+                                          rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                          rdfs:comment "A relation between a device and the measurements it makes. Such measurement will link together the value of the measurement, its unit of measure and the property to which it relates." ;
+                                          rdfs:label "makes measurement"@en .
+
+###  https://saref.etsi.org/core/measurementMadeBy
+saref:measurementMadeBy a owl:ObjectProperty ;
+                                           rdfs:comment "Relation between a measurement and the device that made it."@en ;
+                                           rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                           rdfs:label "measurement made by"@en .
+
+###  https://saref.etsi.org/core/controlsProperty
+saref:controlsProperty a owl:ObjectProperty ;
+                                          rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                          rdfs:comment "A relationship specifying the Property that can be controlled by a certain Device";
+                                          rdfs:label "controls property"@en .
+
+###  https://saref.etsi.org/core/measuresProperty
+saref:measuresProperty a owl:ObjectProperty ;
+                                          rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                          rdfs:comment "A relationship specifying the Property that can be measured by a certain Device" ;
+                                          rdfs:label "measures property"@en .
+
+###  https://saref.etsi.org/core/hasFeatureOfInterest
+saref:hasFeatureOfInterest a owl:ObjectProperty ;
+                                              owl:inverseOf saref:isFeatureOfInterestOf ;
+                                              rdfs:comment "Relation between a measurement and the feature of interest being measured."@en ;
+                                              rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                              rdfs:label "has feature of interest"@en .
+
+###  https://saref.etsi.org/core/isFeatureOfInterestOf
+saref:isFeatureOfInterestOf a owl:ObjectProperty ;
+                                               rdfs:comment "Relation betwwen a feature of interest and the measurments that are about it."@en ;
+                                               rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                               rdfs:label "is feature of interest of"@en .
+
+###  https://saref.etsi.org/core/hasProperty
+saref:hasProperty a owl:ObjectProperty ;
+                                     owl:inverseOf saref:isPropertyOf ;
+                                     rdfs:comment "Relation between a feature of interest and its properties."@en ;
+                                     rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                     rdfs:label "has property"@en .
+
+###  https://saref.etsi.org/core/isPropertyOf
+saref:isPropertyOf a owl:ObjectProperty ;
+                                      rdfs:comment "Relation between a property and a feature of interest in which such property appears."@en ;
+                                      rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                      rdfs:label "is property of"@en .
+
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://saref.etsi.org/core/hasValue
+saref:hasValue a owl:DatatypeProperty ;
+                                  rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                  rdfs:comment "A relationship defining the value of a certain property, e.g., energy or power" ;
+                                  rdfs:label "has value"@en .
+
+
+### https://smartdatamodels.org/dataModel.Weather/temperature
+fiware-weather:temperature	a	owl:DatatypeProperty ;
+        rdfs:label   		"temperature"@en ;
+        rdfs:comment		"Temperature of the item. Prev: The observed air temperature (in the shade) nominally in degrees centigrade." ;
+        rdfs:isDefinedBy <https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/schema.json> .
+
+### https://smartdatamodels.org/dateObserved
+fiware:dateObserved	a     owl:DatatypeProperty ;
+        rdfs:range      xsd:dateTime ;
+        rdfs:label   		"date observed"@en ;
+        rdfs:comment		"Date of the observed entity defined by the user" ;
+        rdfs:isDefinedBy <https://smart-data-models.github.io/data-models/common-schema.json#/definitions/dateObserved> .
+
+### https://smartdatamodels.org/dataModel.Weather/weatherType
+fiware-weather:weatherType	a   owl:DatatypeProperty ;
+        rdfs:label   		"weatherType"@en ;
+        rdfs:comment		"Text description of the weather. Prev: The observed weather type. It is represented by a comma separated list of weather statuses, for instance overcast, lightRain." ;
+        rdfs:isDefinedBy <https://github.com/smart-data-models/dataModel.Weather/blob/master/weather-schema.json> .
+
+### https://smartdatamodels.org/dataModel.Weather/dewPoint
+fiware-weather:dewPoint	a      	owl:DatatypeProperty ;
+        rdfs:label   		"dewPoint"@en ;
+        rdfs:comment		"The dew point encoded as a number. Observed temperature to which air must be cooled to become saturated with water vapor" ;
+        rdfs:isDefinedBy <https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/schema.json> .
+
+### https://uri.fiware.org/ns/data-models#visibility
+fiware-weather:visibility	a      owl:DatatypeProperty ;
+        rdfs:label   		"visibility"@en ;
+        rdfs:comment		"Categories of visibility. Prev: Visibility reported (veryPoor, poor, moderate, good, veryGood, excellent)" ;
+        rdfs:isDefinedBy <https://github.com/smart-data-models/dataModel.Weather/blob/master/weather-schema.json> .
+
+### https://smartdatamodels.org/dataModel.Weather/airTemperatureForecast
+fiware-weather:airTemperatureForecast	a   owl:DatatypeProperty ;
+        rdfs:label   		"airTemperatureForecast"@en ;
+        rdfs:comment		"Forecasted value of air temperature over a certain duration in future" ;
+        rdfs:isDefinedBy <https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/schema.json> .
+
+### https://smartdatamodels.org/dataModel.Weather/relativeHumidity
+fiware-weather:relativeHumidity	a	owl:DatatypeProperty ;
+        rdfs:label   		"relativeHumidity"@en ;
+        rdfs:comment		"Humidity in the Air. Observed instantaneous relative humidity (water vapour in air)" ;
+        rdfs:isDefinedBy <https://github.com/smart-data-models/dataModel.Weather/blob/master/weather-schema.json> .
+
+### https://smartdatamodels.org/dataModel.Weather/precipitation
+fiware-weather:precipitation	a	owl:DatatypeProperty ;
+        rdfs:label   		"precipitation"@en ;
+        rdfs:comment		"Amount of water rain registered. Units:'Liters per square meter'" ;
+        rdfs:isDefinedBy <https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/schema.json> .
+
+### https://smartdatamodels.org/dataModel.Weather/windDirection
+fiware-weather:windDirection	a	owl:DatatypeProperty ;
+        rdfs:label   		"windDirection"@en ;
+        rdfs:comment		"Direction of the wind bet" ;
+        rdfs:isDefinedBy <https://github.com/smart-data-models/dataModel.Weather/blob/master/weather-schema.json> .
+
+### https://smartdatamodels.org/dataModel.Weather/windSpeed
+fiware-weather:windSpeed	a      owl:DatatypeProperty ;
+        rdfs:label   		"windSpeed"@en ;
+        rdfs:comment		"Intensity of the wind." ;
+        rdfs:isDefinedBy <https://github.com/smart-data-models/dataModel.Weather/blob/master/weather-schema.json> .
+
+### https://smartdatamodels.org/dataModel.Weather/atmosphericPressure
+fiware-weather:atmosphericPressure	a	owl:DatatypeProperty ;
+        rdfs:label   		"atmosphericPressure"@en ;
+        rdfs:comment		"The atmospheric pressure observed measured in Hecto Pascals. Units:'Hecto pascals'" ;
+        rdfs:isDefinedBy <https://github.com/smart-data-models/dataModel.Weather/blob/master/weather-schema.json> .
+
+### https://smartdatamodels.org/dataModel.Weather/pressureTendency
+fiware-weather:pressureTendency	a	owl:DatatypeProperty ;
+        rdfs:label   		"pressureTendency"@en ;
+        rdfs:comment		"Is the pressure rising or falling? It can be expressed in quantitative terms or qualitative terms (raising, falling, steady)" ;
+        rdfs:isDefinedBy <https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/schema.json> .
+
+### https://smartdatamodels.org/dataModel.Weather/solarRadiation
+fiware-weather:solarRadiation	a	owl:DatatypeProperty ;
+        rdfs:label   		"solarRadiation"@en ;
+        rdfs:comment		"The solar radiation observed measured in Watts per square. Units:'w/m2'" ;
+        rdfs:isDefinedBy <https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/schema.json> .
+
+### https://smartdatamodels.org/dataModel.Weather/illuminance
+fiware-weather:illuminance	a		owl:DatatypeProperty ;
+        rdfs:label   		"illuminance"@en ;
+        rdfs:comment		"The illumninance observed measured in lux (lx) or lumens per square metre (cd·sr·m−2)" ;
+        rdfs:isDefinedBy <https://github.com/smart-data-models/dataModel.Weather/blob/master/weather-schema.json> .
+
+### https://smartdatamodels.org/dataModel.Weather/streamGauge
+fiware-weather:streamGauge	a		owl:DatatypeProperty ;
+        rdfs:label   		"streamGauge"@en ;
+        rdfs:comment		"The water level surface elevation observed by Hydrometric measurement sensors, namely a Stream Gauge expressed in centimeters. Units:'centimeters'" ;
+        rdfs:isDefinedBy <https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/schema.json> .
+
+### https://smartdatamodels.org/dataModel.Weather/snowHeight
+fiware-weather:snowHeight	a      owl:DatatypeProperty ;
+        rdfs:label   		"snowHeight"@en ;
+        rdfs:comment		"The snow height observed by generic snow depth measurement sensors, expressed in centimeters. Units:'centimeters'" ;
+        rdfs:isDefinedBy <https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/schema.json> .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://saref.etsi.org/core/Property
+saref:Property a owl:Class ;
+                                  rdfs:subClassOf [ a owl:Restriction ;
+                                                    owl:onProperty saref:isControlledByDevice ;
+                                                    owl:allValuesFrom saref:Device
+                                                  ] ,
+                                                  [ a owl:Restriction ;
+                                                    owl:onProperty saref:isMeasuredByDevice ;
+                                                    owl:allValuesFrom saref:Device
+                                                  ] ,
+                                                  [ a owl:Restriction ;
+                                                    owl:onProperty saref:isPropertyOf ;
+                                                    owl:allValuesFrom saref:FeatureOfInterest
+                                                  ] ,
+                                                  [ a owl:Restriction ;
+                                                    owl:onProperty saref:relatesToMeasurement ;
+                                                    owl:allValuesFrom saref:Measurement
+                                                  ] ;
+                                  owl:disjointWith saref:UnitOfMeasure ;
+                                  rdfs:comment "An aspect of an entity that can be observable by a sensor."@en ,
+                                               "Anything that can be sensed, measured or controlled in households, common public buildings or offices. We propose here a list of properties that are relevant for the purpose of SAREF, but this list can be extended." ;
+                                  rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                  rdfs:label "Property"@en ,
+                                             "Property" .
+
+###  https://saref.etsi.org/core/Measurement
+saref:Measurement a owl:Class ;
+                                     rdfs:subClassOf [ a owl:Restriction ;
+                                                       owl:onProperty saref:hasFeatureOfInterest ;
+                                                       owl:allValuesFrom saref:FeatureOfInterest
+                                                     ] ,
+                                                     [ a owl:Restriction ;
+                                                       owl:onProperty saref:isMeasuredIn ;
+                                                       owl:allValuesFrom saref:UnitOfMeasure
+                                                     ] ,
+                                                     [ a owl:Restriction ;
+                                                       owl:onProperty saref:relatesToProperty ;
+                                                       owl:allValuesFrom saref:Property
+                                                     ] ,
+                                                     [ a owl:Restriction ;
+                                                       owl:onProperty saref:isMeasuredIn ;
+                                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                       owl:onClass saref:UnitOfMeasure
+                                                     ] ,
+                                                     [ a owl:Restriction ;
+                                                       owl:onProperty saref:relatesToProperty ;
+                                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                       owl:onClass saref:Property
+                                                     ] ,
+                                                     [ a owl:Restriction ;
+                                                       owl:onProperty saref:hasTimestamp ;
+                                                       owl:allValuesFrom xsd:dateTime
+                                                     ] ,
+                                                     [ a owl:Restriction ;
+                                                       owl:onProperty saref:hasValue ;
+                                                       owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                     ] ,
+                                                     [ a owl:Restriction ;
+                                                       owl:onProperty saref:hasValue ;
+                                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                       owl:onDataRange xsd:float
+                                                     ] ;
+                                     owl:disjointWith saref:Property ,
+                                                      saref:UnitOfMeasure ;
+                                     rdfs:comment "Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement."@en ;
+                                     rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                     rdfs:label "Measurement"@en .
+
+###  https://saref.etsi.org/core/UnitOfMeasure
+saref:UnitOfMeasure a owl:Class ;
+                                       rdfs:comment "The unit of measure is a standard for measurement of a quantity, such as a Property. For example,  Power is a property and Watt is a unit of power that represents a definite predetermined power: when we say 10 Watt, we actually mean 10 times the definite predetermined power called \"watt\". Our definition is based on the definition of unit of measure in the Ontology of units of Measure (OM). We propose here a list of some units of measure that are relevant for the purpose of the Smart Appliances ontology, but this list can be extended."@en ,
+                                                    "The unit of measure is a standard for measurement of a quantity, such as a Property. For example,  Power is a property and Watt is a unit of power that represents a definite predetermined power: when we say 10 Watt, we actually mean 10 times the definite predetermined power called \"watt\". Our definition is based on the definition of unit of measure in the Ontology of units of Measure (OM). We propose here a list of some units of measure that are relevant for the purpose of SAREF, but this list can be extended, also using some other ontologies rather than the Ontology of units of Measure (OM)." ;
+                                       rdfs:isDefinedBy <http://www.wurvoc.org/vocabularies/om-1.6/Unit_of_measure> ,
+                                                        <https://saref.etsi.org/core/> ;
+                                       rdfs:label "Unit of measure"@en .
+
+###  https://saref.etsi.org/core/FeatureOfInterest
+saref:FeatureOfInterest a owl:Class ;
+                                           rdfs:subClassOf [ a owl:Restriction ;
+                                                             owl:onProperty saref:hasProperty ;
+                                                             owl:allValuesFrom saref:Property
+                                                           ] ,
+                                                           [ a owl:Restriction ;
+                                                             owl:onProperty saref:isFeatureOfInterestOf ;
+                                                             owl:allValuesFrom saref:Measurement
+                                                           ] ;
+                                           rdfs:comment "A feature of interest represents any real world entity from which a property is measured" ;
+                                           rdfs:label "Feature of interest"@en ;
+                                           rdfs:isDefinedBy <https://saref.etsi.org/core/> .
+
+###  https://saref.etsi.org/core/Humidity
+saref:Humidity a owl:Class ;
+                                  rdfs:subClassOf saref:Property ;
+                                  rdfs:comment "A saref:Property related to some measurements that are characterized by a certain value that is measured in a humidity unit" ;
+                                  rdfs:label "Humidity"@en ;
+                                  rdfs:isDefinedBy <https://saref.etsi.org/core/> .
+
+###  https://saref.etsi.org/core/Temperature
+saref:Temperature a owl:Class ;
+                                     rdfs:subClassOf saref:Property ;
+                                     rdfs:comment "A saref:Property related to some measurements that are characterized by a certain value that is measured in a temperature unit (degree_Celsius, degree_Fahrenheit, or degree_kelvin)" ;
+                                     rdfs:label "Temperature"@en ;
+                                     rdfs:isDefinedBy <https://saref.etsi.org/core/> .
+
+
+### https://smartdatamodels.org/dataModel.Weather/WeatherObserved
+fiware-weather:WeatherObserved	a owl:Class ;
+			rdfs:label "WeatherObserved" ;
+			rdfs:comment "An observation of weather conditions at a certain place and time" ;
+			rdfs:isDefinedBy <https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/schema.json> .
+
+### https://smartdatamodels.org/dataModel.Weather/WeatherForecast
+fiware-weather:WeatherForecast	a owl:Class ;
+			rdfs:label "WeatherForecast" ;
+			rdfs:comment "A harmonised description of a Weather Forecast" ;
+			rdfs:isDefinedBy <https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherForecast/schema.json> .
+
+##### Features of Interest subclasses with alignments
+###  http://purl.oclc.org/NET/ssnx/cf/cf-feature#Layer
+cf-feature:Layer a owl:Class ;
+                 rdfs:subClassOf sosa:FeatureOfInterest ;
+                 rdfs:label "Layer" ;
+                 rdfs:comment "A cf-feature:Layer is something that is a ssn:FeatureOfInterest" ;
+                 rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-feature> .
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-feature#Medium
+cf-feature:Medium a owl:Class ;
+                  rdfs:subClassOf sosa:FeatureOfInterest ;
+                  rdfs:label "Medium" ;
+                  rdfs:comment "A cf-feature:Medium is something that is a ssn:FeatureOfInterest" ;
+                  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-feature> .
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-feature#Precipitation
+cf-feature:Precipitation a owl:Class ;
+                         rdfs:subClassOf sosa:FeatureOfInterest ;
+                         rdfs:label "Precipitation" ;
+                         rdfs:comment "A cf-feature:Precipitation is something that is a ssn:FeatureOfInterest" ;
+                         rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-feature> .
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-feature#Surface
+cf-feature:Surface a owl:Class ;
+                   rdfs:subClassOf sosa:FeatureOfInterest ;
+                   rdfs:label "Surface" ;
+                   rdfs:comment "A cf-feature:Surface is something that is a ssn:FeatureOfInterest" ;
+                   rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-feature> .
+
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-feature#SurfaceLayer
+cf-feature:SurfaceLayer a owl:Class ;
+                        rdfs:subClassOf sosa:FeatureOfInterest ;
+                        rdfs:label "Surface Layer" ;
+                        rdfs:comment "A cf-feature:SurfaceLayer is something that is a ssn:FeatureOfInterest" ;
+                        rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-feature> .
+
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-feature#Wind
+cf-feature:Wind a owl:Class ;
+                rdfs:subClassOf sosa:FeatureOfInterest ;
+                rdfs:label "Wind" ;
+                rdfs:comment "A cf-feature:Wind is something that is a ssn:FeatureOfInterest" ;
+                rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-feature> .                                                            
+
+#################################################################
+#    Alignments
+#################################################################
+
+ssn:hasProperty owl:equivalentProperty saref:hasProperty .
+ssn:isPropertyOf owl:equivalentProperty saref:isPropertyOf .
+#ssn:Property owl:equivalentClass saref:Property .
+sosa:ObservableProperty owl:equivalentClass saref:Property . 
+saref:hasFeatureOfInterest owl:equivalentProperty sosa:hasFeatureOfInterest .
+saref:isFeatureOfInterestOf owl:equivalentProperty sosa:isFeatureOfInterestOf .
+saref:FeatureOfInterest owl:equivalentClass sosa:FeatureOfInterest .
+saref:measurementMadeBy owl:equivalentProperty sosa:madeBySensor .
+saref:makesMeasurement owl:equivalentProperty sosa:madeObservation .
+saref:Property owl:equivalentClass qu:QuantityKind .
+saref:Temperature owl:equivalentClass dim:Temperature .
+#saref:Measurement owl:equivalentClass iso19103:Measure .
+saref:Measurement owl:equivalentClass sosa:Observation .
+saref:relatesToProperty owl:equivalentProperty sosa:observedProperty .
+saref:hasTimestamp owl:equivalentProperty sosa:resultTime .
+saref:hasValue owl:equivalentProperty sosa:hasSimpleResult .
+saref:isMeasuredIn owl:equivalentProperty qudt:unit .
+saref:UnitOfMeasure owl:equivalentClass qudt:Unit .
+fiware:dateObserved rdfs:subPropertyOf saref:hasTimestamp .
+fiware-weather:temperature rdfs:subPropertyOf saref:hasValue .
+fiware-weather:atmosphericPressure rdfs:subPropertyOf saref:hasValue .
+fiware-weather:WeatherObserved rdfs:subClassOf saref:FeatureOfInterest .
+fiware-weather:WeatherForecast rdfs:subClassOf saref:FeatureOfInterest .
+fiware-weather:dewPoint rdfs:subPropertyOf saref:hasValue .
+fiware-weather:visibility rdfs:subPropertyOf saref:hasValue .
+fiware-weather:airTemperatureForecast rdfs:subPropertyOf saref:hasValue .
+fiware-weather:relativeHumidity rdfs:subPropertyOf saref:hasValue .
+fiware-weather:precipitation rdfs:subPropertyOf saref:hasValue .
+fiware-weather:windDirection rdfs:subPropertyOf saref:hasValue .
+fiware-weather:windSpeed rdfs:subPropertyOf saref:hasValue .
+fiware-weather:pressureTendency rdfs:subPropertyOf saref:hasValue .
+fiware-weather:solarRadiation rdfs:subPropertyOf saref:hasValue .
+fiware-weather:illuminance rdfs:subPropertyOf saref:hasValue .
+fiware-weather:streamGauge rdfs:subPropertyOf saref:hasValue .
+fiware-weather:snowHeight rdfs:subPropertyOf saref:hasValue .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://dbpedia.org/resource/DBM
+<http://dbpedia.org/resource/DBM> a owl:NamedIndividual ,
+                                           saref:UnitOfMeasure ;
+                                rdfs:isDefinedBy <https://en.wikipedia.org/wiki/DBm> ;
+                                rdfs:comment "a unit for power measurement" ;
+                                rdfs:label "decibel-milliwatts"@en .
+
+#### units of measurements from om-2
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius
+<http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> a owl:NamedIndividual ,
+                                                                         saref:UnitOfMeasure ;
+                                                                          rdfs:isDefinedBy <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                                                                          rdfs:comment "The degree Celsius is a unit of temperature defined as 1 kelvin." ;         
+                                                                          rdfs:label "degree Celsius"@en .
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/millibar
+<http://www.ontology-of-units-of-measure.org/resource/om-2/millibar> a owl:NamedIndividual ,
+                                                                        saref:UnitOfMeasure ;
+                                                                     rdfs:isDefinedBy <http://www.ontology-of-units-of-measure.org/resource/om-2/millibar> ;
+                                                                      rdfs:comment "The millibar is a unit of pressure defined as 1.0e-3 bar." ;          
+                                                                     rdfs:label "millibar"@en .
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre
+<http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> a owl:NamedIndividual ,
+                                                                        saref:UnitOfMeasure ;
+                                                                      rdfs:isDefinedBy <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> ;
+                                                                      rdfs:comment "The millimetre is a unit of length defined as 1.0e-3 metre." ;
+                                                                       rdfs:label "millimetre"@en .
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/millivolt
+<http://www.ontology-of-units-of-measure.org/resource/om-2/millivolt> a owl:NamedIndividual ,
+                                                                        saref:UnitOfMeasure ;
+                                                                      rdfs:isDefinedBy <http://www.ontology-of-units-of-measure.org/resource/om-2/millivolt> ;
+                                                                      rdfs:comment "The millivolt is a unit of Voltage" ;
+                                                                      rdfs:label "millivolt"@en .
+
+
+
+########## features of interest from cf-feature
+###  http://purl.oclc.org/NET/ssnx/cf/cf-feature#snowfall
+cf-feature:snowfall a owl:NamedIndividual ,
+                             cf-feature:Precipitation ;
+                    ssn:hasProperty cf:convective_snowfall_amount ,
+                                    cf:convective_snowfall_flux ,
+                                    cf:large_scale_snowfall_amount ,
+                                    cf:large_scale_snowfall_flux ,
+                                    cf:lwe_convective_snowfall_rate ,
+                                    cf:lwe_large_scale_snowfall_rate ,
+                                    cf:lwe_snowfall_rate ,
+                                    cf:lwe_thickness_of_convective_snowfall_amount ,
+                                    cf:lwe_thickness_of_large_scale_snowfall_amount ,
+                                    cf:lwe_thickness_of_snowfall_amount ,
+                                    cf:snowfall_amount ,
+                                    cf:snowfall_flux ,
+                                    cf:thickness_of_convective_snowfall_amount ,
+                                    cf:thickness_of_large_scale_snowfall_amount ,
+                                    cf:thickness_of_snowfall_amount ;
+                    rdfs:label "snowfall" ;
+                    rdfs:comment "Snowfall at a definite scale e.g. cm" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-feature> .
+
+
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-feature#water
+cf-feature:water a owl:NamedIndividual ,
+                          cf-feature:Medium ;
+                 rdfs:label "water" ;
+                 rdfs:comment "water" ;
+                 rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-feature> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-feature#surface_air_sea_water>
+  a owl:NamedIndividual, <http://purl.oclc.org/NET/ssnx/cf/cf-feature#SurfaceMediumMedium> ;
+  rdfs:label "surface air sea water" ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-feature> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-feature#sea_water>
+  a owl:NamedIndividual, <http://purl.oclc.org/NET/ssnx/cf/cf-feature#Medium> ;
+  rdfs:label "sea water" ;  
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-feature> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-feature#sea_floor>
+  a owl:NamedIndividual, <http://purl.oclc.org/NET/ssnx/cf/cf-feature#Surface> ;
+  rdfs:label "sea floor" ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-feature> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-feature#sea_surface>
+  a owl:NamedIndividual, <http://purl.oclc.org/NET/ssnx/cf/cf-feature#Surface> ;
+  rdfs:label "sea surface" ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-feature> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-feature#sea_ice>
+  a owl:NamedIndividual, <http://purl.oclc.org/NET/ssnx/cf/cf-feature#Medium>, <http://purl.oclc.org/NET/ssnx/cf/cf-feature#Layer> ;
+  rdfs:label "sea ice" ;    
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-feature> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-feature#ocean>
+  a owl:NamedIndividual, <http://purl.oclc.org/NET/ssnx/cf/cf-feature#Layer> ;
+  rdfs:label "ocean" ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-feature> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-feature#ocean_mixed_layer>
+  a owl:NamedIndividual, <http://purl.oclc.org/NET/ssnx/cf/cf-feature#Layer> ;
+  rdfs:label "ocean mixed layer" ;  
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-feature> .
+
+########## observed properties from cf-property
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#air_density
+cf:air_density a owl:NamedIndividual ,
+                        dim:Density ;
+               rdfs:label "air density" ;
+               rdfs:comment "The amount of air in per cubic volume" ;
+               rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#atmosphere_mass_content_of_carbon_dioxide
+cf:atmosphere_mass_content_of_carbon_dioxide a owl:NamedIndividual ,
+                                                dim:SurfaceDensity ;
+                                             rdfs:label "atmosphere mass content of carbon dioxide" ;
+                                             rdfs:comment "\"Content\" indicates a quantity per unit area.  The \"atmosphere content\" of a quantity refers to the vertical integral from the surface to the top of the atmosphere. For the content between specified levels in the atmosphere, standard names including content_of_atmosphere_layer are used.  The chemical formula for carbon dioxide is CO2" ;
+                                             rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#atmosphere_mass_content_of_carbon_monoxide
+cf:atmosphere_mass_content_of_carbon_monoxide a owl:NamedIndividual ,
+                                                dim:SurfaceDensity ;
+                                              rdfs:label "atmosphere mass content of carbon monoxide" ;
+                                              rdfs:comment "\"Content\" indicates a quantity per unit area.  The \"atmosphere content\" of a quantity refers to the vertical integral from the surface to the top of the atmosphere. For the content between specified levels in the atmosphere, standard names including content_of_atmosphere_layer are used.  The chemical formula of carbon monoxide is CO" ;
+                                              rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#atmosphere_water_vapor_content
+cf:atmosphere_water_vapor_content a owl:NamedIndividual ,
+                                        dim:SurfaceDensity ;
+                                  rdfs:label "atmosphere water vapor content" ;
+                                  rdfs:comment "\"Content\" indicates a quantity per unit area. The \"atmosphere content\" of a quantity refers to the vertical integral from the surface to the top of the atmosphere. For the content between specified levels in the atmosphere, standard names including content_of_atmosphere_layer are used. Atmosphere water vapor content is sometimes referred to as \"precipitable water\", although this term does not imply the water could all be precipitated" ;
+                                  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#convective_snowfall_amount
+cf:convective_snowfall_amount a owl:NamedIndividual ,
+                                dim:SurfaceDensity ;
+                              rdfs:label "convective snowfall amount" ;
+                              rdfs:comment "\"Amount\" means mass per unit area. Convective snow bands develop in response to a cold air outbreak from the continent or the frozen sea over the open water surface of lakes or seas." ;
+                              rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#convective_snowfall_flux
+cf:convective_snowfall_flux a owl:NamedIndividual ,
+                                dim:MassPerTimePerArea ;
+                            rdfs:label "convective snowfall flux" ;
+                            rdfs:comment "In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics" ;
+                            rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#large_scale_snowfall_amount
+cf:large_scale_snowfall_amount a owl:NamedIndividual ,
+                                dim:SurfaceDensity ;
+                               rdfs:label "large scale snowfall amount" ;
+                               rdfs:comment "\"Amount\" means mass per unit area" ;
+                               rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#large_scale_snowfall_flux
+cf:large_scale_snowfall_flux a owl:NamedIndividual ,
+                                dim:MassPerTimePerArea ;
+                             rdfs:label "large scale snowfall flux" ;
+                             rdfs:comment "In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics." ;
+                             rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#lwe_convective_snowfall_rate
+cf:lwe_convective_snowfall_rate a owl:NamedIndividual ,
+                                dim:VelocityOrSpeed ;
+                                rdfs:label "lwe convective snowfall rate" ;
+                                rdfs:comment "\"lwe\" means liquid water equivalent" ;
+                                rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#lwe_large_scale_snowfall_rate
+cf:lwe_large_scale_snowfall_rate a owl:NamedIndividual ,
+                                        dim:VelocityOrSpeed ;
+                                 rdfs:label "lwe large scale snowfall rate" ;
+                                 rdfs:comment "\"lwe\" means liquid water equivalent" ;
+                                 rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#lwe_snowfall_rate
+cf:lwe_snowfall_rate a owl:NamedIndividual ,
+                        dim:VelocityOrSpeed ;
+                     rdfs:label "lwe snowfall rate" ;
+                     rdfs:comment "\"lwe\" means liquid water equivalent" ;
+                     rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#lwe_thickness_of_convective_snowfall_amount
+cf:lwe_thickness_of_convective_snowfall_amount a owl:NamedIndividual ,
+                                                dim:Distance ;
+                                               rdfs:label "lwe thickness of convective snowfall amount" ;
+                                               rdfs:comment "\"lwe\" means liquid water equivalent. \"Amount\" means mass per unit area. The construction lwe_thickness_of_X_amount or _content means the vertical extent of a layer of liquid water having the same mass per unit area." ;
+                                               rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#lwe_thickness_of_large_scale_snowfall_amount
+cf:lwe_thickness_of_large_scale_snowfall_amount a owl:NamedIndividual ,
+                                                dim:Distance ;
+                                                rdfs:label "lwe thickness of large scale snowfall amount" ;
+                                                rdfs:comment "\"lwe\" means liquid water equivalent. \"Amount\" means mass per unit area. The construction lwe_thickness_of_X_amount or _content means the vertical extent of a layer of liquid water having the same mass per unit area." ;
+                                                rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#lwe_thickness_of_snowfall_amount
+cf:lwe_thickness_of_snowfall_amount a owl:NamedIndividual ,
+                                        dim:Distance ;
+                                    rdfs:label "lwe thickness of snowfall amount" ;
+                                    rdfs:comment "\"lwe\" means liquid water equivalent. \"Amount\" means mass per unit area. The construction lwe_thickness_of_X_amount or _content means the vertical extent of a layer of liquid water having the same mass per unit area" ;
+                                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#snow_density
+cf:snow_density a owl:NamedIndividual ,
+                dim:Density ;
+                rdfs:label "snow density" ;
+                rdfs:comment "the amount of snow in per meter cube" ;
+                rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#snow_grain_size
+cf:snow_grain_size a owl:NamedIndividual ,
+                        dim:Distance ;
+                   rdfs:label "snow grain size" ;
+                   rdfs:comment "the size of a snow grain " ;
+                   rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#snow_soot_content
+cf:snow_soot_content a owl:NamedIndividual ,
+                        dim:SurfaceDensity ;
+                     rdfs:label "snow soot content" ;
+                     rdfs:comment "\"Content\" indicates a quantity per unit area" ;
+                     rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#snow_temperature
+cf:snow_temperature a owl:NamedIndividual ,
+                        dim:Temperature ;
+                    rdfs:label "snow temperature" ;
+                    rdfs:comment "Snow temperature is the bulk temperature of the snow, not the surface (skin) temperature" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#snowfall_amount
+cf:snowfall_amount a owl:NamedIndividual ,
+                        dim:SurfaceDensity ;
+                   rdfs:label "snowfall amount" ;
+                   rdfs:comment "\"Amount\" means mass per unit area" ;
+                   rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#snowfall_flux
+cf:snowfall_flux a owl:NamedIndividual ,
+                        dim:MassPerTimePerArea ;
+                 rdfs:label "snowfall flux" ;
+                 rdfs:comment "In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics" ;
+                 rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#sound_intensity_in_air
+cf:sound_intensity_in_air a owl:NamedIndividual ,
+                                dim:EnergyFlux ;
+                          rdfs:label "sound intensity in air" ;
+                          rdfs:comment "Sound intensity is the sound energy per unit time per unit area" ;
+                          rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#sound_pressure_in_air
+cf:sound_pressure_in_air a owl:NamedIndividual ,
+                                dim:StressOrPressure ;
+                         rdfs:label "sound pressure in air" ;
+                         rdfs:comment "Sound pressure is the difference from the local ambient pressure caused by a sound wave at a particular location and time" ;
+                         rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#thickness_of_convective_snowfall_amount
+cf:thickness_of_convective_snowfall_amount a owl:NamedIndividual ,
+                                                dim:Distance ;
+                                           rdfs:label "thickness of convective snowfall amount" ;
+                                           rdfs:comment "\"Amount\" means mass per unit area. The construction thickness_of_[X_]snowfall_amount means the accumulated \"depth\" of snow which fell i.e. the thickness of the layer of snow at its own density. There are corresponding standard names for liquid water equivalent (lwe) thickness" ;
+                                           rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#thickness_of_large_scale_rainfall_amount
+cf:thickness_of_large_scale_rainfall_amount a owl:NamedIndividual ,
+                                                dim:Distance ;
+                                            rdfs:label "thickness of large scale rainfall amount" ;
+                                            rdfs:comment "\"Amount\" means mass per unit area. The construction thickness_of_[X_]rainfall_amount means the accumulated \"depth\" of rainfall i.e. the thickness of a layer of liquid water having the same mass per unit area as the rainfall amount" ;
+                                            rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#thickness_of_large_scale_snowfall_amount
+cf:thickness_of_large_scale_snowfall_amount a owl:NamedIndividual ,
+                                                dim:Distance ;
+                                            rdfs:label "thickness of large scale snowfall amount" ;
+                                            rdfs:comment "\"Amount\" means mass per unit area. The construction thickness_of_[X_]snowfall_amount means the accumulated \"depth\" of snow which fell i.e. the thickness of the layer of snow at its own density. There are corresponding standard names for liquid water equivalent (lwe) thickness" ;
+                                            rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#thickness_of_rainfall_amount
+cf:thickness_of_rainfall_amount a owl:NamedIndividual ,
+                                        dim:Distance ;
+                                rdfs:label "thickness of rainfall amount" ;
+                                rdfs:comment "\"Amount\" means mass per unit area. The construction thickness_of_[X_]rainfall_amount means the accumulated \"depth\" of rainfall i.e. the thickness of a layer of liquid water having the same mass per unit area as the rainfall amount" ;
+                                rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#thickness_of_snowfall_amount
+cf:thickness_of_snowfall_amount a owl:NamedIndividual ,
+                                        dim:Distance ;
+                                rdfs:label "thickness of snowfall amount" ;
+                                rdfs:comment "\"Amount\" means mass per unit area. The construction thickness_of_[X_]snowfall_amount means the accumulated \"depth\" of snow which fell i.e. the thickness of the layer of snow at its own density. There are corresponding standard names for liquid water equivalent (lwe) thickness" ;
+                                rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#wind_speed
+cf:wind_speed a owl:NamedIndividual ,
+                                        dim:VelocityOrSpeed ;
+                                    rdfs:label "wind speed" ;
+                                    rdfs:comment "Speed is the magnitude of velocity. Wind is defined as a two-dimensional (horizontal) air velocity vector, with no vertical component. (Vertical motion in the atmosphere has the standard name upward_air_velocity.) The wind speed is the magnitude of the wind velocity" ;
+                                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#air_temperature
+cf:air_temperature a owl:NamedIndividual ,
+                                        dim:Temperature ;
+                                    rdfs:label "air temperature" ;
+                                    rdfs:comment "Air temperature is the bulk temperature of the air, not the surface (skin) temperature" ;
+                                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+###  http://purl.oclc.org/NET/ssnx/cf/cf-property#precipitation_amount
+cf:precipitation_amount a owl:NamedIndividual ,
+                                        dim:SurfaceDensity ;
+                                    rdfs:label "precipitation amount" ;
+                                    rdfs:comment "\"Amount\" means mass per unit area" ;
+                                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+### http://purl.oclc.org/NET/ssnx/cf/cf-property#air_pressure_at_sea_level
+cf:air_pressure_at_sea_level  a owl:NamedIndividual , dim:StressOrPressure ;
+  														rdfs:label "air pressure at sea level" ;
+  														rdfs:comment "sea_level means mean sea level, which is close to the geoid in sea areas. Air pressure at sea level is the quantity often abbreviated as MSLP or PMSL." ;
+  														rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+  
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#eastward_wind>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VelocityOrSpeed> ;
+  rdfs:label "eastward wind" ;
+  rdfs:comment "\"Eastward\" indicates a vector component which is positive when directed eastward (negative westward). Wind is defined as a two-dimensional (horizontal) air velocity vector, with no vertical component. (Vertical motion in the atmosphere has the standard name upward_air_velocity.)" ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#northward_wind>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VelocityOrSpeed> ;
+  rdfs:label "northward wind" ;
+  rdfs:comment "\"Northward\" indicates a vector component which is positive when directed northward (negative southward). Wind is defined as a two-dimensional (horizontal) air velocity vector, with no vertical component. (Vertical motion in the atmosphere has the standard name upward_air_velocity.)" ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .  
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#land_binary_mask>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Dimensionless> ;
+  rdfs:label "land binary mask" ;
+  rdfs:comment "X_binary_mask has 1 where condition X is met, 0 elsewhere. 1 = land, 0 = sea." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#sea_surface_wave_significant_height>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Distance> ;
+  rdfs:label "sea surface wave significant height" ;
+  rdfs:comment "Height is the vertical distance above the surface." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#sea_surface_wave_period_at_variance_spectral_density_maximum>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Duration> ;
+  rdfs:label "sea surface wave period at variance spectral density maximum" ;
+  rdfs:comment "A period is an interval of time, or the time-period of an oscillation.  The sea_surface_wave_period_at_variance_spectral_density_maximum, sometimes called peak wave period, is the period of the most energetic waves in the total wave spectrum at a specific location." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .  
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#sea_surface_wave_mean_period_from_variance_spectral_density_second_frequency_moment>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Duration> ;
+  rdfs:label "sea surface wave mean period from variance spectral density second frequency moment" ;
+  rdfs:comment "The wave directional spectrum can be written as a  five dimensional function S(t,x,y,f,theta) where t is time, x and y are horizontal coordinates (such as longitude and latitude), f is frequency and theta is direction.  S has the standard name sea_surface_wave_directional_variance_spectral_density.  S can be integrated over direction to give S1= integral(S dtheta) and this quantity has the standard name sea_surface_wave_variance_spectral_density.  Frequency moments, M(n) of S1 can then be calculated as follows: M(n) = integral(S1 f^n df), where f^n is f to the power of n.  The second wave period, T(m2) is calculated as the square root of the ratio M(0)/M(2)." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .  
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#sea_ice_area_fraction>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Dimensionless> ;
+  rdfs:label "sea ice area fraction" ;
+  rdfs:comment "\"X_area_fraction\" means the fraction of horizontal area occupied by X. \"X_area\" means the horizontal area occupied by X within the grid cell. Sea ice area fraction is area of the sea surface occupied by sea ice. It is also called \"sea ice concentration\"." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .  
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#sea_ice_volume>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Volume> ;
+  rdfs:label "sea ice volume" ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#sea_ice_x_displacement>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Distance> ;
+  rdfs:label "sea ice x displacement" ;
+  rdfs:comment "\"x\" indicates a vector component along the grid x-axis, when this is not true longitude, positive with increasing x.  \"Displacement\" means the change in geospatial position of an object that has moved over time. If possible, the time interval over which the motion took place should be specified using a bounds variable for the time coordinate variable.  A displacement can be represented as a vector. Such a vector should however not be interpreted as describing a rectilinear, constant speed motion but merely as an indication that the start point of the vector is found at the tip of the vector after the time interval associated with the displacement variable.  A displacement does not prescribe a trajectory. Sea ice displacement can be defined as a two-dimensional vector, with no vertical component. An x displacement is calculated from the difference in the moving object's grid x coordinate between the start and end of the time interval associated with the displacement variable." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#sea_ice_x_velocity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VelocityOrSpeed> ;
+  rdfs:label "sea ice x velocity" ;
+  rdfs:comment "A velocity is a vector quantity. \"x\" indicates a vector component along the grid x-axis, when this is not true longitude, positive with increasing x." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#sea_ice_y_displacement>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Distance> ;
+  rdfs:label "sea ice y displacement" ;
+  rdfs:comment "\"y\" indicates a vector component along the grid y-axis, when this is not true latitude, positive with increasing y.  \"Displacement\" means the change in geospatial position of an object that has moved over time. If possible, the time interval over which the motion took place should be specified using a bounds variable for the time coordinate variable.  A displacement can be represented as a vector. Such a vector should however not be interpreted as describing a rectilinear, constant speed motion but merely as an indication that the start point of the vector is found at the tip of the vector after the time interval associated with the displacement variable.  A displacement does not prescribe a trajectory. Sea ice displacement can be defined as a two-dimensional vector, with no vertical component. A y displacement is calculated from the difference in the moving object's grid y coordinate between the start and end of the time interval associated with the displacement variable." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#sea_ice_y_velocity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VelocityOrSpeed> ;
+  rdfs:label "sea ice y velocity" ;
+  rdfs:comment "A velocity is a vector quantity. \"y\" indicates a vector component along the grid y-axis, when this is not true latitude, positive with increasing y." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#sea_surface_density>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Density> ;
+  rdfs:label "sea surface density" ;
+  rdfs:comment " Sea surface density is the density of sea water near the surface (including the part under sea-ice, if any)." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .  
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#sea_floor_depth_below_sea_level>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Distance> ;
+  rdfs:label "sea floor depth below sea level" ;
+  rdfs:comment "sea_level means mean sea level, which is close to the geoid in sea areas." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .  
+
+### ALL OCEAN PROPERTIES
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#northward_ocean_freshwater_transport>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassFlowRate> ;
+  rdfs:label "northward ocean freshwater transport" ;
+  rdfs:comment "\"Northward\" indicates a vector component which is positive when directed northward (negative southward). Ocean transport means transport by all processes, both sea water and sea ice." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#northward_ocean_freshwater_transport_due_to_bolus_advection>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassFlowRate> ;
+  rdfs:label "northward ocean freshwater transport due to bolus advection" ;
+  rdfs:comment "The specification of a physical process by the phrase due_to_process means that the quantity named is a single term in a sum of terms which together compose the general quantity named by omitting the phrase. \"Northward\" indicates a vector component which is positive when directed northward (negative southward). Northward transport by bolus advection in an ocean model means the part due to a scheme representing eddy-induced effects not included in the velocity field." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#northward_ocean_freshwater_transport_due_to_diffusion>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassFlowRate> ;
+  rdfs:label "northward ocean freshwater transport due to diffusion" ;
+  rdfs:comment "The specification of a physical process by the phrase due_to_process means that the quantity named is a single term in a sum of terms which together compose the general quantity named by omitting the phrase. \"Northward\" indicates a vector component which is positive when directed northward (negative southward). Northward transport by diffusion means the part due to horizontal or isopyncal diffusion schemes in an ocean model, but not including the \"bolus\" or Gent-McWilliams velocity." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#northward_ocean_freshwater_transport_due_to_gyre>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassFlowRate> ;
+  rdfs:label "northward ocean freshwater transport due to gyre" ;
+  rdfs:comment "The specification of a physical process by the phrase due_to_process means that the quantity named is a single term in a sum of terms which together compose the general quantity named by omitting the phrase. \"Northward\" indicates a vector component which is positive when directed northward (negative southward). Northward transport by the ocean gyre is geometrically defined as being the part due to the vertical integral of the product of deviations of velocity and tracer from their zonal means. The velocity does not include \"bolus\" or Gent-McWilliams velocity." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#northward_ocean_freshwater_transport_due_to_overturning>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassFlowRate> ;
+  rdfs:label "northward ocean freshwater transport due to overturning" ;
+  rdfs:comment "The specification of a physical process by the phrase due_to_process means that the quantity named is a single term in a sum of terms which together compose the general quantity named by omitting the phrase. \"Northward\" indicates a vector component which is positive when directed northward (negative southward). Northward transport by (meridional) overturning is geometrically defined as being the part due to the vertical integral of the product of zonal means of velocity and tracer. The velocity does not include \"bolus\" or Gent-McWilliams velocity." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#northward_ocean_heat_transport>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Power> ;
+  rdfs:label "northward ocean heat transport" ;
+  rdfs:comment "\"Northward\" indicates a vector component which is positive when directed northward (negative southward). Ocean transport means transport by all processes, both sea water and sea ice." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#northward_ocean_heat_transport_due_to_bolus_advection>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Power> ;
+  rdfs:label "northward ocean heat transport due to bolus advection" ;
+  rdfs:comment "The specification of a physical process by the phrase due_to_process means that the quantity named is a single term in a sum of terms which together compose the general quantity named by omitting the phrase. \"Northward\" indicates a vector component which is positive when directed northward (negative southward). Northward transport by bolus advection in an ocean model means the part due to a scheme representing eddy-induced effects not included in the velocity field." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#northward_ocean_heat_transport_due_to_diffusion>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Power> ;
+  rdfs:label "northward ocean heat transport due to diffusion" ;
+  rdfs:comment "The specification of a physical process by the phrase due_to_process means that the quantity named is a single term in a sum of terms which together compose the general quantity named by omitting the phrase. \"Northward\" indicates a vector component which is positive when directed northward (negative southward). Northward transport by diffusion means the part due to horizontal or isopyncal diffusion schemes in an ocean model, but not including the \"bolus\" or Gent-McWilliams velocity." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#northward_ocean_heat_transport_due_to_gyre>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Power> ;
+  rdfs:label "northward ocean heat transport due to gyre" ;
+  rdfs:comment "The specification of a physical process by the phrase due_to_process means that the quantity named is a single term in a sum of terms which together compose the general quantity named by omitting the phrase. \"Northward\" indicates a vector component which is positive when directed northward (negative southward). Northward transport by the ocean gyre is geometrically defined as being the part due to the vertical integral of the product of deviations of velocity and tracer from their zonal means. The velocity does not include \"bolus\" or Gent-McWilliams velocity." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#northward_ocean_heat_transport_due_to_overturning>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Power> ;
+  rdfs:label "northward ocean heat transport due to overturning" ;
+  rdfs:comment "The specification of a physical process by the phrase due_to_process means that the quantity named is a single term in a sum of terms which together compose the general quantity named by omitting the phrase. \"Northward\" indicates a vector component which is positive when directed northward (negative southward). Northward transport by (meridional) overturning is geometrically defined as being the part due to the vertical integral of the product of zonal means of velocity and tracer. The velocity does not include \"bolus\" or Gent-McWilliams velocity." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#northward_ocean_salt_transport>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassFlowRate> ;
+  rdfs:label "northward ocean salt transport" ;
+  rdfs:comment "\"Northward\" indicates a vector component which is positive when directed northward (negative southward). Ocean transport means transport by all processes, both sea water and sea ice." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#northward_ocean_salt_transport_due_to_bolus_advection>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassFlowRate> ;
+  rdfs:label "northward ocean salt transport due to bolus advection" ;
+  rdfs:comment "The specification of a physical process by the phrase due_to_process means that the quantity named is a single term in a sum of terms which together compose the general quantity named by omitting the phrase. \"Northward\" indicates a vector component which is positive when directed northward (negative southward). Northward transport by bolus advection in an ocean model means the part due to a scheme representing eddy-induced effects not included in the velocity field." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#northward_ocean_salt_transport_due_to_diffusion>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassFlowRate> ;
+  rdfs:label "northward ocean salt transport due to diffusion" ;
+  rdfs:comment "The specification of a physical process by the phrase due_to_process means that the quantity named is a single term in a sum of terms which together compose the general quantity named by omitting the phrase. \"Northward\" indicates a vector component which is positive when directed northward (negative southward). Northward transport by diffusion means the part due to horizontal or isopyncal diffusion schemes in an ocean model, but not including the \"bolus\" or Gent-McWilliams velocity." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#northward_ocean_salt_transport_due_to_gyre>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassFlowRate> ;
+  rdfs:label "northward ocean salt transport due to gyre" ;
+  rdfs:comment "The specification of a physical process by the phrase due_to_process means that the quantity named is a single term in a sum of terms which together compose the general quantity named by omitting the phrase. \"Northward\" indicates a vector component which is positive when directed northward (negative southward). Northward transport by the ocean gyre is geometrically defined as being the part due to the vertical integral of the product of deviations of velocity and tracer from their zonal means. The velocity does not include \"bolus\" or Gent-McWilliams velocity." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#northward_ocean_salt_transport_due_to_overturning>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassFlowRate> ;
+  rdfs:label "northward ocean salt transport due to overturning" ;
+  rdfs:comment "The specification of a physical process by the phrase due_to_process means that the quantity named is a single term in a sum of terms which together compose the general quantity named by omitting the phrase. \"Northward\" indicates a vector component which is positive when directed northward (negative southward). Northward transport by (meridional) overturning is geometrically defined as being the part due to the vertical integral of the product of zonal means of velocity and tracer. The velocity does not include \"bolus\" or Gent-McWilliams velocity." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_barotropic_mass_streamfunction>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassFlowRate> ;
+  rdfs:label "ocean barotropic mass streamfunction" ;
+  rdfs:comment " The barotropic stream function with the dimensions of volume transport has the standard name ocean_barotropic_streamfunction." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_barotropic_streamfunction>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VolumeFlowRate> ;
+  rdfs:label "ocean barotropic streamfunction" ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/qu/quantity#volumeFlowRate> a <http://purl.oclc.org/NET/ssnx/qu/dim#VolumeFlowRate> .
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_heat_x_transport>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Power> ;
+  rdfs:label "ocean heat x transport" ;
+  rdfs:comment " \"x\" indicates a vector component along the grid x-axis, when this is not true longitude, positive with increasing x. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_heat_x_transport_due_to_bolus_advection>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Power> ;
+  rdfs:label "ocean heat x transport due to bolus advection" ;
+  rdfs:comment " \"x\" indicates a vector component along the grid x-axis, when this is not true longitude, positive with increasing x.  Transport by bolus advection in an ocean model means the part due to a scheme representing eddy-induced effects not included in the velocity field.  The specification of a physical process by the phrase due_to_processmeans that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_heat_x_transport_due_to_diffusion>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Power> ;
+  rdfs:label "ocean heat x transport due to diffusion" ;
+  rdfs:comment " \"x\" indicates a vector component along the grid x-axis, when this is not true longitude, positive with increasing x.  The specification of a physical process by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_heat_y_transport>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Power> ;
+  rdfs:label "ocean heat y transport" ;
+  rdfs:comment " \"y\" indicates a vector component along the grid y-axis, when this is not true latitude, positive with increasing y. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_heat_y_transport_due_to_bolus_advection>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Power> ;
+  rdfs:label "ocean heat y transport due to bolus advection" ;
+  rdfs:comment " \"y\" indicates a vector component along the grid y-axis, when this is not true latitude, positive with increasing y.  Transport by bolus advection in an ocean model means the part due to a scheme representing eddy-induced effects not included inthe velocity field.  The specification of a physical process by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_heat_y_transport_due_to_diffusion>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Power> ;
+  rdfs:label "ocean heat y transport due to diffusion" ;
+  rdfs:comment " \"y\" indicates a vector component along the grid y-axis, when this is not true latitude, positive with increasing y.  The specification of a physical process by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_isopycnal_layer_thickness_diffusivity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#DiffusionCoefficient> ;
+  rdfs:label "ocean isopycnal layer thickness diffusivity" ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_kinetic_energy_dissipation_per_unit_area_due_to_vertical_friction>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#EnergyFlux> ;
+  rdfs:label "ocean kinetic energy dissipation per unit area due to vertical friction" ;
+  rdfs:comment " Friction, leading to the dissipation of kinetic energy, arises in ocean models as a result of the viscosity of sea water.  Generally, the  lateral (xy) viscosity is given a large value to maintain the numerical stability of the model.  In contrast, the vertical viscosity is usually much smaller. The specification of a physical process by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_kinetic_energy_dissipation_per_unit_area_due_to_xy_friction>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#EnergyFlux> ;
+  rdfs:label "ocean kinetic energy dissipation per unit area due to xy friction" ;
+  rdfs:comment " Friction, leading to the dissipation of kinetic energy, arises in ocean models as a result of the viscosity of sea water.  Generally, the  lateral (xy) viscosity is given a large value to maintain the numerical stability of the model.  In contrast, the vertical viscosity is usually much smaller. The specification of a physical process by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_mass_content_of_dissolved_inorganic_carbon>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#SurfaceDensity> ;
+  rdfs:label "ocean mass content of dissolved inorganic carbon" ;
+  rdfs:comment " \"Content\" indicates a quantity per unit area. \"Dissolvedinorganic carbon\" describes a family of chemical species in solution, including carbon dioxide, carbonic acid and the carbonate and bicarbonate anions. \"Dissolved inorganic carbon\" is the term used in standard names for all species belonging to the family that are represented within a given model. The list of individual species that are included in a quantity having a group chemical standard name can vary between models.  Where possible, the data variable should be accompanied by a complete description of the species represented, for example, by using a comment attribute." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_mass_x_transport>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassFlowRate> ;
+  rdfs:label "ocean mass x transport" ;
+  rdfs:comment " \"x\" indicates a vector component along the grid x-axis, when this is not true longitude, positive with increasing x." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_mass_x_transport_due_to_advection>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassFlowRate> ;
+  rdfs:label "ocean mass x transport due to advection" ;
+  rdfs:comment " \"x\" indicates a vector component along the grid x-axis, when this is not true longitude, positive with increasing x.  The specification of a physical process by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_mass_x_transport_due_to_advection_and_bolus_advection>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassFlowRate> ;
+  rdfs:label "ocean mass x transport due to advection and bolus advection" ;
+  rdfs:comment " \"x\" indicates a vector component along the grid x-axis, when this is not true longitude, positive with increasing x.  The specification of a physical process by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase.  Transport by bolus advection in an ocean model means the part due to a scheme representing eddy-induced effects not included in the velocity field. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_mass_y_transport>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassFlowRate> ;
+  rdfs:label "ocean mass y transport" ;
+  rdfs:comment " \"y\" indicates a vector component along the grid y-axis, when this is not true latitude, positive with increasing y." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_mass_y_transport_due_to_advection>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassFlowRate> ;
+  rdfs:label "ocean mass y transport due to advection" ;
+  rdfs:comment " \"y\" indicates a vector component along the grid y-axis, when this is not true latitude, positive with increasing y.  The specification of a physical process by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_mass_y_transport_due_to_advection_and_bolus_advection>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassFlowRate> ;
+  rdfs:label "ocean mass y transport due to advection and bolus advection" ;
+  rdfs:comment " \"y\" indicates a vector component along the grid y-axis, when this is not true latitude, positive with increasing y.  Transport by bolus advection in an ocean model means the part due to a scheme representing eddy-induced effects not included inthe velocity field.  The specification of a physical process by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_meridional_overturning_mass_streamfunction>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassFlowRate> ;
+  rdfs:label "ocean meridional overturning mass streamfunction" ;
+  rdfs:comment " In contrast to the quantity with standard name ocean_meridional_overturning_streamfunction, this quantity includes all physical processes, resolved or parameterized, that impact mass/volume transport.  Thus it includes contributions from the bolus and Gent-McWilliams velocity." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_meridional_overturning_mass_streamfunction_due_to_bolus_advection>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassFlowRate> ;
+  rdfs:label "ocean meridional overturning mass streamfunction due to bolus advection" ;
+  rdfs:comment " The specification of a physical process by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_meridional_overturning_streamfunction>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VolumeFlowRate> ;
+  rdfs:label "ocean meridional overturning streamfunction" ;
+  rdfs:comment "The ocean meridional overturning streamfunction should not include not include \"bolus\" or Gent-McWilliams velocity." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .  
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_momentum_xy_laplacian_diffusivity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#DiffusionCoefficient> ;
+  rdfs:label "ocean momentum xy laplacian diffusivity" ;
+  rdfs:comment " Diffusivity is also sometimes known as the coefficient of diffusion. Diffusion occurs as a result of a gradient in the spatial distribution of mass concentration, temperature or momentum.  The diffusivity may be very different in the vertical and horizontal directions. \"xy diffusivity\" means the lateral along_coordinate component of diffusivity due to motion which is not resolved on the grid scale of the model.  xy diffusivities are used in some ocean models to counteract the numerical instabilities inherent in certain implementations of rotated neutral diffusion. \"laplacian diffusivity\" means diffusivity for use with a Laplacian diffusion operator." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_rigid_lid_pressure>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#StressOrPressure> ;
+  rdfs:label "ocean rigid lid pressure" ;
+  rdfs:comment "\"Ocean rigid lid pressure\" means the pressure at the surface of an ocean model assuming that it is bounded above by a rigid lid." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_rigid_lid_pressure_expressed_as_sea_surface_height_above_geoid>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Distance> ;
+  rdfs:label "ocean rigid lid pressure expressed as sea surface height above geoid" ;
+  rdfs:comment "\"Ocean rigid lid pressure\" means the pressure at the surface of an ocean model assuming that it is bounded above by a rigid lid." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_s_coordinate>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Dimensionless> ;
+  rdfs:label "ocean s coordinate" ;
+  rdfs:comment "See Appendix D of the CF convention for information about dimensionless vertical coordinates." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_sigma_coordinate>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Dimensionless> ;
+  rdfs:label "ocean sigma coordinate" ;
+  rdfs:comment "See Appendix D of the CF convention for information about dimensionless vertical coordinates. Note that the ocean sigma coordinate is not the same quantity as sea water sigma (excess of density over 1000 kg m-3), for which there are various other standard names." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_tracer_bolus_laplacian_diffusivity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#DiffusionCoefficient> ;
+  rdfs:label "ocean tracer bolus laplacian diffusivity" ;
+  rdfs:comment " Diffusivity is also sometimes known as the coefficient of diffusion. Diffusion occurs as a result of a gradient in the spatial distribution of mass concentration, temperature or momentum.  The diffusivity may be very different in the vertical and horizontal directions. \"Bolus diffusivity\" means a lateral diffusivity. \"laplacian diffusivity\" means diffusivity for use with a Laplacian diffusion operator." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_tracer_epineutral_laplacian_diffusivity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#DiffusionCoefficient> ;
+  rdfs:label "ocean tracer epineutral laplacian diffusivity" ;
+  rdfs:comment " Diffusivity is also sometimes known as the coefficient of diffusion. Diffusion occurs as a result of a gradient in the spatial distribution of mass concentration, temperature or momentum.  The diffusivity may be very different in the vertical and horizontal directions. \"epineutral diffusivity\" means a lateral diffusivity along a either a neutral or isopycnal density surface due to motion which is not resolved on the grid scale of an ocean model. The type of density surface is dependent on the model formulation. \"laplacian diffusivity\" means diffusivity for use with a Laplacian diffusion operator." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_tracer_xy_laplacian_diffusivity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#DiffusionCoefficient> ;
+  rdfs:label "ocean tracer xy laplacian diffusivity" ;
+  rdfs:comment " Diffusivity is also sometimes known as the coefficient of diffusion. Diffusion occurs as a result of a gradient in the spatial distribution of mass concentration, temperature or momentum.  The diffusivity may be very different in the vertical and horizontal directions. \"xy diffusivity\" means the lateral along_coordinate component of diffusivity due to motion which is not resolved on the grid scale of the model.  xy diffusivities are used in some ocean models to counteract the numerical instabilities inherent in certain implementations of rotated neutral diffusion. \"laplacian diffusivity\" means diffusivity for use with a Laplacian diffusion operator." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_vertical_diffusivity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#DiffusionCoefficient> ;
+  rdfs:label "ocean vertical diffusivity" ;
+  rdfs:comment "\"Vertical diffusivity\" means the vertical component of diffusivity due to motion which is not resolved on the grid scale of the model." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_vertical_heat_diffusivity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#DiffusionCoefficient> ;
+  rdfs:label "ocean vertical heat diffusivity" ;
+  rdfs:comment "\"Vertical heat diffusivity\" means the vertical component of the diffusivity of heat due to motion which is not resolved on the grid scale of the model." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_vertical_momentum_diffusivity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#DiffusionCoefficient> ;
+  rdfs:label "ocean vertical momentum diffusivity" ;
+  rdfs:comment "\"Vertical momentum diffusivity\" means the vertical component of the diffusivity of momentum due to motion which is not resolved on the grid scale of the model. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_vertical_momentum_diffusivity_due_to_background>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#DiffusionCoefficient> ;
+  rdfs:label "ocean vertical momentum diffusivity due to background" ;
+  rdfs:comment " Diffusivity is also sometimes known as the coefficient of diffusion. Diffusion occurs as a result of a gradient in the spatial distribution of mass concentration, temperature or momentum.  The diffusivity may be very different in the vertical and horizontal directions. The construction vertical_X_diffusivity means the vertical component of thediffusivity of X due to motion which is not resolved on the grid scale of the model. \"Due to background\" means caused by a time invariant imposed field which may be eitherconstant over the globe or spatially varying, depending on the ocean model used. The specification of a physical process by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_vertical_momentum_diffusivity_due_to_convection>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#DiffusionCoefficient> ;
+  rdfs:label "ocean vertical momentum diffusivity due to convection" ;
+  rdfs:comment "The specification of a physical process by the phrase due_to_process means that the quantity named is a single term in a sum of terms which together compose the general quantity named by omitting the phrase. \"Vertical momentum diffusivity\" means the vertical component of the diffusivity of momentum due to motion which is not resolved on the grid scale of the model. Convective mixing in the ocean is somtimes modelled as an enhanced diffusivity." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_vertical_momentum_diffusivity_due_to_form_drag>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#DiffusionCoefficient> ;
+  rdfs:label "ocean vertical momentum diffusivity due to form drag" ;
+  rdfs:comment " Diffusivity is also sometimes known as the coefficient of diffusion. Diffusion occurs as a result of a gradient in the spatial distribution of mass concentration, temperature or momentum.  The diffusivity may be very different in the vertical and horizontal directions. The construction vertical_X_diffusivity means the vertical component of thediffusivity of X due to motion which is not resolved on the grid scale of the model. \"Due to form drag\" refers to a vertical diffusivity resulting from a model scheme representing  mesoscale eddy-induced form drag. The specification of a physical process by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_vertical_momentum_diffusivity_due_to_tides>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#DiffusionCoefficient> ;
+  rdfs:label "ocean vertical momentum diffusivity due to tides" ;
+  rdfs:comment " Diffusivity is also sometimes known as the coefficient of diffusion. Diffusion occurs as a result of a gradient in the spatial distribution of mass concentration, temperature or momentum.  The diffusivity may be very different in the vertical and horizontal directions. The construction vertical_X_diffusivity means the vertical component of thediffusivity of X due to motion which is not resolved on the grid scale of the model. \"Due to tides\" means due to all astronomical gravity changes which manifest as tides.No distinction is made between different tidal components. The specification of a physicalprocess by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_vertical_salt_diffusivity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#DiffusionCoefficient> ;
+  rdfs:label "ocean vertical salt diffusivity" ;
+  rdfs:comment "\"Vertical salt diffusivity\" means the vertical component of the diffusivity of salt due to motion which is not resolved on the grid scale of the model." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_vertical_tracer_diffusivity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#DiffusionCoefficient> ;
+  rdfs:label "ocean vertical tracer diffusivity" ;
+  rdfs:comment "\"Vertical tracer diffusivity\" means the vertical component of the diffusivity of tracers, i.e. heat and salinity, due to motion which is not resolved on the grid scale of the model." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_vertical_tracer_diffusivity_due_to_background>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#DiffusionCoefficient> ;
+  rdfs:label "ocean vertical tracer diffusivity due to background" ;
+  rdfs:comment " Diffusivity is also sometimes known as the coefficient of diffusion. Diffusion occurs as a result of a gradient in the spatial distribution of mass concentration, temperature or momentum.  The diffusivity may be very different in the vertical and horizontal directions. The construction vertical_X_diffusivity means the vertical component of thediffusivity of X due to motion which is not resolved on the grid scale of the model. \"Due to background\" means caused by a time invariant imposed field which may be eitherconstant over the globe or spatially varying, depending on the ocean model used. The specification of a physical process by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_vertical_tracer_diffusivity_due_to_convection>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#DiffusionCoefficient> ;
+  rdfs:label "ocean vertical tracer diffusivity due to convection" ;
+  rdfs:comment "The specification of a physical process by the phrase due_to_process means that the quantity named is a single term in a sum of terms which together compose the general quantity named by omitting the phrase. \"Vertical tracer diffusivity\" means the vertical component of the diffusivity of tracers, i.e. heat and salinity, due to motion which is not resolved on the grid scale of the model.  Convective mixing in the ocean is sometimes modelled as an enhanced diffusivity." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_vertical_tracer_diffusivity_due_to_tides>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#DiffusionCoefficient> ;
+  rdfs:label "ocean vertical tracer diffusivity due to tides" ;
+  rdfs:comment " Diffusivity is also sometimes known as the coefficient of diffusion. Diffusion occurs as a result of a gradient in the spatial distribution of mass concentration, temperature or momentum.  The diffusivity may be very different in the vertical and horizontal directions. The construction vertical_X_diffusivity means the vertical component of thediffusivity of X due to motion which is not resolved on the grid scale of the model. \"Due to tides\" means due to all astronomical gravity changes which manifest as tides.No distinction is made between different tidal components. The specification of a physicalprocess by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_vertical_tracer_diffusivity_due_to_wind_mixing>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#DiffusionCoefficient> ;
+  rdfs:label "ocean vertical tracer diffusivity due to wind mixing" ;
+  rdfs:comment "The specification of a physical process by the phrase due_to_process means that the quantity named is a single term in a sum of terms which together compose the general quantity named by omitting the phrase. \"Vertical tracer diffusivity\" means the vertical component of the diffusivity of tracers, i.e. heat and salinity, due to motion which is not resolved on the grid scale of the model." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_volume>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Volume> ;
+  rdfs:label "ocean volume" ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/qu/quantity#volume> a <http://purl.oclc.org/NET/ssnx/qu/dim#Volume> .
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_volume_fraction>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Dimensionless> ;
+  rdfs:label "ocean volume fraction" ;
+  rdfs:comment "\"X_volume_fraction\" means the fraction of volume occupied by X." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_y_overturning_mass_streamfunction>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassFlowRate> ;
+  rdfs:label "ocean y overturning mass streamfunction" ;
+  rdfs:comment " \"y\" indicates a vector component along the grid y-axis, when this is not true latitude, positive with increasing y.  In contrast to the quantity with standard name ocean_meridional_overturning_streamfunction, this quantity includes all physicalprocesses, resolved or parameterized, that impact mass/volume transport.  Thus it includescontributions from the bolus and Gent-McWilliams velocity." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_y_overturning_mass_streamfunction_due_to_bolus_advection>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassFlowRate> ;
+  rdfs:label "ocean y overturning mass streamfunction due to bolus advection" ;
+  rdfs:comment " \"y\" indicates a vector component along the grid y-axis, when this is not true latitude, positive with increasing y.  The specification of a physical process by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#tendency_of_ocean_potential_energy_content>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#EnergyFlux> ;
+  rdfs:label "tendency of ocean potential energy content" ;
+  rdfs:comment " \"Content\" indicates a quantity per unit area.  Potential energy is the sum of the gravitational potential energy relative to the geoid and the centripetal potential energy. (The geopotential is the specific potential energy.)  \"tendency_of_X\" means derivative of X with respect to time. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#tendency_of_ocean_potential_energy_content_due_to_background>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#EnergyFlux> ;
+  rdfs:label "tendency of ocean potential energy content due to background" ;
+  rdfs:comment " \"Content\" indicates a quantity per unit area.  Potential energy is the sum of the gravitational potential energy relative to the geoid and the centripetal potential energy. (The geopotential is the specific potential energy.)  \"Due to background\" means caused by a time invariant imposed field which may be either constant over the globe or spatially varying, depending on the ocean model used. The specification of a physical process by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase.  \"tendency_of_X\" means derivative of X with respect to time. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#tendency_of_ocean_potential_energy_content_due_to_tides>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#EnergyFlux> ;
+  rdfs:label "tendency of ocean potential energy content due to tides" ;
+  rdfs:comment " \"Content\" indicates a quantity per unit area.  Potential energy is the sum of the gravitational potential energy relative to the geoid and the centripetal potential energy. (The geopotential is the specific potential energy.)  \"Due to tides\" means due to all astronomical gravity changes which manifest as tides.  No distinction is made between different tidal components. The specification of a physical process by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase.  \"tendency_of_X\" means derivative of X with respect to time. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#upward_ocean_mass_transport>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassFlowRate> ;
+  rdfs:label "upward ocean mass transport" ;
+  rdfs:comment " \"Upward\" indicates a vector component which is positive when directed upward (negative downward). " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .  
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_mixed_layer_thickness>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Distance> ;
+  rdfs:label "ocean mixed layer thickness" ;
+  rdfs:comment "The ocean mixed layer is the upper part of the ocean, regarded as being well-mixed. Various criteria are used to define the mixed layer; this can be specified by using a standard name of ocean_mixed_layer_defined_byX." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .  
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_mixed_layer_thickness_defined_by_mixing_scheme>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Distance> ;
+  rdfs:label "ocean mixed layer thickness defined by mixing scheme" ;
+  rdfs:comment "The ocean mixed layer is the upper part of the ocean, regarded as being well-mixed. The base of the mixed layer defined by the mixing scheme is a diagnostic of ocean models." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .  
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_mixed_layer_thickness_defined_by_sigma_t>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Distance> ;
+  rdfs:label "ocean mixed layer thickness defined by sigma t" ;
+  rdfs:comment "The ocean mixed layer is the upper part of the ocean, regarded as being well-mixed. The base of the mixed layer defined by temperature, sigma or sigma_theta is the level at which the quantity indicated differs from its surface value by a certain amount." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .  
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_mixed_layer_thickness_defined_by_sigma_theta>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Distance> ;
+  rdfs:label "ocean mixed layer thickness defined by sigma theta" ;
+  rdfs:comment "The ocean mixed layer is the upper part of the ocean, regarded as being well-mixed. The base of the mixed layer defined by temperature, sigma or sigma_theta is the level at which the quantity indicated differs from its surface value by a certain amount." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .  
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_mixed_layer_thickness_defined_by_temperature>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Distance> ;
+  rdfs:label "ocean mixed layer thickness defined by temperature" ;
+  rdfs:comment "The ocean mixed layer is the upper part of the ocean, regarded as being well-mixed. The base of the mixed layer defined by temperature, sigma or sigma_theta is the level at which the quantity indicated differs from its surface value by a certain amount." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .  
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#ocean_mixed_layer_thickness_defined_by_vertical_tracer_diffusivity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Distance> ;
+  rdfs:label "ocean mixed layer thickness defined by vertical tracer diffusivity" ;
+  rdfs:comment "The ocean mixed layer is the upper part of the ocean, regarded as being well-mixed. The base of the mixed layer defined by temperature, sigma, sigma_theta, or vertical diffusivity is the level at which the quantity indicated differs from its surface value by a certain amount. The amount by which the quantity differs can be specified by a scalar coordinate variable." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .  
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#square_of_ocean_mixed_layer_thickness_defined_by_sigma_t>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Area> ;
+  rdfs:label "square of ocean mixed layer thickness defined by sigma t" ;
+  rdfs:comment " The ocean mixed layer is the upper part of the ocean, regarded as being well-mixed.  The base of the mixed layer defined by temperature, sigma, sigma_theta or sigma_t is the level at which the quantity indicated differs from its surface value by a certain amount.  \"Thickness\" means the vertical extent of a layer.  \"square_of_X\" means X*X. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .     
+
+### ALL SEA_WATER PROPERTIES
+  
+### http://purl.oclc.org/NET/ssnx/cf/cf-property#baroclinic_eastward_sea_water_velocity
+cf:baroclinic_eastward_sea_water_velocity  a owl:NamedIndividual , dim:VelocityOrSpeed ;
+  														rdfs:label "baroclinic eastward sea water velocity" ;
+  														rdfs:comment "A velocity is a vector quantity. \"Eastward\" indicates a vector component which is positive when directed eastward (negative westward)." ;
+  														rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+  														
+### http://purl.oclc.org/NET/ssnx/cf/cf-property#baroclinic_northward_sea_water_velocity
+cf:baroclinic_northward_sea_water_velocity  a owl:NamedIndividual , dim:VelocityOrSpeed ;
+  														rdfs:label "baroclinic northward sea water velocity" ;
+  														rdfs:comment "A velocity is a vector quantity. \"Northward\" indicates a vector component which is positive when directed northward (negative southward)." ;
+  														rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .  														
+  
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#barotropic_eastward_sea_water_velocity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VelocityOrSpeed> ;
+  rdfs:label "barotropic eastward sea water velocity" ;
+  rdfs:comment "A velocity is a vector quantity. \"Eastward\" indicates a vector component which is positive when directed eastward (negative westward)." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#barotropic_northward_sea_water_velocity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VelocityOrSpeed> ;
+  rdfs:label "barotropic northward sea water velocity" ;
+  rdfs:comment "A velocity is a vector quantity. \"Northward\" indicates a vector component which is positive when directed northward (negative southward)." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#barotropic_sea_water_x_velocity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VelocityOrSpeed> ;
+  rdfs:label "barotropic sea water x velocity" ;
+  rdfs:comment " A velocity is a vector quantity.  \"x\" indicates a vector component along the grid x-axis, when this is not true longitude, positive with increasing x. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#barotropic_sea_water_y_velocity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VelocityOrSpeed> ;
+  rdfs:label "barotropic sea water y velocity" ;
+  rdfs:comment " A velocity is a vector quantity.  \"y\" indicates a vector component along the grid y-axis, when this is not true latitude, positive with increasing y. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#bolus_eastward_sea_water_velocity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VelocityOrSpeed> ;
+  rdfs:label "bolus eastward sea water velocity" ;
+  rdfs:comment "Bolus velocity in an ocean model means the velocity due to a scheme representing eddy-induced effects which are not resolved on the grid scale of the model.  \"Eastward\" indicates a vector component which is positive when directed eastward (negative westward)." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#bolus_northward_sea_water_velocity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VelocityOrSpeed> ;
+  rdfs:label "bolus northward sea water velocity" ;
+  rdfs:comment "Bolus velocity in an ocean model means the velocity due to a scheme representing eddy-induced effects which are not resolved on the grid scale of the model.  \"Northward\" indicates a vector component which is positive when directed northward (negative southward)." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#bolus_sea_water_x_velocity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VelocityOrSpeed> ;
+  rdfs:label "bolus sea water x velocity" ;
+  rdfs:comment "A velocity is a vector quantity. \"x\" indicates a vector component along the grid x-axis, when this is not true longitude, positive with increasing x. Bolus velocity in an ocean model means the velocity due to a scheme representing eddy-induced effects which are not resolved on the grid scale of the model.  bolus_sea_water_x_velocity is used in some parameteris a tions of lateral diffusion in the ocean. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#bolus_sea_water_y_velocity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VelocityOrSpeed> ;
+  rdfs:label "bolus sea water y velocity" ;
+  rdfs:comment "A velocity is a vector quantity. \"y\" indicates a vector component along the grid y-axis, when this is not true longitude, positive with increasing y. Bolus velocity in an ocean model means the velocity due to a scheme representing eddy-induced effects which are not resolved on the grid scale of the model. bolus_sea_water_y_velocity is used in some parameteris a tions of lateral diffusion in the ocean." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#bolus_upward_sea_water_velocity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VelocityOrSpeed> ;
+  rdfs:label "bolus upward sea water velocity" ;
+  rdfs:comment "Bolus velocity in an ocean model means the velocity due to a scheme representing eddy-induced effects which are not resolved on the grid scale of the model.  \"Upward\" indicates a vector component which is positive when directed upward (negative downward)." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .   
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#depth>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Distance> ;
+  rdfs:label "depth" ;
+  rdfs:comment "Depth is the vertical distance below the surface." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .   
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#depth_at_maximum_upward_derivative_of_sea_water_potential_temperature>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Distance> ;
+  rdfs:label "depth at maximum upward derivative of sea water potential temperature" ;
+  rdfs:comment "This quantity, often used to indicate the \"thermocline depth\", is the depth of the maximum vertical gradient of sea water potential temperature.  Depth is the vertical distance below the surface. Potential temperature is the temperature a parcel of air or sea water would have if moved adiabatically to sea level pressure." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .   
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#depth_of_isosurface_of_sea_water_potential_temperature>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Distance> ;
+  rdfs:label "depth of isosurface of sea water potential temperature" ;
+  rdfs:comment "This quantity, sometimes called the \"isotherm depth\", is the depth (if it exists) at which the sea water potential temperature equals some specified value. This value should be specified in a scalar coordinate variable. Depth is the vertical distance below the surface. Potential temperature is the temperature a parcel of air or sea water would have if moved adiabatically to sea level pressure." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .   
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#direction_of_sea_water_velocity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Angle> ;
+  rdfs:label "direction of sea water velocity" ;
+  rdfs:comment "\"direction_of_X\" means direction of a vector, a bearing. A velocity is a vector quantity." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .   
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#downwelling_photon_flux_in_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#PhotonFluxDensity> ;
+  rdfs:label "downwelling photon flux in sea water" ;
+  rdfs:comment "Downwelling radiation is radiation from above. It does not mean \"net downward\". A photon flux is specified in terms of numbers of photons expressed in moles. In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .   
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#downwelling_photon_spherical_irradiance_in_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#PhotonFluxDensity> ;
+  rdfs:label "downwelling photon spherical irradiance in sea water" ;
+  rdfs:comment "Downwelling radiation is radiation from above. It does not mean \"net downward\". Photon spherical irradiance is the photon flux incident on unit area of a hemispherical (or \"2-pi\") collector. A photon flux is specified in terms of numbers of photons expressed in moles." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .   
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#downwelling_photosynthetic_photon_flux_in_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#PhotonFluxDensity> ;
+  rdfs:label "downwelling photosynthetic photon flux in sea water" ;
+  rdfs:comment "Downwelling radiation is radiation from above. It does not mean \"net downward\". \"Photosynthetic\" radiation is the part of the spectrum which is used in photosynthesis e.g. 300-700 nm. The range of wavelengths could be specified precisely by the bounds of a coordinate of radiation_wavelength. A photon flux is specified in terms of numbers of photons expressed in moles. In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .   
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#downwelling_photosynthetic_photon_spherical_irradiance_in_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#PhotonFluxDensity> ;
+  rdfs:label "downwelling photosynthetic photon spherical irradiance in sea water" ;
+  rdfs:comment "Downwelling radiation is radiation from above. It does not mean \"net downward\". \"Photosynthetic\" radiation is the part of the spectrum which is used in photosynthesis e.g. 300-700 nm. The range of wavelengths could be specified precisely by the bounds of a coordinate of radiation_wavelength. Photon spherical irradiance is the photon flux incident on unit area of a hemispherical (or \"2-pi\") collector. A photon flux is specified in terms of numbers of photons expressed in moles." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .   
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#downwelling_photosynthetic_radiance_in_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Radiance> ;
+  rdfs:label "downwelling photosynthetic radiance in sea water" ;
+  rdfs:comment "Downwelling radiation is radiation from above. It does not mean \"net downward\". Radiance is the radiative flux in a particular direction, per unit of solid angle. The direction from which it is coming must be specified, for instance with a coordinate of zenith_angle. If the radiation does not depend on direction, a standard name of isotropic radiance should be chosen instead. \"Photosynthetic\" radiation is the part of the spectrum which is used in photosynthesis e.g. 300-700 nm. The range of wavelengths could be specified precisely by the bounds of a coordinate of radiation_wavelength." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .   
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#downwelling_photosynthetic_radiative_flux_in_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#EnergyFlux> ;
+  rdfs:label "downwelling photosynthetic radiative flux in sea water" ;
+  rdfs:comment "Downwelling radiation is radiation from above. It does not mean \"net downward\". Radiative flux is the sum of shortwave and longwave radiative fluxes. \"Photosynthetic\" radiation is the part of the spectrum which is used in photosynthesis e.g. 300-700 nm. The range of wavelengths could be specified precisely by the bounds of a coordinate of radiation_wavelength. When thought of as being incident on a surface, a radiative flux is sometimes called \"irradiance\". In addition, it is identical with the quantity measured by a cosine-collector light-meter and sometimes called \"vector irradiance\". In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .   
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#downwelling_photosynthetic_spherical_irradiance_in_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#EnergyFlux> ;
+  rdfs:label "downwelling photosynthetic spherical irradiance in sea water" ;
+  rdfs:comment "Downwelling radiation is radiation from above. It does not mean \"net downward\". \"Photosynthetic\" radiation is the part of the spectrum which is used in photosynthesis e.g. 300-700 nm. The range of wavelengths could be specified precisely by the bounds of a coordinate of radiation_wavelength. Spherical irradiance is the radiation incident on unit area of a hemispherical (or \"2-pi\") collector. It is sometimes called \"scalar irradiance\". The direction (up/downwelling) is specified. Radiation incident on a 4-pi collector has standard names of \"omnidirectional spherical irradiance\"." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .   
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#downwelling_radiance_in_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Radiance> ;
+  rdfs:label "downwelling radiance in sea water" ;
+  rdfs:comment "Downwelling radiation is radiation from above. It does not mean \"net downward\". Radiance is the radiative flux in a particular direction, per unit of solid angle. The direction from which it is coming must be specified, for instance with a coordinate of zenith_angle. If the radiation does not depend on direction, a standard name of isotropic radiance should be chosen instead." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .   
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#downwelling_radiative_flux_in_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#EnergyFlux> ;
+  rdfs:label "downwelling radiative flux in sea water" ;
+  rdfs:comment "Downwelling radiation is radiation from above. It does not mean \"net downward\". Radiative flux is the sum of shortwave and longwave radiative fluxes. When thought of as being incident on a surface, a radiative flux is sometimes called \"irradiance\". In addition, it is identical with the quantity measured by a cosine-collector light-meter and sometimes called \"vector irradiance\". In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .   
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#downwelling_shortwave_flux_in_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#EnergyFlux> ;
+  rdfs:label "downwelling shortwave flux in sea water" ;
+  rdfs:comment " Downwelling radiation is radiation from above. It does not mean \"net downward\".  When thought of as being incident on a surface, a radiative flux is sometimes called \"irradiance\".  In addition, it is identical with the quantity measured by a cosine-collector light-meter and sometimes called \"vector irradiance\".  In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics.  \"shortwave\" means shortwave radiation.  " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .   
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#downwelling_spherical_irradiance_in_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#EnergyFlux> ;
+  rdfs:label "downwelling spherical irradiance in sea water" ;
+  rdfs:comment "Downwelling radiation is radiation from above. It does not mean \"net downward\". Spherical irradiance is the radiation incident on unit area of a hemispherical (or \"2-pi\") collector. It is sometimes called \"scalar irradiance\". The direction (up/downwelling) is specified. Radiation incident on a 4-pi collector has standard names of \"omnidirectional spherical irradiance\"." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .   
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#eastward_sea_water_velocity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VelocityOrSpeed> ;
+  rdfs:label "eastward sea water velocity" ;
+  rdfs:comment "A velocity is a vector quantity. \"Eastward\" indicates a vector component which is positive when directed eastward (negative westward)." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .   
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#eastward_sea_water_velocity_assuming_no_tide>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VelocityOrSpeed> ;
+  rdfs:label "eastward sea water velocity assuming no tide" ;
+  rdfs:comment "A velocity is a vector quantity.  \"Eastward\" indicates a vector component which is positive when directed eastward (negative westward).  A phrase assuming_condition  indicates that the named quantity is the value which would obtain if all  aspects of the system were unaltered except for the assumption of the  circumstances specified by the condition. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .   
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#freezing_temperature_of_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Temperature> ;
+  rdfs:label "freezing temperature of sea water" ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .   
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#heat_flux_into_sea_water_due_to_iceberg_thermodynamics>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#EnergyFlux> ;
+  rdfs:label "heat flux into sea water due to iceberg thermodynamics" ;
+  rdfs:comment " In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics.  The specification of a physical process by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase.  \" Iceberg thermodynamics\" refers to the addition or subtraction of mass due to surface and basal fluxes, i.e., due to melting, sublimation and fusion." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .   
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#heat_flux_into_sea_water_due_to_newtonian_relaxation>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#EnergyFlux> ;
+  rdfs:label "heat flux into sea water due to newtonian relaxation" ;
+  rdfs:comment "The specification of a physical process by the phrase due_to_process means that the quantity named is a single term in a sum of terms which together compose the general quantity named by omitting the phrase.  The heat_flux_into_sea_water_due_to_newtonian_relaxation is the heat flux resulting from the Newtonian relaxation of the sea surface temperature. In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .   
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#heat_flux_into_sea_water_due_to_sea_ice_thermodynamics>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#EnergyFlux> ;
+  rdfs:label "heat flux into sea water due to sea ice thermodynamics" ;
+  rdfs:comment " In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics.  The specification of a physical process by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase.  \"Sea ice thermodynamics\" refers to the addition or subtraction of mass due to surface and basal fluxes, i.e., due to melting, sublimation and fusion." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .   
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#heat_flux_into_sea_water_due_to_snow_thermodynamics>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#EnergyFlux> ;
+  rdfs:label "heat flux into sea water due to snow thermodynamics" ;
+  rdfs:comment " In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics.  The specification of a physical process by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase.  \"Snow thermodynamics\" refers to the addition or subtraction of mass due to surface and basal fluxes, i.e., due to melting, sublimation and fusion." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .   
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#integral_of_sea_water_potential_temperature_wrt_depth_expressed_as_heat_content>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#RadianceExposure> ;
+  rdfs:label "integral of sea water potential temperature wrt depth expressed as heat content" ;
+  rdfs:comment "\"integral_of_Y_wrt_X\" means int Y dX. The data variable should have an axis for X specifying the limits of the integral as bounds.  \"wrt\" means with respect to. \"expressed_as_heat_content\" means that this quantity is calculated as the (assumed constant) specific heat capacity times density of sea water multiplied by the integral, over the specified layer of the ocean, of the sea water potential temperature wrt depth." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#minus_one_times_water_flux_into_sea_water_from_rivers>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassPerTimePerArea> ;
+  rdfs:label "minus one times water flux into sea water from rivers" ;
+  rdfs:comment "The quantity minus_one_times_water_flux_into_sea_water_from_rivers is the quantity with standard name water_flux_into_sea_water_from_rivers multiplied by -1. \"Water\" means water in all phases. The water flux or volume transport into sea water from rivers is the inflow to the ocean, often applied to the surface in ocean models. In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#northward_sea_water_velocity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VelocityOrSpeed> ;
+  rdfs:label "northward sea water velocity" ;
+  rdfs:comment "A velocity is a vector quantity. \"Northward\" indicates a vector component which is positive when directed northward (negative southward)." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#northward_sea_water_velocity_assuming_no_tide>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VelocityOrSpeed> ;
+  rdfs:label "northward sea water velocity assuming no tide" ;
+  rdfs:comment "A velocity is a vector quantity.  \"Northward\" indicates a vector component which is positive when directed northward (negative southward).  A phrase assuming_condition  indicates that the named quantity is the value which would obtain if all  aspects of the system were unaltered except for the assumption of the  circumstances specified by the condition. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#omnidirectional_photosynthetic_spherical_irradiance_in_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#EnergyFlux> ;
+  rdfs:label "omnidirectional photosynthetic spherical irradiance in sea water" ;
+  rdfs:comment "\"Photosynthetic\" radiation is the part of the spectrum which is used in photosynthesis e.g. 300-700 nm. The range of wavelengths could be specified precisely by the bounds of a coordinate of radiation_wavelength. Omnidirectional spherical irradiance is the radiation incident on unit area of a spherical (or \"4-pi\") collector. It is sometimes called \"scalar irradiance\". Radiation incident on a 2-pi collector has standard names of \"spherical irradiance\" which specify up/downwelling." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#platform_speed_wrt_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VelocityOrSpeed> ;
+  rdfs:label "platform speed wrt sea water" ;
+  rdfs:comment "\"wrt\" means with respect to. Speed is the magnitude of velocity. Standard names for platform describe the motion and orientation of the vehicle from which observations are made e.g. aeroplane or ship." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#product_of_eastward_sea_water_velocity_and_salinity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VelocityOrSpeed> ;
+  rdfs:label "product of eastward sea water velocity and salinity" ;
+  rdfs:comment "\"product_of_X_and_Y\" means X*Y. A velocity is a vector quantity. \"Eastward\" indicates a vector component which is positive when directed eastward (negative westward). The unit of salinity is PSU, which is dimensionless. The units attribute should be given as 1e-3 or 0.001 i.e. parts per thousand if salinity is in PSU." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#product_of_northward_sea_water_velocity_and_salinity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VelocityOrSpeed> ;
+  rdfs:label "product of northward sea water velocity and salinity" ;
+  rdfs:comment "\"product_of_X_and_Y\" means X*Y. A velocity is a vector quantity. \"Northward\" indicates a vector component which is positive when directed northward (negative southward). The unit of salinity is PSU, which is dimensionless. The units attribute should be given as 1e-3 or 0.001 i.e. parts per thousand if salinity is in PSU." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#radial_sea_water_velocity_away_from_instrument>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VelocityOrSpeed> ;
+  rdfs:label "radial sea water velocity away from instrument" ;
+  rdfs:comment "A velocity is a vector quantity.  Radial velocity away from instrument means the component of the velocity along the line of sight of the instrument where positive implies movement away from the instrument (i.e. outward). The \"instrument\" (examples are radar and lidar) is the device used to make an observation." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#richardson_number_in_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Dimensionless> ;
+  rdfs:label "richardson number in sea water" ;
+  rdfs:comment "Richardson number is a measure of dynamic stability and can be used to diagnose the existence of turbulent flow.  It is defined as the ratio of the buoyant suppression of turbulence (i.e. how statically stable or unstable the conditions are)  to the kinetic energy available to generate turbulence  in a shear flow." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#salt_flux_into_sea_water_from_rivers>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassPerTimePerArea> ;
+  rdfs:label "salt flux into sea water from rivers" ;
+  rdfs:comment " In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#sea_water_density>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Density> ;
+  rdfs:label "sea water density" ;
+  rdfs:comment "Sea water density is the in-situ density (not the potential density). If 1000 kg m-3 is subtracted, the standard name sea_water_sigma_t should be chosen instead." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#sea_water_electrical_conductivity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#ElectricConductivity> ;
+  rdfs:label "sea water electrical conductivity" ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#sea_water_mass>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Mass> ;
+  rdfs:label "sea water mass" ;
+  rdfs:comment " The quantity with standard name \"sea_water_mass\" is the total mass of liquid seawater in the global oceans, including enclosed seas." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#sea_water_mass_per_unit_area>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#SurfaceDensity> ;
+  rdfs:label "sea water mass per unit area" ;
+  rdfs:comment " Sea_water_mass_per_unit_area is the mass per unit area of the sea water contained within each grid cell." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#sea_water_ph_reported_on_total_scale>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Dimensionless> ;
+  rdfs:label "sea water ph reported on total scale" ;
+  rdfs:comment """ 'sea_water_pH_reported_on_total_scale' is the measure of acidity of seawater, defined as the negative logarithm of the activity of dissolved hydrogen ions plus bisulfate ions in a sea water medium; it can be measured or calculated; when measured the scale is defined according to a series of buffers prepared in artificial seawater containing bisulfate.  The quantity may be written as pH(total) = -log([H+](free) + [HSO4-]).
+""" ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#sea_water_potential_density>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Density> ;
+  rdfs:label "sea water potential density" ;
+  rdfs:comment "Potential density is the density a parcel of air or sea water would have if moved adiabatically to a reference pressure, by default assumed to be sea level pressure. For sea water potential density, if 1000 kg m-3 is subtracted, the standard name sea_water_sigma_theta should be chosen instead." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#sea_water_potential_temperature>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Temperature> ;
+  rdfs:label "sea water potential temperature" ;
+  rdfs:comment "Potential temperature is the temperature a parcel of air or sea water would have if moved adiabatically to sea level pressure." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#sea_water_sigma_t>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Density> ;
+  rdfs:label "sea water sigma t" ;
+  rdfs:comment "Sigma-t of sea water is the density of water at atmospheric pressure (i.e. the surface) having the same temperature and salinity, minus 1000 kg m-3. Note that sea water sigma is not the same quantity as the dimensionless ocean sigma coordinate (see Appendix D of the CF convention), for which there is another standard name." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#sea_water_sigma_theta>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Density> ;
+  rdfs:label "sea water sigma theta" ;
+  rdfs:comment "Sigma-theta of sea water is the potential density (i.e. the density when moved adiabatically to a reference pressure) of water having the same temperature and salinity, minus 1000 kg m-3. Note that sea water sigma is not the same quantity as the dimensionless ocean sigma coordinate (see Appendix D of the CF convention), for which there is another standard name." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#sea_water_speed>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VelocityOrSpeed> ;
+  rdfs:label "sea water speed" ;
+  rdfs:comment "Speed is the magnitude of velocity." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#sea_water_temperature>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Temperature> ;
+  rdfs:label "sea water temperature" ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#sea_water_volume>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Volume> ;
+  rdfs:label "sea water volume" ;
+  rdfs:comment " The quantity with standard name \"sea_water_volume\" is the total volume of liquid seawater in the global oceans, including enclosed seas." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#sea_water_x_velocity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VelocityOrSpeed> ;
+  rdfs:label "sea water x velocity" ;
+  rdfs:comment "A velocity is a vector quantity. \"x\" indicates a vector component along the grid x-axis, when this is not true longitude, positive with increasing x." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#sea_water_y_velocity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VelocityOrSpeed> ;
+  rdfs:label "sea water y velocity" ;
+  rdfs:comment "A velocity is a vector quantity. \"y\" indicates a vector component along the grid y-axis, when this is not true latitude, positive with increasing y." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .       
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#secchi_depth_of_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Distance> ;
+  rdfs:label "secchi depth of sea water" ;
+  rdfs:comment " Depth is the vertical distance below the surface.  A Secchi disk is a patterned disk that is used to measure water transparency in oceans and lakes. The disk is lowered into the water and the depth at which the pattern is no longer visible is the called the secchi depth." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#speed_of_sound_in_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VelocityOrSpeed> ;
+  rdfs:label "speed of sound in sea water" ;
+  rdfs:comment "Speed is the magnitude of velocity." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#temperature_flux_due_to_evaporation_expressed_as_heat_flux_out_of_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#EnergyFlux> ;
+  rdfs:label "temperature flux due to evaporation expressed as heat flux out of sea water" ;
+  rdfs:comment " Evaporation is the conversion of liquid or solid into vapor.  (The conversion of solid alone into vapor is called \"sublimation\".)  The quantity with standard name temperature_flux_due_to_evaporation_expressed_as_heat_flux_out_of_sea_water is the heat energy carried by the transfer of water away from the liquid ocean through the process of evaporation.  It is distinct from the transfer of latent heat and is calculated relative to the heat that would be transported by water evaporating at zero degrees Celsius. It is calculated as the product QevapCpTevap, where Qevap is the mass flux of evaporating water (kg m-2 s-1), Cp is the specific heat capacity of water and Tevap is the temperature in degrees Celsius of the evaporating water. In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics.  The specification of a physical process by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#temperature_flux_due_to_rainfall_expressed_as_heat_flux_into_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#EnergyFlux> ;
+  rdfs:label "temperature flux due to rainfall expressed as heat flux into sea water" ;
+  rdfs:comment " The quantity with standard name temperature_flux_due_to_rainfall_expressed_as_heat_flux_into_sea_water is the heat energy carried by rainfall entering the sea at the sea surface.  It is calculated relative to the heat that would be carried by rainfall entering the sea at zero degrees Celsius.  It is calculated as the product QrainCpTrain, where Qrain is the mass flux of rainfall entering the sea (kg m-2 s-1), Cp is the specific heat capacity of water and Train is the temperature in degrees Celsius of the rain water entering the sea surface. In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics.  The specification of a physical process by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#temperature_flux_due_to_runoff_expressed_as_heat_flux_into_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#EnergyFlux> ;
+  rdfs:label "temperature flux due to runoff expressed as heat flux into sea water" ;
+  rdfs:comment " Runoff is the liquid water which drains from land. If not specified, \"runoff\" refers to the sum of surface runoff and subsurface drainage.  The quantity with standard name temperature_flux_due_to_runoff_expressed_as_heat_flux_into_sea_water is the heat carried by the transfer of water into the liquid ocean by the process of runoff. This quantity additonally includes melt water from sea ice and icebergs. It is calculated relative to the heat that would be transported by runoff water entering the sea at zero degrees Celsius.  It is calculated as the product QrunoffCpTrunoff, where Q runoff is the mass flux of liquid runoff entering the sea water (kg m-2 s-1), Cp is the specific heat capacity of water, and Trunoff is the temperature in degrees Celsius of the runoff water. In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics.  The specification of a physical process by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#temperature_of_sensor_for_oxygen_in_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#Temperature> ;
+  rdfs:label "temperature of sensor for oxygen in sea water" ;
+  rdfs:comment "Temperature_of_sensor_for_oxygen_in_sea_water is the instrument temperature used in calculating the concentration of oxygen in sea water; it is not a measurement of the ambient water temperature." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#tendency_of_sea_water_temperature>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#TemperatureDrift> ;
+  rdfs:label "tendency of sea water temperature" ;
+  rdfs:comment " \"tendency_of_X\" means derivative of X with respect to time. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#tendency_of_sea_water_temperature_due_to_advection>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#TemperatureDrift> ;
+  rdfs:label "tendency of sea water temperature due to advection" ;
+  rdfs:comment "\"tendency_of_X\" means derivative of X with respect to time." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#tendency_of_sea_water_temperature_due_to_bolus_advection>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#TemperatureDrift> ;
+  rdfs:label "tendency of sea water temperature due to bolus advection" ;
+  rdfs:comment "\"tendency_of_X\" means derivative of X with respect to time.  Bolus advection in an ocean model means the part due to a scheme representing eddy-induced effects not included in the velocity field." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#tendency_of_sea_water_temperature_due_to_horizontal_mixing>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#TemperatureDrift> ;
+  rdfs:label "tendency of sea water temperature due to horizontal mixing" ;
+  rdfs:comment "\"tendency_of_X\" means derivative of X with respect to time. \"Horizontal mixing\" means any horizontal transport other than by advection and bolus advection, usually represented as horizontal diffusion in ocean models. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#tendency_of_sea_water_temperature_due_to_vertical_mixing>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#TemperatureDrift> ;
+  rdfs:label "tendency of sea water temperature due to vertical mixing" ;
+  rdfs:comment "\"tendency_of_X\" means derivative of X with respect to time.  \"Vertical mixing\" means any vertical transport other than by advection and bolus advection, represented by a combination of vertical diffusion, turbulent mixing and convection in ocean models." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#upward_sea_water_velocity>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VelocityOrSpeed> ;
+  rdfs:label "upward sea water velocity" ;
+  rdfs:comment "A velocity is a vector quantity. \"Upward\" indicates a vector component which is positive when directed upward (negative downward)." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#virtual_salt_flux_into_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassPerTimePerArea> ;
+  rdfs:label "virtual salt flux into sea water" ;
+  rdfs:comment "The virtual_salt_flux_into_sea_water is the salt flux that would have the same effect on the sea surface salinity as the water_flux_out_of_sea_water. It includes the effects of precipitation, evaporation, river outflow, sea-ice and any water flux relaxation(s) and correction(s) that may have been applied. In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#virtual_salt_flux_into_sea_water_due_to_evaporation>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassPerTimePerArea> ;
+  rdfs:label "virtual salt flux into sea water due to evaporation" ;
+  rdfs:comment " The virtual_salt_flux_into_sea_water_due_to_process is the salt flux that would have the same effect on the sea surface salinity as water_flux_out_of_sea_water_due_to_process. Evaporation is the conversion of liquid or solid into vapor.  (The conversion of solid alone into vapor is called \"sublimation\".)  In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics.  The specification of a physical process by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#virtual_salt_flux_into_sea_water_due_to_newtonian_relaxation>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassPerTimePerArea> ;
+  rdfs:label "virtual salt flux into sea water due to newtonian relaxation" ;
+  rdfs:comment "The specification of a physical process by the phrase due_to_process means that the quantity named is a single term in a sum of terms which together compose the general quantity named by omitting the phrase. The virtual_salt_flux_into_sea_water_due_to_newtonian_relaxation is the salt flux that would have the same effect on the sea surface salinity as water_flux_out_of_sea_water_due_to_newtonian_relaxation. In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#virtual_salt_flux_into_sea_water_due_to_rainfall>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassPerTimePerArea> ;
+  rdfs:label "virtual salt flux into sea water due to rainfall" ;
+  rdfs:comment " The virtual_salt_flux_into_sea_water_due_to_process is the salt flux that would have the same effect on the sea surface salinity as water_flux_out_of_sea_water_due_to_process. In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics.  The specification of a physical process by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#virtual_salt_flux_into_sea_water_due_to_sea_ice_thermodynamics>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassPerTimePerArea> ;
+  rdfs:label "virtual salt flux into sea water due to sea ice thermodynamics" ;
+  rdfs:comment " The virtual_salt_flux_into_sea_water_due_to_process is the salt flux that would have the same effect on the sea surface salinity as water_flux_out_of_sea_water_due_to_process. In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics.  The specification of a physical process by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase.  \"Sea ice thermodynamics\" refers to the addition or subtraction of mass due to surface and basal fluxes, i.e., due to melting, sublimation and fusion." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#virtual_salt_flux_into_sea_water_from_rivers>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassPerTimePerArea> ;
+  rdfs:label "virtual salt flux into sea water from rivers" ;
+  rdfs:comment " The virtual_salt_flux_into_sea_water_due_to_process is the salt flux that would have the same effect on the sea surface salinity as water_flux_out_of_sea_water_due_to_process. In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#volume_absorption_coefficient_of_radiative_flux_in_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#NumberPerLength> ;
+  rdfs:label "volume absorption coefficient of radiative flux in sea water" ;
+  rdfs:comment "Radiative flux is the sum of shortwave and longwave radiative fluxes. In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics. The volume scattering/absorption/attenuation coefficient is the fractional change of radiative flux per unit path length due to the stated process. Coefficients with canonical units of m2 s-1 i.e. multiplied by density have standard names with specific_ instead of volume_. The scattering/absorption/attenuation coefficient is assumed to be an integral over all wavelengths, unless a coordinate of radiation_wavelength is included to specify the wavelength." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#volume_absorption_coefficient_of_radiative_flux_in_sea_water_due_to_dissolved_organic_matter>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#NumberPerLength> ;
+  rdfs:label "volume absorption coefficient of radiative flux in sea water due to dissolved organic matter" ;
+  rdfs:comment "The specification of a physical process by the phrase due_to_process means that the quantity named is a single term in a sum of terms which together compose the general quantity named by omitting the phrase. Radiative flux is the sum of shortwave and longwave radiative fluxes. In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics. The volume scattering/absorption/attenuation coefficient is the fractional change of radiative flux per unit path length due to the stated process. Coefficients with canonical units of m2 s-1 i.e. multiplied by density have standard names with specific_ instead of volume_. The scattering/absorption/attenuation coefficient is assumed to be an integral over all wavelengths, unless a coordinate of radiation_wavelength is included to specify the wavelength." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#volume_attenuation_coefficient_of_downwelling_radiative_flux_in_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#NumberPerLength> ;
+  rdfs:label "volume attenuation coefficient of downwelling radiative flux in sea water" ;
+  rdfs:comment "Downwelling radiation is radiation from above. It does not mean \"net downward\". Radiative flux is the sum of shortwave and longwave radiative fluxes. When thought of as being incident on a surface, a radiative flux is sometimes called \"irradiance\". In addition, it is identical with the quantity measured by a cosine-collector light-meter and sometimes called \"vector irradiance\". In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics. The volume scattering/absorption/attenuation coefficient is the fractional change of radiative flux per unit path length due to the stated process. Coefficients with canonical units of m2 s-1 i.e. multiplied by density have standard names with specific_ instead of volume_. The scattering/absorption/attenuation coefficient is assumed to be an integral over all wavelengths, unless a coordinate of radiation_wavelength is included to specify the wavelength. Attenuation is the sum of absorption and scattering. Attenuation is sometimes called \"extinction\". Also called \"diffuse\" attenuation, the attenuation of downwelling radiative flux refers to the decrease with decreasing height or increasing depth of the downwelling component of radiative flux, regardless of incident direction." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#volume_backwards_scattering_coefficient_of_radiative_flux_in_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#NumberPerLength> ;
+  rdfs:label "volume backwards scattering coefficient of radiative flux in sea water" ;
+  rdfs:comment "Radiative flux is the sum of shortwave and longwave radiative fluxes. In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics. The volume scattering/absorption/attenuation coefficient is the fractional change of radiative flux per unit path length due to the stated process. Coefficients with canonical units of m2 s-1 i.e. multiplied by density have standard names with specific_ instead of volume_. The scattering/absorption/attenuation coefficient is assumed to be an integral over all wavelengths, unless a coordinate of radiation_wavelength is included to specify the wavelength. Scattering of radiation is its deflection from its incident path without loss of energy. Backwards scattering refers to the sum of scattering into all backward angles i.e. scattering_angle exceeding pi/2 radians. A scattering_angle should not be specified with this quantity." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#volume_scattering_coefficient_of_radiative_flux_in_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#NumberPerLength> ;
+  rdfs:label "volume scattering coefficient of radiative flux in sea water" ;
+  rdfs:comment "Radiative flux is the sum of shortwave and longwave radiative fluxes. In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics. The volume scattering/absorption/attenuation coefficient is the fractional change of radiative flux per unit path length due to the stated process. Coefficients with canonical units of m2 s-1 i.e. multiplied by density have standard names with specific_ instead of volume_. The scattering/absorption/attenuation coefficient is assumed to be an integral over all wavelengths, unless a coordinate of radiation_wavelength is included to specify the wavelength. Scattering of radiation is its deflection from its incident path without loss of energy. The (range of) direction(s) of scattering can be specified by a coordinate of scattering_angle." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .  
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#volume_beam_attenuation_coefficient_of_radiative_flux_in_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#NumberPerLength> ;
+  rdfs:label "volume beam attenuation coefficient of radiative flux in sea water" ;
+  rdfs:comment "Radiative flux is the sum of shortwave and longwave radiative fluxes. In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics. The volume scattering/absorption/attenuation coefficient is the fractional change of radiative flux per unit path length due to the stated process. Coefficients with canonical units of m2 s-1 i.e. multiplied by density have standard names with specific_ instead of volume_. The scattering/absorption/attenuation coefficient is assumed to be an integral over all wavelengths, unless a coordinate of radiation_wavelength is included to specify the wavelength. Attenuation is the sum of absorption and scattering. Attenuation is sometimes called \"extinction\". Beam attenuation refers to the decrease of radiative flux along the direction of the incident path. It is distinguished from attenuation of the downwelling component of radiative flux from any incident direction, also called \"diffuse\" attenuation." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .                                 
+  
+ <http://purl.oclc.org/NET/ssnx/cf/cf-property#water_flux_into_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassPerTimePerArea> ;
+  rdfs:label "water flux into sea water" ;
+  rdfs:comment "\"Water\" means water in all phases. The water flux into sea water is the freshwater entering as a result of precipitation, evaporation, river inflow, sea ice effects and water flux relaxation and correction (if applied). In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#water_flux_into_sea_water_due_to_sea_ice_thermodynamics>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassPerTimePerArea> ;
+  rdfs:label "water flux into sea water due to sea ice thermodynamics" ;
+  rdfs:comment " The water flux into sea water is the freshwater entering as a result of precipitation, evaporation, river inflow, sea ice effects and water flux correction (if applied).  In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics.  The specification of a physical process by the phrase due_to_process means that the quantity named is a  single term in a sum of terms which together compose the general quantity  named by omitting the phrase.  \"Sea ice thermodynamics\" refers to the addition or subtraction of mass due to surface and basal fluxes, i.e., due to melting, sublimation and fusion." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#water_flux_into_sea_water_from_icebergs>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassPerTimePerArea> ;
+  rdfs:label "water flux into sea water from icebergs" ;
+  rdfs:comment " The water flux into sea water is the freshwater entering as a result of precipitation, evaporation, river inflow, sea ice effects and water flux correction (if applied).  The water flux into sea water from icebergs is due to the melting of the iceberg. In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#water_flux_into_sea_water_from_rivers>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassPerTimePerArea> ;
+  rdfs:label "water flux into sea water from rivers" ;
+  rdfs:comment "\"Water\" means water in all phases. The water flux or volume transport into sea water from rivers is the inflow to the ocean, often applied to the surface in ocean models. In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#water_flux_into_sea_water_from_rivers_and_surface_downward_water_flux>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassPerTimePerArea> ;
+  rdfs:label "water flux into sea water from rivers and surface downward water flux" ;
+  rdfs:comment " \"Water\" means water in all phases, including frozen i.e. ice and snow.  \"Downward\" indicates a vector component which is positive when directed downward (negative upward).  The surface water flux is the result of precipitation and evaporation.  The water flux into sea water is the freshwater entering as a result of precipitation, evaporation, river inflow, sea ice effects and water flux correction (if applied).  The water flux or volume transport into sea water from rivers is the inflow to the ocean, often applied to the surface in ocean models.  In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics.  The surface called \"surface\" means the lower boundary of the atmosphere. " ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#water_flux_into_sea_water_without_flux_correction>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassPerTimePerArea> ;
+  rdfs:label "water flux into sea water without flux correction" ;
+  rdfs:comment "Water means water in all phases. The water_flux_into_sea_water_without_flux_correction  is the freshwater entering as a result of precipitation, evaporation, river inflow and sea ice effects.  The total water flux including any flux relaxation(s) or correction(s) is described by the standard name water_flux_into_sea_water.  In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#water_flux_out_of_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassPerTimePerArea> ;
+  rdfs:label "water flux out of sea water" ;
+  rdfs:comment "The quantity water_flux_out_of_sea_water is the quantity with  standard name water_flux_into_sea_water multiplied by -1. \"Water\" means water in all phases. The water flux out of sea water is the freshwater leaving as a result of precipitation, evaporation, river outflow, sea-ice and any water flux relaxation(s) and correction(s) that may have been applied. In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#water_flux_out_of_sea_water_due_to_newtonian_relaxation>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassPerTimePerArea> ;
+  rdfs:label "water flux out of sea water due to newtonian relaxation" ;
+  rdfs:comment "The specification of a physical process by the phrase due_to_process means that the quantity named is a single term in a sum of terms which together compose the general quantity named by omitting the phrase. The water_flux_out_of_sea_water_due_to_newtonian_relaxation is the freshwater leaving as a result of the Newtonian relaxation of the sea surface salinity. In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#water_flux_out_of_sea_water_due_to_sea_ice_thermodynamics>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#MassPerTimePerArea> ;
+  rdfs:label "water flux out of sea water due to sea ice thermodynamics" ;
+  rdfs:comment "The specification of a physical process by the phrase due_to_process means that the quantity named is a single term in a sum of terms which together compose the general quantity named by omitting the phrase. \"Water\" means water in all phases. The water flux out of sea water is the freshwater leaving the sea water.  \"Sea ice thermodynamics\" refers to the addition or subtraction of sea ice mass due to surface and basal fluxes. In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .  
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#water_volume_transport_into_sea_water_from_rivers>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#VolumeFlowRate> ;
+  rdfs:label "water volume transport into sea water from rivers" ;
+  rdfs:comment "\"Water\" means water in all phases. The water flux or volume transport into sea water from rivers is the inflow to the ocean, often applied to the surface in ocean models." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .
+  
+<http://purl.oclc.org/NET/ssnx/cf/cf-property#wind_mixing_energy_flux_into_sea_water>
+  a owl:NamedIndividual , <http://purl.oclc.org/NET/ssnx/qu/dim#EnergyFlux> ;
+  rdfs:label "wind mixing energy flux into sea water" ;
+  rdfs:comment "Wind is defined as a two-dimensional (horizontal) air velocity vector, with no vertical component. (Vertical motion in the atmosphere has the standard name upward_air_velocity.) In accordance with common usage in geophysical disciplines, \"flux\" implies per unit area, called \"flux density\" in physics." ;
+  rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/cf/cf-property> .    
