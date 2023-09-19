@@ -30,7 +30,7 @@
 @base <https://w3id.org/iliad/oim/crossDomain/> .
 
 <https://w3id.org/iliad/oim/crossDomain> a owl:Ontology ;
-                                         owl:versionIRI <https://w3id.org/iliad/crossDomain/3.0> ;
+                                         owl:versionIRI <https://w3id.org/iliad/oim/crossDomain/3.0> ;
                                          dct:contributor [ foaf:name "Rob Atkinson" ;
                                                            schema:affiliation [ foaf:name "OGC"
                                                                               ]
@@ -48,10 +48,10 @@
                                                            schema:affiliation [ foaf:name "PSNC"
                                                                               ]
                                                      ] ;
-                                         dct:description "The ILIAD cross domain ontology i) defines concepts and terms that are generic and applicable to various domains; ii) avoids conflicting or redundant definitions of the same concept in different domain specific models; iii) provides the basis for interoperability. The ontology is specified by reusing concepts and terms from a number of standard ontologies and vocabularies including OGC/W3C SOSA/SSN, OGC GeoSparql, W3C RDF data cube, QUDT, FOAF, schema.org and others."@en ;
+                                         dct:description "The ILIAD OIM cross domain ontology i) defines concepts and terms that are generic and applicable to various domains; ii) avoids conflicting or redundant definitions of the same concept in different domain specific models; iii) provides the basis for interoperability. The ontology is specified by reusing concepts and terms from a number of standard ontologies and vocabularies including OGC/W3C SOSA/SSN, OGC GeoSparql, W3C RDF data cube, QUDT, FOAF, schema.org and others."@en ;
                                          dct:rights "This vocabulary is distributed under Creative Commons Attribution 4.0 License - http://creativecommons.org/licenses/by/4.0"@en ;
-                                         dct:title "ILIAD Cross-Domain"@en ;
-                                         rdfs:label "ILIAD Cross Domain"@en ;
+                                         dct:title "OIM Cross-Domain"@en ;
+                                         rdfs:label "OIM Cross Domain"@en ;
                                          rdfs:comment "The ILIAD Ocean Information Model (OIM) is the common vocabulary in ILIAD project providing the basis for semantic interoperability across smart ocean solutions"@en ;
                                          rdfs:comment "The ILIAD Ocean Information Model (OIM) cross domain ontology is based on the DEMETER Agriculture Information Model (AIM) cross domain ontology"@en ;
                                          owl:versionInfo "3.0" ;

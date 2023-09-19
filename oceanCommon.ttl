@@ -48,7 +48,7 @@
                                           foaf:name "Raul Palma"
                                         ] ;
                             owl:imports <https://w3id.org/iliad/oim/crossDomain> ;
-                            dct:description "OceanCommon is the common ontology module of the Ocean Information Model (OIM) domain layer. This ontology was created by reusing and aligning well-known ontologies and vocabularies, including Darwin Core"@en ;
+                            dct:description "The ILIAD OceanCommon is the common ontology module of the Ocean Information Model (OIM) domain layer. This ontology was created by reusing and aligning well-known ontologies and vocabularies, including Darwin Core"@en ;
                             dct:rights "This vocabulary is distributed under Creative Commons Attribution 4.0 License - http://creativecommons.org/licenses/by/4.0"@en ;
                             dct:title "OIM OceanCommon"@en ;
                             rdfs:label "OIM OceanCommon"@en ;

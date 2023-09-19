@@ -33,7 +33,7 @@
 @prefix cf: <http://purl.oclc.org/NET/ssnx/cf/cf-property#> .
 @prefix qu: <http://purl.oclc.org/NET/ssnx/qu/qu#> .
 @prefix dim: <http://purl.oclc.org/NET/ssnx/qu/dim#> .
-@base <https://w3id.org/iliad/oim> .
+@base <https://w3id.org/iliad/oim/> .
 
 <https://w3id.org/iliad/oim/oceanProperty> a owl:Ontology ;
                             owl:versionIRI <https://w3id.org/iliad/oim/oceanProperty/1.0> ;
@@ -47,10 +47,10 @@
                                           foaf:name "Raul Palma"
                                         ] ;
                             owl:imports <https://w3id.org/iliad/oim/oceanCommon> ;
-                            dct:description "The ILIAD Ocean Property module is one of the ocean domain profiles of ILIAD OIM. This profile was created by reusing and aligning well-known ontologies and vocabularies"@en ;
+                            dct:description "The ILIAD OceanProperty module is one of the ocean domain profiles of ILIAD OIM. This profile was created by reusing and aligning well-known ontologies and vocabularies"@en ;
                             dct:rights "This vocabulary is distributed under Creative Commons Attribution 4.0 License - http://creativecommons.org/licenses/by/4.0"@en ;
-                            dct:title "DEMETER AgriProperty"@en ;
-                            rdfs:label "DEMETER AgriProperty" ;
+                            dct:title "OIM OceanProperty"@en ;
+                            rdfs:label "OIM OceanProperty" ;
                             rdfs:comment "The Ocean Information Model (OIM) is the common vocabulary in ILIAD project providing the basis for semantic interoperability across smart ocean solutions"@en ;
                             owl:versionInfo "1.0" ;
                             foaf:maker [ foaf:homepage <https://www.ocean-twin.eu/> ;

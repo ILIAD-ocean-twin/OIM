@@ -28,8 +28,8 @@
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix saref: <https://saref.etsi.org/core/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
-@prefix demeterAgriCommon: <https://w3id.org/demeter/agri/agriCommon#> .
 @prefix oceanCommon: <https://w3id.org/iliad/oim/oceamCommon/> .
+@prefix oceanProperty: <https://w3id.org/iliad/oim/oceanProperty/> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix dwc:  <http://rs.tdwg.org/dwc/terms/> .
 @base <https://w3id.org/iliad/> .
@@ -47,12 +47,13 @@
                                         ] ;
                             owl:imports <https://w3id.org/iliad/oim/oceanCommon>,
                             						<https://w3id.org/iliad/oim/oceanProperty>,
-                            						<https://w3id.org/demeter/agri/alignments/aim-ngsi-ld> ;
+                            						<https://w3id.org/iliad/oim/alignments/oim-ngsi-ld> ;
                             dct:description "The ILIAD Ocean profile is a master profile importing all modules of ILIAD OIM"@en ;
                             dct:rights "This vocabulary is distributed under Creative Commons Attribution 4.0 License - http://creativecommons.org/licenses/by/4.0"@en ;
                             dct:title "Ocean Information Model (OIM) ontology"@en ;
                             rdfs:label "Ocean Information Model (OIM) ontology"@en ;
                             rdfs:comment "The Ocean Information Model (OIM) is the common vocabulary in ILIAD project providing the basis for semantic interoperability across smart ocean solutions"@en ;
+                            rdfs:comment "The ILIAD Ocean Information Model (OIM) is based on the DEMETER Agriculture Information Model (AIM)"@en ;
                             owl:versionInfo "1.0" ;
                             foaf:maker [ foaf:homepage <https://www.ocean-twin.eu/> ;
                                          foaf:name "ILIAD project"
