@@ -29,7 +29,7 @@
 @prefix saref: <https://saref.etsi.org/core/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix demeterAgriCommon: <https://w3id.org/demeter/agri/agriCommon#> .
-@prefix oceanCommon: <https://w3id.org/iliad/oim/oceamCommon/> .
+@prefix oceanCommon: <https://w3id.org/iliad/oim/oceanCommon/> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix dwc:  <http://rs.tdwg.org/dwc/terms/> .
 @prefix dwc-mbg: <http://mmisw.org/ont/ioos/marine_biogeography/> .
@@ -53,6 +53,7 @@
                             dct:title "OIM OceanCommon"@en ;
                             rdfs:label "OIM OceanCommon"@en ;
                             rdfs:comment "The Ocean Information Model (OIM) is the common vocabulary in ILIAD project providing the basis for semantic interoperability across smart ocean solutions"@en ;
+                            rdfs:comment "The OceanCommon ontology is based on the DEMETER Agriculture Information Model (AIM) agriCommon ontology"@en ;
                             owl:versionInfo "1.0" ;
                             foaf:maker [ foaf:homepage <https://www.ocean-twin.eu/> ;
                                                       foaf:name "ILIAD project"
