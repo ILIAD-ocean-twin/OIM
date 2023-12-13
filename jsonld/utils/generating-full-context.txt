@@ -1,1 +1,1 @@
-java -jar /users/rap/GitRepositories/GitHub/owl2jsonld/target/uberjar/owl2jsonld-0.2.2-SNAPSHOT-standalone.jar -v -i -a -o oimOceanProfile-context-full.jsonld https://w3id.org/iliad/oim
+java -jar /users/rap/GitRepositories/GitHub/owl2jsonld/target/uberjar/owl2jsonld-0.2.2-SNAPSHOT-standalone.jar -v -i -a -o oimOceanProfile-context.jsonld https://w3id.org/iliad/oim
