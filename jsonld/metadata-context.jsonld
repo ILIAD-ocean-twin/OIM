@@ -1,15 +1,21 @@
 {
   "@context" : {
+    "IndexAxisType" : {
+      "@id" : "http://www.opengis.net/cis/1.1/IndexAxisType"
+    },
     "spatial" : {
-      "@id" : "http://purl.org/dc/terms/spatial",
+      "@id" : "http://purl.org/dc/terms/spatial"
+    },
+    "previewInfo" : {
+      "@id" : "https://w3id.org/iliad/oim/metadata/previewInfo",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "coverage" : {
+      "@id" : "http://www.opengis.net/cis/1.1/coverage",
       "@type" : "@id"
     },
     "VideoResource" : {
       "@id" : "https://w3id.org/idsa/core/VideoResource"
-    },
-    "creationDate" : {
-      "@id" : "https://w3id.org/idsa/core/creationDate",
-      "@type" : "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
     },
     "DigitalContent" : {
       "@id" : "https://w3id.org/idsa/core/DigitalContent"
@@ -27,15 +33,28 @@
     "created" : {
       "@id" : "http://purl.org/dc/terms/created"
     },
+    "VDataBlockType" : {
+      "@id" : "http://www.opengis.net/cis/1.1/VDataBlockType"
+    },
     "ImageRepresentation" : {
       "@id" : "https://w3id.org/idsa/core/ImageRepresentation"
+    },
+    "lowerBound" : {
+      "@id" : "http://www.opengis.net/cis/1.1/lowerBound",
+      "@type" : "http://www.w3.org/2001/XMLSchema#integer"
     },
     "Dataset" : {
       "@id" : "http://www.w3.org/ns/dcat#Dataset"
     },
+    "EnvelopeByAxisType" : {
+      "@id" : "http://www.opengis.net/cis/1.1/EnvelopeByAxisType"
+    },
     "width" : {
       "@id" : "https://w3id.org/idsa/core/width",
       "@type" : "http://www.w3.org/2001/XMLSchema#decimal"
+    },
+    "license" : {
+      "@id" : "http://purl.org/dc/terms/license"
     },
     "Representation" : {
       "@id" : "https://w3id.org/idsa/core/Representation"
@@ -44,17 +63,28 @@
       "@id" : "https://w3id.org/idsa/core/accrualPeriodicity",
       "@type" : "@id"
     },
+    "model" : {
+      "@id" : "http://www.opengis.net/cis/1.1/model",
+      "@type" : "@id"
+    },
     "MediaType" : {
       "@id" : "http://purl.org/dc/terms/MediaType"
     },
     "Distribution" : {
       "@id" : "http://www.w3.org/ns/dcat#Distribution"
     },
+    "dataset" : {
+      "@id" : "http://www.w3.org/ns/dcat#dataset",
+      "@type" : "@id"
+    },
     "AudioRepresentation" : {
       "@id" : "https://w3id.org/idsa/core/AudioRepresentation"
     },
     "usageNote" : {
       "@id" : "http://purl.org/vocab/vann/usageNote"
+    },
+    "AxisExtendType" : {
+      "@id" : "http://www.opengis.net/cis/1.1/AxisExtendType"
     },
     "height" : {
       "@id" : "https://w3id.org/idsa/core/height",
@@ -64,6 +94,10 @@
       "@id" : "http://www.w3.org/ns/dqv#hasQualityMetadata",
       "@type" : "@id"
     },
+    "coordinate" : {
+      "@id" : "http://www.opengis.net/cis/1.1/coordinate",
+      "@type" : "@id"
+    },
     "frameRate" : {
       "@id" : "https://w3id.org/idsa/core/frameRate",
       "@type" : "http://www.w3.org/2001/XMLSchema#decimal"
@@ -71,9 +105,11 @@
     "QualityMetadata" : {
       "@id" : "http://www.w3.org/ns/dqv#QualityMetadata"
     },
+    "GridLimitsType" : {
+      "@id" : "http://www.opengis.net/cis/1.1/GridLimitsType"
+    },
     "temporalResolution" : {
-      "@id" : "https://w3id.org/idsa/core/temporalResolution",
-      "@type" : "@id"
+      "@id" : "http://www.w3.org/ns/dcat#temporalResolution"
     },
     "VideoRepresentation" : {
       "@id" : "https://w3id.org/idsa/core/VideoRepresentation"
@@ -81,11 +117,43 @@
     "maker" : {
       "@id" : "http://xmlns.com/foaf/0.1/maker"
     },
+    "fileReference" : {
+      "@id" : "http://www.opengis.net/cis/1.1/fileReference"
+    },
     "DataRepresentation" : {
       "@id" : "https://w3id.org/idsa/core/DataRepresentation"
     },
+    "sensorInstanceRef" : {
+      "@id" : "http://www.sensorml.com/sensorML-2.0/sensorInstanceRef",
+      "@type" : "@id"
+    },
+    "generalGrid" : {
+      "@id" : "http://www.opengis.net/cis/1.1/generalGrid",
+      "@type" : "@id"
+    },
     "label" : {
       "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
+    },
+    "positionValuePair" : {
+      "@id" : "http://www.opengis.net/cis/1.1/positionValuePair",
+      "@type" : "@id"
+    },
+    "PVPType" : {
+      "@id" : "http://www.opengis.net/cis/1.1/PVPType"
+    },
+    "scaleFactor" : {
+      "@id" : "https://w3id.org/iliad/oim/metadata/scaleFactor",
+      "@type" : "http://www.w3.org/2001/XMLSchema#float"
+    },
+    "AllowedValues" : {
+      "@id" : "http://www.opengis.net/swe/2.0/AllowedValues"
+    },
+    "project" : {
+      "@id" : "https://w3id.org/iliad/oim/metadata/project"
+    },
+    "gridLimits" : {
+      "@id" : "http://www.opengis.net/cis/1.1/gridLimits",
+      "@type" : "@id"
     },
     "TextRepresentation" : {
       "@id" : "https://w3id.org/idsa/core/TextRepresentation"
@@ -96,27 +164,98 @@
     "DataResource" : {
       "@id" : "https://w3id.org/idsa/core/DataResource"
     },
+    "rangeSet" : {
+      "@id" : "http://www.opengis.net/cis/1.1/rangeSet",
+      "@type" : "@id"
+    },
     "Location" : {
-      "@id" : "http://purl.org/dc/terms/Location"
+      "@id" : "https://w3id.org/idsa/core/Location"
+    },
+    "rangeType" : {
+      "@id" : "http://www.opengis.net/cis/1.1/rangeType",
+      "@type" : "@id"
+    },
+    "axisLabels" : {
+      "@id" : "http://www.opengis.net/cis/1.1/axisLabels",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
     },
     "path" : {
       "@id" : "https://w3id.org/idsa/core/path",
       "@type" : "http://www.w3.org/2001/XMLSchema#string"
     },
+    "interpolationRestriction" : {
+      "@id" : "http://www.opengis.net/cis/1.1/interpolationRestriction",
+      "@type" : "@id"
+    },
+    "axis" : {
+      "@id" : "http://www.opengis.net/cis/1.1/axis",
+      "@type" : "@id"
+    },
     "ImageResource" : {
       "@id" : "https://w3id.org/idsa/core/ImageResource"
+    },
+    "spatialResolutionInMeters" : {
+      "@id" : "http://www.w3.org/ns/dcat#spatialResolutionInMeters"
+    },
+    "partition" : {
+      "@id" : "http://www.opengis.net/cis/1.1/partition",
+      "@type" : "@id"
+    },
+    "CoverageByPartitioningType" : {
+      "@id" : "http://www.opengis.net/cis/1.1/CoverageByPartitioningType"
+    },
+    "GeneralGridCoverageType" : {
+      "@id" : "http://www.opengis.net/cis/1.1/GeneralGridCoverageType"
     },
     "homepage" : {
       "@id" : "http://xmlns.com/foaf/0.1/homepage"
     },
+    "maxValue" : {
+      "@id" : "https://w3id.org/iliad/oim/metadata/maxValue"
+    },
+    "sensorModelRef" : {
+      "@id" : "http://www.sensorml.com/sensorML-2.0/sensorModelRef",
+      "@type" : "@id"
+    },
+    "Axis" : {
+      "@id" : "http://www.opengis.net/cis/1.1/Axis"
+    },
+    "appliedModel" : {
+      "@id" : "https://w3id.org/iliad/oim/metadata/appliedModel",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
     "Graph" : {
       "@id" : "http://www.w3.org/2004/03/trix/rdfg-1/Graph"
+    },
+    "unitsDescription" : {
+      "@id" : "https://w3id.org/iliad/oim/metadata/unitsDescription",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
     },
     "Artifact" : {
       "@id" : "https://w3id.org/idsa/core/Artifact"
     },
+    "filters" : {
+      "@id" : "https://w3id.org/iliad/oim/metadata/filters",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "noDataValue" : {
+      "@id" : "https://w3id.org/iliad/oim/metadata/noDataValue",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "searchText" : {
+      "@id" : "https://w3id.org/iliad/oim/metadata/searchText",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "profileSchema" : {
+      "@id" : "https://w3id.org/iliad/oim/metadata/profileSchema",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "coverageRef" : {
+      "@id" : "http://www.opengis.net/cis/1.1/coverageRef",
+      "@type" : "@id"
+    },
     "Agent" : {
-      "@id" : "https://w3id.org/idsa/core/Agent"
+      "@id" : "http://xmlns.com/foaf/0.1/Agent"
     },
     "ContentType" : {
       "@id" : "https://w3id.org/idsa/core/ContentType"
@@ -125,7 +264,12 @@
       "@id" : "http://purl.org/dc/terms/creator"
     },
     "name" : {
-      "@id" : "http://xmlns.com/foaf/0.1/name"
+      "@id" : "http://www.opengis.net/swe/2.0/name",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "dataBlock" : {
+      "@id" : "http://www.opengis.net/cis/1.1/dataBlock",
+      "@type" : "@id"
     },
     "DataService" : {
       "@id" : "http://www.w3.org/ns/dcat#DataService"
@@ -134,21 +278,60 @@
       "@id" : "https://w3id.org/idsa/core/representation",
       "@type" : "@id"
     },
+    "minDate" : {
+      "@id" : "https://w3id.org/iliad/oim/metadata/minDate",
+      "@type" : "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
+    },
+    "value" : {
+      "@id" : "http://www.opengis.net/cis/1.1/value"
+    },
+    "interval" : {
+      "@id" : "http://www.opengis.net/swe/2.0/interval",
+      "@type" : "@id"
+    },
+    "uomLabel" : {
+      "@id" : "http://www.opengis.net/cis/1.1/uomLabel",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "RangeSetType" : {
+      "@id" : "http://www.opengis.net/cis/1.1/RangeSetType"
+    },
+    "allowedInterpolation" : {
+      "@id" : "http://www.opengis.net/cis/1.1/allowedInterpolation",
+      "@type" : "http://www.w3.org/2001/XMLSchema#anyURI"
+    },
+    "axisLabel" : {
+      "@id" : "http://www.opengis.net/cis/1.1/axisLabel",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
     "rights" : {
       "@id" : "http://purl.org/dc/terms/rights"
     },
-    "temporalCoverage" : {
-      "@id" : "https://w3id.org/idsa/core/temporalCoverage",
+    "TemporalEntity" : {
+      "@id" : "https://w3id.org/idsa/core/TemporalEntity"
+    },
+    "DataRecordType" : {
+      "@id" : "http://www.opengis.net/swe/2.0/DataRecordType"
+    },
+    "IrregularAxisType" : {
+      "@id" : "http://www.opengis.net/cis/1.1/IrregularAxisType"
+    },
+    "field" : {
+      "@id" : "http://www.opengis.net/swe/2.0/field",
       "@type" : "@id"
     },
-    "TemporalEntity" : {
-      "@id" : "http://www.w3.org/2006/time#TemporalEntity"
+    "PartitionSetType" : {
+      "@id" : "http://www.opengis.net/cis/1.1/PartitionSetType"
     },
     "identifier" : {
       "@id" : "http://purl.org/dc/terms/identifier"
     },
     "keyword" : {
       "@id" : "http://www.w3.org/ns/dcat#keyword"
+    },
+    "envelope" : {
+      "@id" : "http://www.opengis.net/cis/1.1/envelope",
+      "@type" : "@id"
     },
     "endpointInformation" : {
       "@id" : "https://w3id.org/idsa/core/endpointInformation",
@@ -157,6 +340,10 @@
     "fileName" : {
       "@id" : "https://w3id.org/idsa/core/fileName",
       "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "metadata" : {
+      "@id" : "http://www.opengis.net/cis/1.1/metadata",
+      "@type" : "@id"
     },
     "byteSize" : {
       "@id" : "https://w3id.org/idsa/core/byteSize",
@@ -169,9 +356,31 @@
     "isDefinedBy" : {
       "@id" : "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
     },
-    "spatialCoverage" : {
-      "@id" : "https://w3id.org/idsa/core/spatialCoverage",
-      "@type" : "@id"
+    "definition" : {
+      "@id" : "http://www.opengis.net/swe/2.0/definition",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "RangeSetRefType" : {
+      "@id" : "http://www.opengis.net/cis/1.1/RangeSetRefType"
+    },
+    "srsName" : {
+      "@id" : "http://www.opengis.net/cis/1.1/srsName",
+      "@type" : "http://www.w3.org/2001/XMLSchema#anyURI"
+    },
+    "QuantityType" : {
+      "@id" : "http://www.opengis.net/swe/2.0/QuantityType"
+    },
+    "technicalManagerInfo" : {
+      "@id" : "https://w3id.org/iliad/oim/metadata/technicalManagerInfo",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "colorTable" : {
+      "@id" : "https://w3id.org/iliad/oim/metadata/colorTable",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "names" : {
+      "@id" : "http://www.opengis.net/swe/2.0/names",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
     },
     "title" : {
       "@id" : "http://purl.org/dc/terms/title"
@@ -180,19 +389,38 @@
       "@id" : "https://w3id.org/idsa/core/dataType",
       "@type" : "http://www.w3.org/2001/XMLSchema#anyURI"
     },
+    "source" : {
+      "@id" : "http://purl.org/dc/terms/source"
+    },
+    "type" : {
+      "@id" : "http://purl.org/dc/terms/type"
+    },
     "publisher" : {
       "@id" : "https://w3id.org/idsa/core/publisher",
       "@type" : "@id"
     },
     "mediaType" : {
-      "@id" : "https://w3id.org/idsa/core/mediaType",
+      "@id" : "http://purl.org/dc/terms/mediaType"
+    },
+    "uom" : {
+      "@id" : "http://www.opengis.net/swe/2.0/uom",
       "@type" : "@id"
     },
     "licence" : {
       "@id" : "http://purl.org/dc/terms/licence"
     },
+    "subDatasetName" : {
+      "@id" : "https://w3id.org/iliad/oim/metadata/subDatasetName"
+    },
+    "upperBound" : {
+      "@id" : "http://www.opengis.net/cis/1.1/upperBound",
+      "@type" : "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "modified" : {
+      "@id" : "http://purl.org/dc/terms/modified"
+    },
     "Frequency" : {
-      "@id" : "http://purl.org/dc/terms/Frequency"
+      "@id" : "https://w3id.org/idsa/core/Frequency"
     },
     "Endpoint" : {
       "@id" : "https://w3id.org/idsa/core/Endpoint"
@@ -201,9 +429,15 @@
       "@id" : "https://w3id.org/idsa/core/samplingRate",
       "@type" : "http://www.w3.org/2001/XMLSchema#decimal"
     },
+    "CoverageByDomainAndRangeType" : {
+      "@id" : "http://www.opengis.net/cis/1.1/CoverageByDomainAndRangeType"
+    },
     "endpointDocumentation" : {
       "@id" : "https://w3id.org/idsa/core/endpointDocumentation",
       "@type" : "http://www.w3.org/2001/XMLSchema#anyURI"
+    },
+    "accessRights" : {
+      "@id" : "http://purl.org/dc/terms/accessRights"
     },
     "DCMIType" : {
       "@id" : "http://purl.org/dc/terms/DCMIType"
@@ -222,6 +456,14 @@
     "RepresentationInstance" : {
       "@id" : "https://w3id.org/idsa/core/RepresentationInstance"
     },
+    "partitionSet" : {
+      "@id" : "http://www.opengis.net/cis/1.1/partitionSet",
+      "@type" : "@id"
+    },
+    "datasetManagerInfo" : {
+      "@id" : "https://w3id.org/iliad/oim/metadata/datasetManagerInfo",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
     "contentStandard" : {
       "@id" : "https://w3id.org/idsa/core/contentStandard",
       "@type" : "http://www.w3.org/2001/XMLSchema#anyURI"
@@ -236,6 +478,10 @@
     "Resource" : {
       "@id" : "https://w3id.org/idsa/core/Resource"
     },
+    "domainSet" : {
+      "@id" : "http://www.opengis.net/cis/1.1/domainSet",
+      "@type" : "@id"
+    },
     "SpatialThing" : {
       "@id" : "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"
     },
@@ -246,20 +492,46 @@
       "@id" : "http://www.w3.org/2000/01/rdf-schema#comment"
     },
     "License" : {
-      "@id" : "https://w3id.org/idsa/core/License"
+      "@id" : "http://purl.org/dc/terms/License"
     },
     "language" : {
-      "@id" : "https://w3id.org/idsa/core/language",
-      "@type" : "@id"
+      "@id" : "http://purl.org/dc/terms/language"
+    },
+    "TransformationBySensorModelType" : {
+      "@id" : "http://www.opengis.net/cis/1.1/TransformationBySensorModelType"
+    },
+    "uomLabels" : {
+      "@id" : "http://www.opengis.net/cis/1.1/uomLabels",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
     },
     "contributor" : {
       "@id" : "http://purl.org/dc/terms/contributor"
     },
+    "resolutionUnit" : {
+      "@id" : "https://w3id.org/iliad/oim/metadata/resolutionUnit",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
     "AudioResource" : {
       "@id" : "https://w3id.org/idsa/core/AudioResource"
     },
+    "DisplacementAxisNestType" : {
+      "@id" : "http://www.opengis.net/cis/1.1/DisplacementAxisNestType"
+    },
+    "DomainSetType" : {
+      "@id" : "http://www.opengis.net/cis/1.1/DomainSetType"
+    },
     "conformsTo" : {
       "@id" : "http://purl.org/dc/terms/conformsTo"
+    },
+    "displacement" : {
+      "@id" : "http://www.opengis.net/cis/1.1/displacement",
+      "@type" : "@id"
+    },
+    "minValue" : {
+      "@id" : "https://w3id.org/iliad/oim/metadata/minValue"
+    },
+    "UnitReference" : {
+      "@id" : "http://www.opengis.net/swe/2.0/UnitReference"
     },
     "acrualPeriodicity" : {
       "@id" : "http://purl.org/dc/terms/acrualPeriodicity"
@@ -268,19 +540,55 @@
       "@id" : "https://w3id.org/idsa/core/customLicense",
       "@type" : "http://www.w3.org/2001/XMLSchema#anyURI"
     },
+    "code" : {
+      "@id" : "http://www.opengis.net/swe/2.0/code",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "epsg" : {
+      "@id" : "https://w3id.org/iliad/oim/metadata/epsg",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
     "description" : {
       "@id" : "http://purl.org/dc/terms/description"
+    },
+    "format" : {
+      "@id" : "http://purl.org/dc/terms/format"
     },
     "accessURL" : {
       "@id" : "https://w3id.org/idsa/core/accessURL",
       "@type" : "http://www.w3.org/2001/XMLSchema#anyURI"
     },
+    "credits" : {
+      "@id" : "https://w3id.org/iliad/oim/metadata/credits",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
     "temporal" : {
-      "@id" : "http://purl.org/dc/terms/temporal",
+      "@id" : "http://purl.org/dc/terms/temporal"
+    },
+    "accrualPolicy" : {
+      "@id" : "http://purl.org/dc/terms/accrualPolicy"
+    },
+    "resolution" : {
+      "@id" : "http://www.opengis.net/cis/1.1/resolution",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "maxDate" : {
+      "@id" : "https://w3id.org/iliad/oim/metadata/maxDate",
+      "@type" : "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
+    },
+    "constraint" : {
+      "@id" : "http://www.opengis.net/swe/2.0/constraint",
       "@type" : "@id"
     },
     "ConnectorEndpoint" : {
       "@id" : "https://w3id.org/idsa/core/ConnectorEndpoint"
+    },
+    "numberOfRecords" : {
+      "@id" : "https://w3id.org/iliad/oim/metadata/numberOfRecords",
+      "@type" : "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "RegularAxisType" : {
+      "@id" : "http://www.opengis.net/cis/1.1/RegularAxisType"
     },
     "standardLicense" : {
       "@id" : "https://w3id.org/idsa/core/standardLicense",
