@@ -70,6 +70,10 @@
       "@id" : "http://www.opengis.net/ont/geosparql#asWKT",
       "@type" : "http://www.opengis.net/ont/geosparql#wktLiteral"
     },
+    "asGeoJSON" : {
+      "@id" : "http://www.opengis.net/ont/geosparql#asGeoJSON",
+      "@type" : "http://www.opengis.net/ont/geosparql#geoJSONLiteral"
+    },
     "RotationalSpeed" : {
       "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#RotationalSpeed"
     },
@@ -113,6 +117,12 @@
     },
     "Feature" : {
       "@id" : "http://www.opengis.net/ont/geosparql#Feature"
+    },
+    "FeatureCollection" : {
+      "@id" : "http://www.opengis.net/ont/geosparql#FeatureCollection"
+    },
+    "SpatialObjectCollection" : {
+      "@id" : "http://www.opengis.net/ont/geosparql#SpatialObjectCollection"
     },
     "label" : {
       "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
