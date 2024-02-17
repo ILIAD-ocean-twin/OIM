@@ -639,9 +639,9 @@ oim-metadata:appliedModel  rdf:type owl:DatatypeProperty ;
 oim-metadata:project  rdf:type owl:AnnotationProperty ;
 							rdfs:label "project"@en .							
 
-oim-metadata:resolutionUnits  rdf:type owl:DatatypeProperty ;
+oim-metadata:resolutionUnit  rdf:type owl:DatatypeProperty ;
 							rdfs:range xsd:string ;
-							rdfs:label "resolutionUnits"@en .
+							rdfs:label "resolutionUnit"@en .
 							
 oim-metadata:scaleFactor  rdf:type owl:DatatypeProperty ;
 							rdfs:range xsd:float ;
@@ -652,8 +652,31 @@ oim-metadata:subDatasetName  rdf:type owl:DatatypeProperty ;
 
 oim-metadata:unitsDescription   rdf:type owl:DatatypeProperty ;
 							rdfs:range xsd:string ;
-							rdfs:label "unitsDescription "@en .														
+							rdfs:label "unitsDescription"@en .	
+							
+oim-metadata:searchText   rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "searchText"@en .	
+							
+oim-metadata:colorTable   rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "colorTable"@en .	
+							
+oim-metadata:datasetManagerInfo   rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "datasetManagerInfo"@en .																																			
 
+oim-metadata:technicalManagerInfo   rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "technicalManagerInfo"@en .
+							
+oim-metadata:previewInfo   rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "previewInfo"@en .							
+							
+oim-metadata:filters   rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "filters"@en .														
 																					
 #################################################################
 #    Classes
