@@ -16,7 +16,14 @@
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix dctype: <http://purl.org/dc/dcmitype/> .
 @prefix schema: <https://schema.org/> .
-@base <https://w3id.org/iliad/oim/metadata> .
+@prefix cis: <http://www.opengis.net/cis/1.1/> .
+@prefix swe: <http://www.opengis.net/swe/2.0/> .
+@prefix sml: <http://www.sensorml.com/sensorML-2.0/> .
+@prefix oim-metadata: <https://w3id.org/iliad/oim/metadata/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix trix: <http://www.w3.org/2004/03/trix/rdfg-1/> .
+@base <https://w3id.org/iliad/oim/metadata/> .
 
 <https://w3id.org/iliad/oim/metadata> rdf:type owl:Ontology ;
                                      owl:versionIRI <https://w3id.org/iliad/oim/metadata/1.0> ;
@@ -51,150 +58,130 @@
 #    Annotation properties
 #################################################################
 
-###  http://purl.org/dc/terms/acrualPeriodicity
-dct:acrualPeriodicity rdf:type owl:AnnotationProperty ;
-                      dct:identifier "dct:accrualPeriodicity" ;
-                      vann:usageNote "Optional property. This property refers to the frequency at which Dataset is updated."@en ;
-                      rdfs:comment "This property refers to the frequency at which Dataset is updated."@en ;
-                      rdfs:isDefinedBy <http://dublincore.org/documents/dcmi-terms/#terms-acrualPeriodicity> ;
-                      rdfs:label "Dataset - frequency"@en .
-
-
-###  http://purl.org/dc/terms/conformsTo
-dct:conformsTo rdf:type owl:AnnotationProperty ;
-               dct:identifier "dct:conformsTo" ;
-               vann:usageNote "Optional property. This property refers to an established schema to which the described Distribution conforms."@en ,
-                              "Optional property. This property refers to an implementing rule or other specification."@en ,
-                              "Recommended property. This property refers to an Application Profile that the Dataset’s metadata conforms to."@en ;
-               rdfs:comment "This property refers to an Application Profile that the Dataset’s metadata conforms to."@en ,
-                            "This property refers to an established schema to which the described Distribution conforms."@en ,
-                            "This property refers to an implementing rule or other specification."@en ;
-               rdfs:isDefinedBy <http://dublincore.org/documents/dcmi-terms/#terms-conformsTo> ;
-               rdfs:label "Catalogue Record - conforms to"@en ,
-                          "Dataset - conforms to"@en ,
-                          "Distribution - linked schemas"@en .
-
-
 ###  http://purl.org/dc/terms/contributor
-dct:contributor rdf:type owl:AnnotationProperty .
-
+dct:contributor rdf:type owl:AnnotationProperty ;
+								rdfs:label "contributor"@en .
 
 ###  http://purl.org/dc/terms/creator
-dct:creator rdf:type owl:AnnotationProperty .
+dct:creator rdf:type owl:AnnotationProperty ;
+						rdfs:label "creator"@en .
 
+###  http://purl.org/dc/terms/acrualPeriodicity
+dct:acrualPeriodicity rdf:type owl:AnnotationProperty ;
+                      rdfs:comment "This property refers to the frequency at which Dataset is updated."@en ;
+                      rdfs:label "acrualPeriodicity"@en .
 
 ###  http://purl.org/dc/terms/description
 dct:description rdf:type owl:AnnotationProperty ;
-                dct:identifier "dct:description" ;
-                vann:usageNote "Mandatory property. This property contains a free-text account of the Catalogue. This property can be repeated for parallel language versions of the description."@en ,
-                               "Mandatory property. This property contains a free-text account of the Dataset. This property can be repeated for parallel language versions of the description."@en ,
-                               "Optional property. This property contains a free-text account of the Catalogue. This property can be repeated for parallel language versions of the description."@en ,
-                               "Optional property. This property contains a free-text account of the record. This property can be repeated for parallel language versions of the description."@en ,
-                               "Recommended property. This property contains a free-text account of the Distribution. This property can be repeated for parallel language versions of the description."@en ;
-                rdfs:comment "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en ,
-                             "This property can be repeated for parallel language versions of the description."@en ,
-                             "This property contains a free-text account of the Dataset. This property can be repeated for parallel language versions of the description."@en ,
-                             "This property contains a free-text account of the record. This property can be repeated for parallel language versions of the description."@en ;
-                rdfs:isDefinedBy <http://dublincore.org/documents/dcmi-terms/#terms-description> ;
-                rdfs:label "Catalogue Record - description"@en ,
-                           "Data Catalogue - description"@en ,
-                           "Data Service - description"@en ,
-                           "Dataset - description"@en ,
-                           "Distribution - description"@en .
+                rdfs:comment "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en ;
+                rdfs:label "description"@en .
 
+###  http://purl.org/dc/terms/publisher
+dct:publisher rdf:type owl:AnnotationProperty ;
+              rdfs:comment "This property refers to an entity (organisation) responsible for making the Catalogue available."@en ;
+              rdfs:label "publisher"@en .  
+
+###  http://purl.org/dc/terms/language
+dct:language rdf:type owl:AnnotationProperty ;
+             rdfs:comment "This property refers to a language of the Dataset. This property can be repeated if there are multiple languages in the Dataset."@en ;
+             rdfs:label "language"@en .
+
+###  http://purl.org/dc/terms/temporal
+dct:temporal rdf:type owl:AnnotationProperty ;
+             rdfs:comment "This property refers to a temporal period that the Dataset covers."@en ;
+             rdfs:label "temporal"@en .
+
+###  http://purl.org/dc/terms/created
+dct:created rdf:type owl:AnnotationProperty .
+
+###  http://purl.org/dc/terms/spatial
+dct:spatial rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/dc/terms/identifier
 dct:identifier rdf:type owl:AnnotationProperty .
 
-
-###  http://purl.org/dc/terms/publisher
-dct:publisher rdf:type owl:AnnotationProperty ;
-              dct:identifier "dct:publisher" ;
-              vann:usageNote "Mandatory property. This property refers to an entity (organisation) responsible for making the Catalogue available."@en ,
-                             "Recommended property. This property refers to an entity (organisation) responsible for making the Dataset available."@en ;
-              rdfs:comment "This property refers to an entity (organisation) responsible for making the Catalogue available."@en ,
-                           "This property refers to an entity (organisation) responsible for making the Dataset available."@en ;
-              rdfs:isDefinedBy <http://dublincore.org/documents/dcmi-terms/#terms-publisher> ;
-              rdfs:label "Data Catalogue - publisher"@en ,
-                         "Dataset - publisher"@en .
-
-
 ###  http://purl.org/dc/terms/rights
 dct:rights rdf:type owl:AnnotationProperty .
-
 
 ###  http://purl.org/dc/terms/title
 dct:title rdf:type owl:AnnotationProperty .
 
+###  http://purl.org/dc/terms/license
+dct:license rdf:type owl:AnnotationProperty .
+
+###  http://purl.org/dc/terms/source
+dct:source rdf:type owl:AnnotationProperty .
+
+###  http://purl.org/dc/terms/accrualPolicy
+dct:accrualPolicy rdf:type owl:AnnotationProperty .
+
+###  http://purl.org/dc/terms/modified
+dct:modified rdf:type owl:AnnotationProperty .
+
+###  http://purl.org/dc/terms/accessRights
+dct:accessRights  a owl:AnnotationProperty ;
+									rdfs:label "accessRights"@en ;
+                  rdfs:comment "This property refers to information that indicates whether the Dataset is open data, has access restrictions or is not public. A controlled vocabulary with three members (:public, :restricted, :non-public) will be created and maintained by the Publications Office of the EU."@en .
+
+###  http://purl.org/dc/terms/format
+dct:format a owl:AnnotationProperty ;
+           rdfs:comment "This property refers to the file format of the Distribution."@en ;
+           rdfs:label "format"@en .
+
+###  http://purl.org/dc/terms/mediaType
+dct:mediaType a owl:AnnotationProperty ;
+              rdfs:label "mediaType"@en ;
+              rdfs:comment "This property refers to the media type of the Distribution if this is defined in IANA."@en .
+
+###  http://purl.org/dc/terms/type
+dct:type a owl:AnnotationProperty ;
+         rdfs:label "type"@en ;
+         rdfs:comment "This property refers to the type of the Dataset. A controlled vocabulary for the values has not been established."@en .
 
 ###  http://purl.org/vocab/vann/usageNote
 vann:usageNote rdf:type owl:AnnotationProperty .
 
-
 ###  http://xmlns.com/foaf/0.1/homepage
 foaf:homepage rdf:type owl:AnnotationProperty .
-
 
 ###  http://xmlns.com/foaf/0.1/maker
 foaf:maker rdf:type owl:AnnotationProperty .
 
-
 ###  http://xmlns.com/foaf/0.1/name
 foaf:name rdf:type owl:AnnotationProperty .
-
 
 ###  https://schema.org/affiliation
 schema:affiliation rdf:type owl:AnnotationProperty .
 
+dcat:compressFormat a rdf:Property ;
+										rdfs:isDefinedBy <https://www.w3.org/TR/vocab-dcat-2/> ;
+                    rdfs:label "compression format"@en ;
+                    rdfs:comment "This property refers to the format of the file in which the data is contained in a compressed form, e.g. to reduce the size of the downloadable file ."@en ;
+                    vann:usageNote "Optional property. This property refers to the format of the file in which the data is contained in a compressed form, e.g. to reduce the size of the downloadable file. It SHOULD be expressed using a media type as defined in the official register of media types managed by IANA."@en ;
+                    dct:identifier "dcat:compressFormat" .
 
-###  https://w3id.org/idsa/core/contentStandard
-<https://w3id.org/idsa/core/contentStandard> rdf:type owl:AnnotationProperty ;
-                                             rdfs:subPropertyOf dct:conformsTo .
+dcat:downloadURL a rdf:Property ;
+								 rdfs:comment "This property contains a URL that is direct link to a downloadable file in a given format."@en ;
+                 rdfs:label "download URL"@en ;
+                 rdfs:isDefinedBy <https://www.w3.org/TR/vocab-dcat-2/> ;
+                 vann:usageNote "Optional property. This property contains a URL that is direct link to a downloadable file in a given format."@en .
 
+dcat:endpointDescription a rdf:Property ;
+                         vann:usageNote "Recomended property. A description of the services available via the end-points, including their operations, parameters etc ."@en ;
+                         rdfs:comment "A description of the services available via the end-points, including their operations, parameters etc."@en ;
+                         rdfs:label "description of service end-point"@en ;
+                         rdfs:isDefinedBy <https://www.w3.org/TR/vocab-dcat-2/> .
 
-###  https://w3id.org/idsa/core/publisher
-<https://w3id.org/idsa/core/publisher> rdf:type owl:AnnotationProperty ;
-                                       rdfs:subPropertyOf dct:publisher .
-
+dcat:endpointURL a rdf:Property ;
+                 vann:usageNote "Mandatory property. The root location or primary endpoint of the service (an IRI)."@en ;
+                 rdfs:label "service end-point"@en ;
+                 rdfs:isDefinedBy <https://www.w3.org/TR/vocab-dcat-2/> ;
+                 rdfs:comment "The root location or primary endpoint of the service (an IRI)."@en .
+                        
 
 #################################################################
 #    Object Properties
 #################################################################
-
-###  http://purl.org/dc/terms/language
-dct:language rdf:type owl:ObjectProperty ;
-             dct:identifier "dct:language" ;
-             vann:usageNote "Optional property. This property refers to a language of the Dataset. This property can be repeated if there are multiple languages in the Dataset."@en ,
-                            "Optional property. This property refers to a language used in the Distribution. This property can be repeated if the metadata is provided in multiple languages."@en ,
-                            "Optional property. This property refers to a language used in the textual metadata describing titles, descriptions, etc. of the Dataset. This property can be repeated if the metadata is provided in multiple languages."@en ,
-                            "Recommended property. This property refers to a language used in the textual metadata describing titles, descriptions, etc. of the Datasets in the Catalogue. This property can be repeated if the metadata is provided in multiple languages."@en ;
-             rdfs:comment "This property refers to a language of the Dataset. This property can be repeated if there are multiple languages in the Dataset."@en ,
-                          "This property refers to a language used in the Distribution."@en ,
-                          "This property refers to a language used in the textual metadata describing titles, descriptions, etc. of the Dataset. This property can be repeated if the metadata is provided in multiple languages."@en ,
-                          "This property refers to a language used in the textual metadata describing titles, descriptions, etc. of the Datasets in the Catalogue. This property can be repeated if the metadata is provided in multiple languages."@en ;
-             rdfs:isDefinedBy <http://dublincore.org/documents/dcmi-terms/#terms-language> ;
-             rdfs:label "Catalogue Record - language"@en ,
-                        "Data Catalogue - language"@en ,
-                        "Dataset - language"@en ,
-                        "Distribution - language"@en .
-
-
-###  http://purl.org/dc/terms/spatial
-dct:spatial rdf:type owl:ObjectProperty .
-
-
-###  http://purl.org/dc/terms/temporal
-dct:temporal rdf:type owl:ObjectProperty ;
-             dct:identifier "dct:temporal" ;
-             vann:usageNote "Recommended property. This property refers to a temporal period that the Dataset covers."@en ;
-             rdfs:comment "This property refers to a temporal period that the Dataset covers."@en ;
-             rdfs:isDefinedBy <http://dublincore.org/documents/dcmi-terms/#terms-temporal> ;
-             rdfs:label "Dataset - temporal coverage"@en .
-
-
-###  http://www.w3.org/ns/dcat#mediaType
-dcat:mediaType rdf:type owl:ObjectProperty .
-
 
 ###  http://www.w3.org/ns/dqv#hasQualityMetadata
 dqv:hasQualityMetadata rdf:type owl:ObjectProperty ;
@@ -203,12 +190,10 @@ dqv:hasQualityMetadata rdf:type owl:ObjectProperty ;
                        rdfs:comment "Refers to a grouping of quality information such as certificates, policies, measurements and annotations as a named graph. Quality information represented in such a grouping can pertain to any kind of resource (e.g., a dataset, a linkset, a graph, a set of triples). However, in the DQV context, this property is generally expected to be used in statements in which subjects are instances of dcat:Dataset or dcat:Distribution."@en ;
                        rdfs:label "has quality metadata"@en .
 
-
 ###  https://w3id.org/idsa/core/accrualPeriodicity
 <https://w3id.org/idsa/core/accrualPeriodicity> rdf:type owl:ObjectProperty ;
                                                 rdfs:domain <https://w3id.org/idsa/core/DigitalContent> ;
                                                 rdfs:range <https://w3id.org/idsa/core/Frequency> .
-
 
 ###  https://w3id.org/idsa/core/contentType
 <https://w3id.org/idsa/core/contentType> rdf:type owl:ObjectProperty ;
@@ -217,14 +202,12 @@ dqv:hasQualityMetadata rdf:type owl:ObjectProperty ;
                                          rdfs:comment "Detailed type, genre or interpretation of the Digital Content."@en ;
                                          rdfs:label "content type"@en .
 
-
 ###  https://w3id.org/idsa/core/dataTypeSchema
 <https://w3id.org/idsa/core/dataTypeSchema> rdf:type owl:ObjectProperty ;
                                             rdfs:domain <https://w3id.org/idsa/core/DataRepresentation> ;
                                             rdfs:range <https://w3id.org/idsa/core/Resource> ;
                                             rdfs:comment "Indicates the data type schema of the Representation."@en ;
                                             rdfs:label "Data Type Schema"@en .
-
 
 ###  https://w3id.org/idsa/core/endpointArtifact
 <https://w3id.org/idsa/core/endpointArtifact> rdf:type owl:ObjectProperty ;
@@ -233,7 +216,6 @@ dqv:hasQualityMetadata rdf:type owl:ObjectProperty ;
                                               rdfs:comment "Content instance mediated via this individual endpoint (1:1 mapping)."@en ;
                                               rdfs:label "endpoint artifact"@en .
 
-
 ###  https://w3id.org/idsa/core/instance
 <https://w3id.org/idsa/core/instance> rdf:type owl:ObjectProperty ;
                                       rdfs:domain <https://w3id.org/idsa/core/Representation> ;
@@ -241,34 +223,10 @@ dqv:hasQualityMetadata rdf:type owl:ObjectProperty ;
                                       rdfs:comment "Reference to an instance of given representation, i.e. inline value or file placeholder."@en ;
                                       rdfs:label "instance"@en .
 
-
-###  https://w3id.org/idsa/core/language
-<https://w3id.org/idsa/core/language> rdf:type owl:ObjectProperty ;
-                                      rdfs:subPropertyOf dct:language ;
-                                      rdfs:domain [ rdf:type owl:Class ;
-                                                    owl:unionOf ( <https://w3id.org/idsa/core/DigitalContent>
-                                                                  <https://w3id.org/idsa/core/Representation>
-                                                                )
-                                                  ] ;
-                                      rdfs:range <https://w3id.org/idsa/core/Language> ;
-                                      rdfs:comment "Natural language(s) used within the content."@en ;
-                                      rdfs:label "language"@en .
-
-
-###  https://w3id.org/idsa/core/mediaType
-<https://w3id.org/idsa/core/mediaType> rdf:type owl:ObjectProperty ;
-                                       rdfs:subPropertyOf dcat:mediaType ;
-                                       rdfs:domain <https://w3id.org/idsa/core/Representation> ;
-                                       rdfs:range <https://w3id.org/idsa/core/MediaType> ;
-                                       rdfs:comment "Media Type of the Representation."@en ;
-                                       rdfs:label "media type"@en .
-
-
 ###  https://w3id.org/idsa/core/publisher
 <https://w3id.org/idsa/core/publisher> rdf:type owl:ObjectProperty ;
                                        rdfs:domain <https://w3id.org/idsa/core/Resource> ;
                                        rdfs:range <https://w3id.org/idsa/core/Agent> .
-
 
 ###  https://w3id.org/idsa/core/representation
 <https://w3id.org/idsa/core/representation> rdf:type owl:ObjectProperty ;
@@ -277,39 +235,135 @@ dqv:hasQualityMetadata rdf:type owl:ObjectProperty ;
                                             rdfs:comment "Representation of the content."@en ;
                                             rdfs:label "representation"@en .
 
-
-###  https://w3id.org/idsa/core/spatialCoverage
-<https://w3id.org/idsa/core/spatialCoverage> rdf:type owl:ObjectProperty ;
-                                             rdfs:subPropertyOf dct:spatial ;
-                                             rdfs:domain <https://w3id.org/idsa/core/DigitalContent> ;
-                                             rdfs:range <https://w3id.org/idsa/core/Location> ;
-                                             rdfs:comment "Named spatial entity covered by the Resource."@en ;
-                                             rdfs:label "spatial coverage"@en .
-
-
-###  https://w3id.org/idsa/core/temporalCoverage
-<https://w3id.org/idsa/core/temporalCoverage> rdf:type owl:ObjectProperty ;
-                                              rdfs:subPropertyOf dct:temporal ;
-                                              rdfs:domain <https://w3id.org/idsa/core/DigitalContent> ;
-                                              rdfs:range <https://w3id.org/idsa/core/TemporalEntity> ;
-                                              rdfs:comment "Temporal period or instance covered by the content."@en ;
-                                              rdfs:label "temporal coverage"@en .
-
-
 ###  https://w3id.org/idsa/core/temporalResolution
 <https://w3id.org/idsa/core/temporalResolution> rdf:type owl:ObjectProperty ;
                                                 rdfs:domain <https://w3id.org/idsa/core/DigitalContent> ;
                                                 rdfs:range <https://w3id.org/idsa/core/Frequency> .
 
+dcat:dataset a owl:ObjectProperty ;
+  					rdfs:comment "A collection of data that is listed in the catalog."@en ;                        
+  					rdfs:label "dataset"@en ;
+  					rdfs:isDefinedBy <https://www.w3.org/TR/vocab-dcat-2/> ;
+  					rdfs:range dcat:Dataset .
+
+### CIS and SWE terms
+cis:envelope rdf:type owl:ObjectProperty ;
+							rdfs:range cis:EnvelopeByAxisType ;
+							rdfs:label "envelope"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+
+cis:domainSet rdf:type owl:ObjectProperty ;
+							rdfs:range cis:DomainSetType ;
+							rdfs:label "domainSet"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+							
+cis:rangeSet rdf:type owl:ObjectProperty ;
+							rdfs:range cis:RangeSetType ;
+							rdfs:label "rangeSet"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .							
+
+cis:partitionSet rdf:type owl:ObjectProperty ;
+							rdfs:range cis:PartitionSetType ;
+							rdfs:label "partitionSet"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+							
+cis:rangeType rdf:type owl:ObjectProperty ;
+							rdfs:range swe:DataRecordType ;
+							rdfs:label "rangeType"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+							
+cis:metadata rdf:type owl:ObjectProperty ;
+							rdfs:label "metadata"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .		
+							
+cis:generalGrid rdf:type owl:ObjectProperty ;
+							rdfs:range cis:GeneralGridCoverageType ;
+							rdfs:label "generalGrid"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+							
+cis:axis rdf:type owl:ObjectProperty ;
+							rdfs:range cis:Axis ;
+							rdfs:label "axis"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+
+cis:gridLimits rdf:type owl:ObjectProperty ;
+							rdfs:range cis:GridLimitsType ;
+							rdfs:label "gridLimits"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .																																						
+
+cis:coordinate rdf:type owl:ObjectProperty ;
+							rdfs:label "coordinate"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+							
+cis:displacement rdf:type owl:ObjectProperty ;
+							rdfs:range cis:DisplacementAxisNestType ;
+							rdfs:label "displacement"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+							
+cis:model rdf:type owl:ObjectProperty ;
+							rdfs:label "model"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .								
+
+sml:sensorModelRef rdf:type owl:ObjectProperty ;
+							rdfs:label "sensorModelRef"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+							
+sml:sensorInstanceRef rdf:type owl:ObjectProperty ;
+							rdfs:label "sensorInstanceRef"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .					
+							
+cis:partition rdf:type owl:ObjectProperty ;
+							rdfs:label "partition"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+							
+cis:coverage rdf:type owl:ObjectProperty ;
+							rdfs:label "coverage"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .																		
+
+cis:coverageRef rdf:type owl:ObjectProperty ;
+							rdfs:label "coverageRef"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+							
+cis:positionValuePair rdf:type owl:ObjectProperty ;
+							rdfs:label "positionValuePair"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+							
+cis:dataBlock rdf:type owl:ObjectProperty ;
+							rdfs:range cis:VDataBlockType ;
+							rdfs:label "dataBlock"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+							
+swe:field rdf:type owl:ObjectProperty ;
+							rdfs:label "field"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+							
+swe:uom rdf:type owl:ObjectProperty ;
+							rdfs:range swe:UnitReference ;
+							rdfs:label "uom"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .																																																																											
+
+cis:interpolationRestriction rdf:type owl:ObjectProperty ;
+							rdfs:label "interpolationRestriction"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .																																																																											
+
+swe:constraint rdf:type owl:ObjectProperty ;
+							rdfs:label "constraint"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+							
+swe:interval rdf:type owl:ObjectProperty ;
+							rdfs:label "interval"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .									
 
 #################################################################
 #    Data properties
 #################################################################
-
-###  http://purl.org/dc/terms/created
-dct:created rdf:type owl:DatatypeProperty .
-
-
+														
+###  http://purl.org/dc/terms/conformsTo
+dct:conformsTo rdf:type owl:DatatypeProperty ;
+               rdfs:comment "An established standard to which the described resource conforms."@en ;
+    					 rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+    					 rdfs:label "Conforms To"@en  .
+    					   					
 ###  http://purl.org/dc/terms/licence
 dct:licence rdf:type owl:DatatypeProperty .
 
@@ -322,10 +376,23 @@ dcat:byteSize rdf:type owl:DatatypeProperty ;
               rdfs:isDefinedBy <https://www.w3.org/TR/vocab-dcat-2/#Property:distribution_size> ;
               rdfs:label "Distribution - byte size"@en .
 
+###  http://www.w3.org/ns/dcat#spatialResolutionInMeters
+dcat:spatialResolutionInMeters a owl:DatatypeProperty ;
+															 rdfs:label "Distribution - spatial resolution "@en ;
+                               rdfs:comment "This property refers to the  minimum spatial separation resolvable in a dataset, measured in meters."@en ;
+                               rdfs:isDefinedBy <https://www.w3.org/TR/vocab-dcat-2/> ;
+                               vann:usageNote "Optional property. This property refers to the minimum spatial separation resolvable in a dataset distribution, measured in meters. . "@en ;
+                               rdfs:isDefinedBy <https://www.w3.org/TR/vocab-dcat-2/> .
+
+###  http://www.w3.org/ns/dcat#temporalResolution
+dcat:temporalResolution a owl:DatatypeProperty ;
+												rdfs:isDefinedBy <https://www.w3.org/TR/vocab-dcat-2/> ;
+                        vann:usageNote "Optional property. This property refers to the minimum time period resolvable in the dataset distribution . "@en ;
+                        rdfs:comment "This property refers to the minimum time period resolvable in the dataset. ."@en ;
+                        rdfs:label "temporal resolution"@en .
 
 ###  http://www.w3.org/ns/dcat#keyword
 dcat:keyword rdf:type owl:DatatypeProperty .
-
 
 ###  https://w3id.org/idsa/core/accessURL
 <https://w3id.org/idsa/core/accessURL> rdf:type owl:DatatypeProperty ;
@@ -354,18 +421,11 @@ dcat:keyword rdf:type owl:DatatypeProperty .
 
 
 ###  https://w3id.org/idsa/core/contentStandard
-<https://w3id.org/idsa/core/contentStandard> rdf:type owl:DatatypeProperty ;
-                                             rdfs:domain <https://w3id.org/idsa/core/DigitalContent> ;
-                                             rdfs:range xsd:anyURI .
-
-
-###  https://w3id.org/idsa/core/creationDate
-<https://w3id.org/idsa/core/creationDate> rdf:type owl:DatatypeProperty ;
-                                          rdfs:subPropertyOf dct:created ;
-                                          rdfs:domain <https://w3id.org/idsa/core/Artifact> ;
-                                          rdfs:range xsd:dateTimeStamp ;
-                                          rdfs:comment "Date (as xsd:dateTimeStamp) when the artifact was created, i.e. persisted."@en ;
-                                          rdfs:label "creation date"@en .
+<https://w3id.org/idsa/core/contentStandard> a owl:DatatypeProperty ;
+																						 rdfs:subPropertyOf dct:conformsTo ;
+																						 rdfs:range xsd:anyURI ;
+																						 rdfs:comment "IRI containing document, which defines the standard for the given Digital Content. The content is assumed to conform to that Standard."@en ;
+                                             rdfs:label "content standard"@en .
 
 
 ###  https://w3id.org/idsa/core/customLicense
@@ -425,15 +485,6 @@ dcat:keyword rdf:type owl:DatatypeProperty .
                                     rdfs:label "height"@en .
 
 
-###  https://w3id.org/idsa/core/keyword
-<https://w3id.org/idsa/core/keyword> rdf:type owl:DatatypeProperty ;
-                                     rdfs:subPropertyOf dcat:keyword ;
-                                     rdfs:domain <https://w3id.org/idsa/core/DigitalContent> ;
-                                     rdfs:range xsd:string ;
-                                     rdfs:comment "Controlled keywords that describe the nature, purpose, or use of the content."@en ;
-                                     rdfs:label "keyword"@en .
-
-
 ###  https://w3id.org/idsa/core/path
 <https://w3id.org/idsa/core/path> rdf:type owl:DatatypeProperty ;
                                   rdfs:domain <https://w3id.org/idsa/core/Endpoint> ;
@@ -464,7 +515,7 @@ dcat:keyword rdf:type owl:DatatypeProperty .
     """@en ;
                                              rdfs:label "Standard License"@en ;
                                              rdfs:seeAlso <https://www.wikidata.org/wiki/Q79719> .
-
+                                             
 
 ###  https://w3id.org/idsa/core/width
 <https://w3id.org/idsa/core/width> rdf:type owl:DatatypeProperty ;
@@ -473,7 +524,137 @@ dcat:keyword rdf:type owl:DatatypeProperty .
                                    rdfs:comment "Width of the visible frame."@en ;
                                    rdfs:label "width"@en .
 
+### CIS and SWE terms
+cis:srsName rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:anyURI ;
+							rdfs:label "srsName"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+							
+cis:axisLabel rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "axisLabel"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+							
+cis:axisLabels rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "axisLabels"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .														
 
+cis:uomLabel rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "uomLabel"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+							
+cis:uomLabels rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "uomLabels"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .		
+
+cis:lowerBound rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:integer ;
+							rdfs:label "lowerBound"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+							
+cis:upperBound rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:integer ;
+							rdfs:label "upperBound"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+							
+cis:resolution rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "resolution"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+							
+cis:value rdf:type owl:DatatypeProperty ;
+							rdfs:label "value"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+							
+cis:fileReference rdf:type owl:DatatypeProperty ;
+							rdfs:label "fileReference"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+							
+swe:names rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "names"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+							
+swe:name rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "name"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+							
+swe:code rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "code"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+							
+swe:definition rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "definition"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+							
+cis:allowedInterpolation rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:anyURI ;
+							rdfs:label "allowed­Interpolation"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+																					
+oim-metadata:epsg rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "epsg"@en .								
+							
+oim-metadata:credits rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "credits"@en .
+							
+oim-metadata:maxDate rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:dateTimeStamp ;
+							rdfs:label "maxDate"@en .
+							
+oim-metadata:minDate rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:dateTimeStamp ;
+							rdfs:label "minDate"@en .																						
+							
+oim-metadata:maxValue rdf:type owl:AnnotationProperty ;
+							rdfs:label "maxValue"@en .
+							
+oim-metadata:minValue rdf:type owl:AnnotationProperty ;
+							rdfs:label "minValue"@en .
+							
+oim-metadata:noDataValue rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "noDataValue"@en .							
+
+oim-metadata:numberOfRecords rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:integer ;
+							rdfs:label "numberOfRecords"@en .
+							
+oim-metadata:profileSchema  rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "profileSchema"@en .
+							
+oim-metadata:appliedModel  rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "appliedModel"@en .
+							
+oim-metadata:project  rdf:type owl:AnnotationProperty ;
+							rdfs:label "project"@en .							
+
+oim-metadata:resolutionUnits  rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "resolutionUnits"@en .
+							
+oim-metadata:scaleFactor  rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:float ;
+							rdfs:label "scaleFactor"@en .	
+							
+oim-metadata:subDatasetName  rdf:type owl:DatatypeProperty ;
+							rdfs:label "subDatasetName"@en .														
+
+oim-metadata:unitsDescription   rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "unitsDescription "@en .														
+
+																					
 #################################################################
 #    Classes
 #################################################################
@@ -485,11 +666,6 @@ dct:DCMIType rdf:type owl:Class .
 ###  http://purl.org/dc/terms/Frequency
 dct:Frequency rdf:type owl:Class ;
               owl:equivalentClass <https://w3id.org/idsa/core/Frequency> .
-
-
-###  http://purl.org/dc/terms/License
-dct:License rdf:type owl:Class .
-
 
 ###  http://purl.org/dc/terms/Location
 dct:Location rdf:type owl:Class .
@@ -710,99 +886,121 @@ foaf:Agent rdf:type owl:Class .
                                            rdfs:label "Video Resource"@en .
 
 
-#################################################################
-#    Annotations
-#################################################################
 
-dct:accessRights rdfs:label "Data Service - access rights"@en ;
-                  vann:usageNote "Optional property. This property refers to information that indicates whether the Dataset is open data, has access restrictions or is not public. A controlled vocabulary with three members (:public, :restricted, :non-public) will be created and maintained by the Publications Office of the EU."@en ;
-                  rdfs:label "Dataset - access Rights"@en ;
-                  rdfs:comment "This property refers to information that indicates whether the Dataset is open data, has access restrictions or is not public. A controlled vocabulary with three members (:public, :restricted, :non-public) will be created and maintained by the Publications Office of the EU."@en ;
-                  dct:identifier "dct:accessRights" ;
-                  rdfs:isDefinedBy <http://dublincore.org/documents/dcmi-terms/#terms-accessRights> .
+### CIS and SWE terms
+cis:CoverageByDomainAndRangeType rdf:type owl:Class ;
+					rdfs:comment "Coverages are represented by some binary or ASCII serialization, specified by some data (en­coding) format"@en ;
+					rdfs:label "CoverageByDomainAndRangeType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+					
+cis:CoverageByPartitioningType rdf:type owl:Class ;
+					rdfs:comment "his class coverage-partitioning establishes an alternative representation for coverages through partitioning into sub-coverages or direct enumeration of position/value pairs."@en ;
+					rdfs:label "CoverageByPartitioningType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+					
+cis:DomainSetType rdf:type owl:Class ;
+					rdfs:comment "determines the exact locations of a coverage overall and its set of direct positions."@en ;
+					rdfs:label "DomainSetType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+cis:GeneralGridCoverageType rdf:type owl:Class ;
+					rdfs:comment "lays foundation for the modelling of all possible grid types in CIS. "@en ;
+					rdfs:label "GeneralGridCoverageType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .															
 
+cis:Axis rdf:type owl:Class ;
+					rdfs:comment "grid axis identifiers, all distinct within a grid"@en ;
+					rdfs:label "Axis"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
 
-dct:format rdfs:comment "This property refers to the file format of the Distribution."@en ;
-           rdfs:label "Distribution - format"@en ;
-           rdfs:isDefinedBy <http://dublincore.org/documents/dcmi-terms/#terms-format> ;
-           vann:usageNote "Recommended property. This property refers to the file format of the Distribution."@en ;
-           dct:identifier "dct:format" .
+cis:IndexAxisType rdf:type owl:Class ;
+					rdfs:subClassOf cis:Axis ;
+					rdfs:comment "requires an Index CRS as its CRS, as defined in the OGC Name Type Specification for Index CRSs"@en ;
+					rdfs:label "IndexAxisType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+cis:RegularAxisType rdf:type owl:Class ;
+					rdfs:subClassOf cis:Axis ;
+					rdfs:comment "has no restriction on the CRS used; as it is regularly spaced it contains the common distance, i.e.: resolution, as a part of the axis definition"@en ;
+					rdfs:label "RegularAxisType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+cis:IrregularAxisType rdf:type owl:Class ;
+					rdfs:subClassOf cis:Axis ;
+					rdfs:comment "An irregular axis abandons the equidistant spacing of a regular axis. Therefore, all direct positions along such an axis must be enumerated explicitly which is achieved by replacing the lower bound / resolution / upper bound scheme by an ordered list of direct positions."@en ;
+					rdfs:label "IrregularAxisType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .										
+					
+cis:DisplacementAxisNestType rdf:type owl:Class ;
+					rdfs:comment "combines several axes to a single nest where the coordinates are enumerated individually for each direct pos­ition."@en ;
+					rdfs:label "DisplacementAxisNestType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+cis:GridLimitsType rdf:type owl:Class ;
+					rdfs:comment "the limits of the underlying array grid"@en ;
+					rdfs:label "GridLimitsType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+cis:TransformationBySensorModelType rdf:type owl:Class ;
+					rdfs:comment "Has a sensorModel and sensor­Instance"@en ;
+					rdfs:label "TransformationBySensorModelType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+cis:EnvelopeByAxisType rdf:type owl:Class ;
+					rdfs:comment "an envelope type which allows for a convenient handling of any type of coordinates together with a single CRS"@en ;
+					rdfs:label "EnvelopeByAxisType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .																															
 
-
-dct:mediaType rdfs:label "Distribution - media type"@en ;
-              dct:identifier "dcat:mediaType" ;
-              rdfs:isDefinedBy <http://dublincore.org/documents/dcmi-terms/#terms-mediaType> ;
-              rdfs:comment "This property refers to the media type of the Distribution if this is defined in IANA."@en ;
-              vann:usageNote "Optional property. Subproperty of dct:format. This property refers to the media type of the Distribution if this is defined in IANA."@en .
-
-
-dct:type rdfs:label "Agent - type"@en ;
-         rdfs:comment "This property refers to the type of the Dataset. A controlled vocabulary for the values has not been established."@en ;
-         dct:identifier "dct:type" ;
-         rdfs:label "Dataset - type "@en ;
-         rdfs:comment "This property refers to a type of licence, e.g. indicating ‘public domain’ or ‘royalties required’."@en ;
-         vann:usageNote "Recommended property. This property refers to a type of the agent that makes the Catalogue or Dataset available"@en ;
-         rdfs:comment "This property refers to a type of the agent that makes the Catalogue or Dataset availabl"@en ;
-         rdfs:label "Licence Document - licence type"@en ;
-         vann:usageNote "Optional property. This property refers to the type of the Dataset. A controlled vocabulary for the values has not been established."@en ;
-         rdfs:isDefinedBy <http://dublincore.org/documents/dcmi-terms/#terms-type> ;
-         vann:usageNote "Recommended property. This property refers to a type of licence, e.g. indicating ‘public domain’ or ‘royalties required’."@en .
-
-
-dcat:compressFormat rdfs:isDefinedBy <https://www.w3.org/TR/vocab-dcat-2/#Property:distribution_compression_format> ;
-                    rdfs:label "Distribution - compression format"@en ;
-                    rdfs:comment "This property refers to the format of the file in which the data is contained in a compressed form, e.g. to reduce the size of the downloadable file ."@en ;
-                    vann:usageNote "Optional property. This property refers to the format of the file in which the data is contained in a compressed form, e.g. to reduce the size of the downloadable file. It SHOULD be expressed using a media type as defined in the official register of media types managed by IANA."@en ;
-                    dct:identifier "dcat:compressFormat" .
-
-
-dcat:downloadURL rdfs:comment "This property contains a URL that is direct link to a downloadable file in a given format."@en ;
-                 rdfs:label "Distribution - download URL"@en ;
-                 dct:identifier "dcat:downloadURL" ;
-                 rdfs:isDefinedBy <https://www.w3.org/TR/vocab-dcat-2/#Property:distribution_download_url> ;
-                 vann:usageNote "Optional property. This property contains a URL that is direct link to a downloadable file in a given format."@en .
-
-
-dcat:endpointDescription vann:usageNote "Recomended property. A description of the services available via the end-points, including their operations, parameters etc ."@en ;
-                         dct:identifier "dcat:endpointDescription" ;
-                         rdfs:comment "A description of the services available via the end-points, including their operations, parameters etc."@en ;
-                         rdfs:label "Data Service - endpoint description"@en ;
-                         rdfs:isDefinedBy <https://www.w3.org/TR/vocab-dcat-2/#Property:data_service_endpoint_description> .
-
-
-dcat:endpointURL dct:identifier "dcat:endpointURL" ;
-                 vann:usageNote "Mandatory property. The root location or primary endpoint of the service (an IRI).."@en ;
-                 rdfs:label "Data Service - endpoint URL "@en ;
-                 rdfs:isDefinedBy <https://www.w3.org/TR/vocab-dcat-2/#Property:data_service_endpoint_url> ;
-                 rdfs:comment "The root location or primary endpoint of the service (an IRI)."@en .
-
-
-dcat:spatialResolutionInMeters rdfs:label "Distribution - spatial resolution "@en ;
-                               rdfs:comment "This property refers to the  minimum spatial separation resolvable in a dataset, measured in meters."@en ;
-                               dct:identifier "dcat:spatialResolutionInMeters" ;
-                               rdfs:isDefinedBy <https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_spatial_resolution> ;
-                               vann:usageNote "Optional property. This property refers to the minimum spatial separation resolvable in a dataset distribution, measured in meters. . "@en ;
-                               rdfs:label "Dataset - "@en ;
-                               vann:usageNote "Optional property. This property refers to the minimum spatial separation resolvable in a dataset, measured in meters. "@en ;
-                               dct:identifier "dcat:spatialResolutionInMeters " ;
-                               rdfs:comment "This property refers to the minimum spatial separation resolvable in a dataset distribution, measured in meters. ."@en ;
-                               rdfs:isDefinedBy <https://www.w3.org/TR/vocab-dcat-2/#Property:distribution_spatial_resolution> .
-
-
-dcat:temporalResolution rdfs:isDefinedBy <https://www.w3.org/TR/vocab-dcat-2/#Property:distribution_temporal_resolution> ;
-                        vann:usageNote "Optional property. This property refers to the minimum time period resolvable in the dataset distribution . "@en ;
-                        dct:identifier "dcat:temporalResolution" ,
-                                       "dcat:temporalResolution " ;
-                        rdfs:isDefinedBy <https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_temporal_resolution> ;
-                        rdfs:comment "This property refers to the minimum time period resolvable in the dataset distribution ."@en ,
-                                     "This property refers to the minimum time period resolvable in the dataset. ."@en ;
-                        rdfs:label "Distribution - temporal resolution"@en ,
-                                   "Dataset - "@en ;
-                        vann:usageNote "Optional property. This property refers to the minimum time period resolvable in the dataset. "@en .
-
-
-<https://w3id.org/idsa/core/contentStandard> rdfs:comment "IRI containing document, which defines the standard for the given Digital Content. The content is assumed to conform to that Standard."@en ;
-                                             rdfs:label "content standard"@en .
+cis:AxisExtendType rdf:type owl:Class ;
+					rdfs:comment "Axis Extend Type"@en ;
+					rdfs:label "AxisExtendType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+cis:PartitionSetType rdf:type owl:Class ;
+					rdfs:comment "Set of coverages or single position­ed values which together make up the coverage on hand"@en ;
+					rdfs:label "PartitionSetType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+cis:PVPType rdf:type owl:Class ;
+					rdfs:comment "PVP Type"@en ;
+					rdfs:label "PVPType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+cis:RangeSetType rdf:type owl:Class ;
+					rdfs:comment "Coverage range values, each one  associated with a direct position"@en ;
+					rdfs:label "RangeSetType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+cis:RangeSetRefType rdf:type owl:Class ;
+					rdfs:comment "Range Set Ref Type"@en ;
+					rdfs:label "RangeSetRefType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+cis:VDataBlockType rdf:type owl:Class ;
+					rdfs:comment "VData Block Type"@en ;
+					rdfs:label "VDataBlockType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+swe:DataRecordType rdf:type owl:Class ;
+					rdfs:comment "Description of the common data type of all range values"@en ;
+					rdfs:label "DataRecordType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+swe:QuantityType rdf:type owl:Class ;
+					rdfs:comment "Quantity Type"@en ;
+					rdfs:label "QuantityType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+swe:UnitReference rdf:type owl:Class ;
+					rdfs:comment "Unit Reference"@en ;
+					rdfs:label "UnitReference"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+swe:AllowedValues rdf:type owl:Class ;
+					rdfs:comment "Allowed Values"@en ;
+					rdfs:label "AllowedValues"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .		
+					
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

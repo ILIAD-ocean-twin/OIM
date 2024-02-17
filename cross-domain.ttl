@@ -213,6 +213,12 @@ geo:wktLiteral a rdfs:Datatype ;
                rdfs:isDefinedBy <http://www.opengis.net/ont/geosparql> ,
                                 <http://www.opengis.net/spec/geosparql/1.0> ;
                rdfs:label "Well-known Text Literal"@en .
+             
+###  http://www.opengis.net/ont/geosparql#geoJSONLiteral  
+geo:geoJSONLiteral a rdfs:Datatype ;
+    rdfs:isDefinedBy geo: ;
+    skos:prefLabel "GeoJSON Literal"@en ;
+    skos:definition "A GeoJSON serialization of a Geometry object."@en .               
 
 #################################################################
 #    Object Properties
@@ -694,6 +700,16 @@ geo:asWKT a owl:DatatypeProperty ;
                            <http://www.opengis.net/spec/geosparql/1.0> ;
           rdfs:label "asWKT"@en .
 
+###  http://www.opengis.net/ont/geosparql#asGeoJSON
+geo:asGeoJSON
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf geo:hasSerialization ;
+    rdfs:isDefinedBy geo: ;
+    skos:prefLabel "as GeoJSON"@en ;
+    skos:definition "The GeoJSON serialization of a Geometry."@en ;
+    rdfs:domain geo:Geometry ;
+    rdfs:range geo:geoJSONLiteral .
+
 ###  http://www.opengis.net/ont/geosparql#hasSerialization
 geo:hasSerialization a owl:DatatypeProperty ;
                      rdfs:domain geo:Geometry ;
@@ -1055,6 +1071,35 @@ qu:QuantityKind a owl:Class ;
                 rdfs:label "QuantityKind" .
 
 #### GEOSPARQL
+###  http://www.opengis.net/ont/geosparql#SpatialObjectCollection
+geo:SpatialObjectCollection
+    a owl:Class ;
+    rdfs:isDefinedBy geo: ;
+    skos:prefLabel "Spatial Object Collection" ;
+    skos:definition "A collection of individual Spatial Objects."@en ;
+    skos:note "This is the superclass of Feature Collection and Geometry Collection."@en ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:allValuesFrom geo:SpatialObject ;
+        owl:onProperty rdfs:member ;
+    ] ;
+.
+
+
+###  http://www.opengis.net/ont/geosparql#FeatureCollection
+geo:FeatureCollection
+    a owl:Class ;
+    rdfs:isDefinedBy geo: ;
+    skos:prefLabel "Feature Collection" ;
+    skos:definition "A collection of individual Features."@en ;
+    rdfs:subClassOf geo:SpatialObjectCollection ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:allValuesFrom geo:Feature ;
+        owl:onProperty rdfs:member ;
+    ] ;
+.
+
 ###  http://www.opengis.net/ont/geosparql#Feature
 geo:Feature a owl:Class ;
             rdfs:subClassOf geo:SpatialObject ,
