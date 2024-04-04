@@ -75,8 +75,8 @@
 #################################################################
 
 ### https://w3id.org/iliad/oim/ext/jellyfish/distanceWalkedinmeters
-oim-jf:distanceWalkedinmeters	a owl:DatatypeProperty ;
-			rdfs:label "distanceWalkedinmeters" ;
+oim-jf:distanceWalkedInMeters	a owl:DatatypeProperty ;
+			rdfs:label "distanceWalkedInMeters" ;
 			rdfs:comment "distance Walked in meters" ;
 			rdfs:isDefinedBy oim-jf: .
 
@@ -87,13 +87,13 @@ oim-jf:distanceFromShore	a owl:DatatypeProperty ;
 			rdfs:isDefinedBy oim-jf: .
 			
 ### https://w3id.org/iliad/oim/ext/jellyfish/stingByJellyFish
-oim-jf:stingByJF	a owl:DatatypeProperty ;
+oim-jf:stingByJellyFish	a owl:DatatypeProperty ;
 			rdfs:label "stingByJellyFish" ;
 			rdfs:comment "sting by jellyfish information" ;
 			rdfs:isDefinedBy oim-jf: .		
 
 ### https://w3id.org/iliad/oim/ext/jellyfish/strandedJellyfish
-oim-jf:beachedJF	a owl:DatatypeProperty ;
+oim-jf:strandedJellyfish	a owl:DatatypeProperty ;
 			rdfs:label "strandedJellyfish" ;
 			rdfs:comment "stranded jellyfish information" ;
 			rdfs:isDefinedBy oim-jf: .
