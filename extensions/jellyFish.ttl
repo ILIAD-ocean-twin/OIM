@@ -74,28 +74,28 @@
 #    Data properties
 #################################################################
 
+### https://w3id.org/iliad/oim/ext/jellyfish/distanceWalkedinmeters
+oim-jf:distanceWalkedinmeters	a owl:DatatypeProperty ;
+			rdfs:label "distanceWalkedinmeters" ;
+			rdfs:comment "distance Walked in meters" ;
+			rdfs:isDefinedBy oim-jf: .
+
 ### https://w3id.org/iliad/oim/ext/jellyfish/distanceFromShore
 oim-jf:distanceFromShore	a owl:DatatypeProperty ;
 			rdfs:label "distanceFromShore" ;
 			rdfs:comment "distance from shore" ;
 			rdfs:isDefinedBy oim-jf: .
 			
-### https://w3id.org/iliad/oim/ext/jellyfish/densityOfJF
-oim-jf:densityOfJF	a owl:DatatypeProperty ;
-			rdfs:label "densityOfJF" ;
-			rdfs:comment "density of jellyfish" ;
-			rdfs:isDefinedBy oim-jf: .			
-
-### https://w3id.org/iliad/oim/ext/jellyfish/stingByJF
+### https://w3id.org/iliad/oim/ext/jellyfish/stingByJellyFish
 oim-jf:stingByJF	a owl:DatatypeProperty ;
-			rdfs:label "stingByJF" ;
+			rdfs:label "stingByJellyFish" ;
 			rdfs:comment "sting by jellyfish information" ;
 			rdfs:isDefinedBy oim-jf: .		
 
-### https://w3id.org/iliad/oim/ext/jellyfish/beachedJF
+### https://w3id.org/iliad/oim/ext/jellyfish/strandedJellyfish
 oim-jf:beachedJF	a owl:DatatypeProperty ;
-			rdfs:label "beachedJF" ;
-			rdfs:comment "beached jellyfish information" ;
+			rdfs:label "strandedJellyfish" ;
+			rdfs:comment "stranded jellyfish information" ;
 			rdfs:isDefinedBy oim-jf: .
 			
 ### https://w3id.org/iliad/oim/ext/jellyfish/agentConfidence
