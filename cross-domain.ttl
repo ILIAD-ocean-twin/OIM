@@ -1786,6 +1786,7 @@ sosa:Sample owl:equivalentClass iso19156_SF:SF_SamplingFeature .
 sosa:isSampleOf owl:equivalentProperty iso19156_SF:SF_SamplingFeature.sampledFeature .
 sosa:Observation owl:equivalentClass iso19156_OB:OM_Observation .
 qudt:QuantityKind owl:equivalentClass qu:QuantityKind .
+sosa:Result owl:equivalentClass qudt:QuantityValue .
 iso19103:Measure owl:equivalentClass qudt:QuantityValue .
 qu:unitKind owl:equivalentProperty qudt:unit .
 qu:Unit owl:equivalentClass qudt:Unit .
