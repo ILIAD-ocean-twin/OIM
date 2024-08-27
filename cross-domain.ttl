@@ -1014,6 +1014,19 @@ dim:MassFlowRate a owl:Class ;
                     rdfs:comment "A dim:MassFlowRate is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:MassFlowRateUnit" ;
                     rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> .                                                                                                     
                                                            
+###  http://purl.oclc.org/NET/ssnx/qu/dim#Molality
+dim:Molality a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Molality" ;
+                    rdfs:comment "A dim:Molality is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:MolalityUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> . 
+
+###  http://purl.oclc.org/NET/ssnx/qu/dim#NumberPerArea
+dim:NumberPerArea a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Number Per Area" ;
+                    rdfs:comment "A dim:NumberPerArea is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:NumberPerAreaUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> . 
 
 ###  http://purl.oclc.org/NET/ssnx/qu/dim#NumberPerLength
 dim:NumberPerLength a owl:Class ;
@@ -1049,7 +1062,14 @@ dim:Volume a owl:Class ;
                     rdfs:label "Volume" ;
                     rdfs:comment "A dim:Volume is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:VolumeUnit" ;
                     rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> . 
-                    
+
+###  http://purl.oclc.org/NET/ssnx/qu/dim#VolumeDensityRate
+dim:VolumeDensityRate a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "VolumeDensityRate" ;
+                    rdfs:comment "A dim:VolumeDensityRate is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:VolumeDensityRateUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> .                     
+
 ###  http://purl.oclc.org/NET/ssnx/qu/dim#VolumeFlowRate
 dim:VolumeFlowRate a owl:Class ;
                     rdfs:subClassOf qu:QuantityKind ;
