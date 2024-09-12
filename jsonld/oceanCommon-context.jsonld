@@ -1,0 +1,888 @@
+{
+  "@context" : {
+    "sampleSizeUnit" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/sampleSizeUnit"
+    },
+    "recordNumber" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/recordNumber"
+    },
+    "verbatimLongitude" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/verbatimLongitude"
+    },
+    "behavior" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/behavior"
+    },
+    "organismQuantity" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/organismQuantity"
+    },
+    "spatial" : {
+      "@id" : "http://purl.org/dc/terms/spatial"
+    },
+    "scientificNameID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/scientificNameID"
+    },
+    "lowestBiostratigraphicZone" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/lowestBiostratigraphicZone"
+    },
+    "earliestEonOrLowestEonothem" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/earliestEonOrLowestEonothem"
+    },
+    "originalNameUsageID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/originalNameUsageID"
+    },
+    "GeologicalContext" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/GeologicalContext"
+    },
+    "countryCode" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/countryCode"
+    },
+    "verbatimCoordinates" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/verbatimCoordinates"
+    },
+    "recordType" : {
+      "@id" : "http://mmisw.org/ont/ioos/marine_biogeography/recordType"
+    },
+    "maximumDistanceAboveSurfaceInMeters" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/maximumDistanceAboveSurfaceInMeters"
+    },
+    "verbatimLocality" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/verbatimLocality"
+    },
+    "identificationReferences" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/identificationReferences"
+    },
+    "affiliation" : {
+      "@id" : "https://schema.org/affiliation"
+    },
+    "verbatimCoordinateSystem" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/verbatimCoordinateSystem"
+    },
+    "sampleLengthInMeters" : {
+      "@id" : "http://mmisw.org/ont/ioos/marine_biogeography/sampleLengthInMeters"
+    },
+    "measurementType" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/measurementType"
+    },
+    "sampleWidthInMeters" : {
+      "@id" : "http://mmisw.org/ont/ioos/marine_biogeography/sampleWidthInMeters"
+    },
+    "measurementAccuracy" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/measurementAccuracy"
+    },
+    "member" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/member"
+    },
+    "versionInfo" : {
+      "@id" : "http://www.w3.org/2002/07/owl#versionInfo"
+    },
+    "genus" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/genus"
+    },
+    "coordinatePrecision" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/coordinatePrecision"
+    },
+    "weightInKg" : {
+      "@id" : "http://mmisw.org/ont/ioos/marine_biogeography/weightInKg"
+    },
+    "georeferencedDate" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/georeferencedDate"
+    },
+    "taxonomicStatus" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/taxonomicStatus"
+    },
+    "validFrom" : {
+      "@id" : "http://portele.de/ont/inspire/baseInspire#validFrom",
+      "@type" : "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "previousIdentifications" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/previousIdentifications"
+    },
+    "startDayOfYear" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/startDayOfYear"
+    },
+    "otherCatalogNumbers" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/otherCatalogNumbers"
+    },
+    "MachineObservation" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/MachineObservation"
+    },
+    "license" : {
+      "@id" : "http://purl.org/dc/terms/license"
+    },
+    "coordinateUncertaintyInMeters" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/coordinateUncertaintyInMeters"
+    },
+    "eventID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/eventID"
+    },
+    "Organism" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/Organism"
+    },
+    "identificationID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/identificationID"
+    },
+    "recordedByID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/recordedByID"
+    },
+    "dateCreated" : {
+      "@id" : "https://smartdatamodels.org/dateCreated",
+      "@type" : "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "Identification" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/Identification"
+    },
+    "quantificationUnit" : {
+      "@id" : "http://mmisw.org/ont/ioos/marine_biogeography/quantificationUnit"
+    },
+    "country" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/country"
+    },
+    "genericName" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/genericName"
+    },
+    "bibliographicCitation" : {
+      "@id" : "http://purl.org/dc/terms/bibliographicCitation"
+    },
+    "decimalLongitude" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/decimalLongitude"
+    },
+    "scientificName" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/scientificName"
+    },
+    "organismQuantityType" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/organismQuantityType"
+    },
+    "catalogNumber" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/catalogNumber"
+    },
+    "continent" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/continent"
+    },
+    "minimumDistanceAboveSurfaceInMeters" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/minimumDistanceAboveSurfaceInMeters"
+    },
+    "dateModified" : {
+      "@id" : "https://smartdatamodels.org/dateModified",
+      "@type" : "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "decimalLatitude" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/decimalLatitude"
+    },
+    "references" : {
+      "@id" : "http://purl.org/dc/terms/references"
+    },
+    "agroVocConcept" : {
+      "@id" : "https://smartdatamodels.org/dataModel.Agrifood/agroVocConcept",
+      "@type" : "@id"
+    },
+    "higherGeographyID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/higherGeographyID"
+    },
+    "addressRegion" : {
+      "@id" : "https://schema.org/addressRegion"
+    },
+    "measurementDeterminedBy" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/measurementDeterminedBy"
+    },
+    "sampleShape" : {
+      "@id" : "http://mmisw.org/ont/ioos/marine_biogeography/sampleShape"
+    },
+    "geodeticDatum" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/geodeticDatum"
+    },
+    "verbatimSiteDescriptions" : {
+      "@id" : "http://rs.tdwg.org/hc/terms/verbatimSiteDescriptions"
+    },
+    "dataProvider" : {
+      "@id" : "https://smartdatamodels.org/dataProvider"
+    },
+    "maximumDepthInMeters" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/maximumDepthInMeters"
+    },
+    "locationAccordingTo" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/locationAccordingTo"
+    },
+    "nameAccordingTo" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/nameAccordingTo"
+    },
+    "group" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/group"
+    },
+    "class" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/class"
+    },
+    "footprintWKT" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/footprintWKT"
+    },
+    "FossilSpecimen" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/FossilSpecimen"
+    },
+    "maker" : {
+      "@id" : "http://xmlns.com/foaf/0.1/maker"
+    },
+    "typeStatus" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/typeStatus"
+    },
+    "acceptedNameUsage" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/acceptedNameUsage"
+    },
+    "earliestEpochOrLowestSeries" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/earliestEpochOrLowestSeries"
+    },
+    "label" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
+    },
+    "parentNameUsageID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/parentNameUsageID"
+    },
+    "dynamicProperties" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/dynamicProperties"
+    },
+    "caste" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/caste"
+    },
+    "footprintSpatialFit" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/footprintSpatialFit"
+    },
+    "namePublishedInYear" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/namePublishedInYear"
+    },
+    "highestBiostratigraphicZone" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/highestBiostratigraphicZone"
+    },
+    "fieldNotes" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/fieldNotes"
+    },
+    "measurementID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/measurementID"
+    },
+    "parentNameUsage" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/parentNameUsage"
+    },
+    "acceptedNameUsageID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/acceptedNameUsageID"
+    },
+    "maximumElevationInMeters" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/maximumElevationInMeters"
+    },
+    "visibilityInMeters" : {
+      "@id" : "http://mmisw.org/ont/ioos/marine_biogeography/visibilityInMeters"
+    },
+    "identificationVerificationStatus" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/identificationVerificationStatus"
+    },
+    "Location" : {
+      "@id" : "http://purl.org/dc/terms/Location"
+    },
+    "footprintSRS" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/footprintSRS"
+    },
+    "individualCount" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/individualCount"
+    },
+    "collectionCode" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/collectionCode"
+    },
+    "lithostratigraphicTerms" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/lithostratigraphicTerms"
+    },
+    "subfamily" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/subfamily"
+    },
+    "eventType" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/eventType"
+    },
+    "associatedMedia" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/associatedMedia"
+    },
+    "Taxon" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/Taxon"
+    },
+    "vernacularName" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/vernacularName"
+    },
+    "preparations" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/preparations"
+    },
+    "homepage" : {
+      "@id" : "http://xmlns.com/foaf/0.1/homepage"
+    },
+    "Event" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/Event"
+    },
+    "observationLocation" : {
+      "@id" : "http://mmisw.org/ont/ioos/marine_biogeography/observationLocation"
+    },
+    "institutionID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/institutionID"
+    },
+    "verbatimDepth" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/verbatimDepth"
+    },
+    "county" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/county"
+    },
+    "note" : {
+      "@id" : "http://www.w3.org/2004/02/skos/core#note"
+    },
+    "rightsHolder" : {
+      "@id" : "http://purl.org/dc/terms/rightsHolder"
+    },
+    "earliestEraOrLowestErathem" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/earliestEraOrLowestErathem"
+    },
+    "occurrenceStatus" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/occurrenceStatus"
+    },
+    "observedMinLengthInCm" : {
+      "@id" : "http://mmisw.org/ont/ioos/marine_biogeography/observedMinLengthInCm"
+    },
+    "verbatimTaxonRank" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/verbatimTaxonRank"
+    },
+    "disposition" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/disposition"
+    },
+    "namePublishedInID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/namePublishedInID"
+    },
+    "Agent" : {
+      "@id" : "http://xmlns.com/foaf/0.1/Agent"
+    },
+    "dateIdentified" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/dateIdentified"
+    },
+    "organismRemarks" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/organismRemarks"
+    },
+    "latestPeriodOrHighestSystem" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/latestPeriodOrHighestSystem"
+    },
+    "creator" : {
+      "@id" : "http://purl.org/dc/terms/creator"
+    },
+    "taxonRemarks" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/taxonRemarks"
+    },
+    "georeferencedBy" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/georeferencedBy"
+    },
+    "name" : {
+      "@id" : "https://schema.org/name"
+    },
+    "verbatimElevation" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/verbatimElevation"
+    },
+    "higherClassification" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/higherClassification"
+    },
+    "waterBody" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/waterBody"
+    },
+    "namePublishedIn" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/namePublishedIn"
+    },
+    "organismID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/organismID"
+    },
+    "stateProvince" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/stateProvince"
+    },
+    "endDayOfYear" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/endDayOfYear"
+    },
+    "geologicalContextID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/geologicalContextID"
+    },
+    "pathway" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/pathway"
+    },
+    "verbatimSiteNames" : {
+      "@id" : "http://rs.tdwg.org/hc/terms/verbatimSiteNames"
+    },
+    "parentEventID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/parentEventID"
+    },
+    "datasetName" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/datasetName"
+    },
+    "measurementMethod" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/measurementMethod"
+    },
+    "verbatimLatitude" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/verbatimLatitude"
+    },
+    "rights" : {
+      "@id" : "http://purl.org/dc/terms/rights"
+    },
+    "parentMeasurementID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/parentMeasurementID"
+    },
+    "sightingCue" : {
+      "@id" : "http://mmisw.org/ont/ioos/marine_biogeography/sightingCue"
+    },
+    "waterTemperatureInCelsius" : {
+      "@id" : "http://mmisw.org/ont/ioos/marine_biogeography/waterTemperatureInCelsius"
+    },
+    "tribe" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/tribe"
+    },
+    "status" : {
+      "@id" : "https://schema.org/status"
+    },
+    "superfamily" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/superfamily"
+    },
+    "sampleSizeValue" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/sampleSizeValue"
+    },
+    "identifier" : {
+      "@id" : "http://purl.org/dc/terms/identifier"
+    },
+    "LivingSpecimen" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/LivingSpecimen"
+    },
+    "visibilityType" : {
+      "@id" : "http://mmisw.org/ont/ioos/marine_biogeography/visibilityType"
+    },
+    "locationRemarks" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/locationRemarks"
+    },
+    "higherGeography" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/higherGeography"
+    },
+    "informationWithheld" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/informationWithheld"
+    },
+    "organismName" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/organismName"
+    },
+    "institutionCode" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/institutionCode"
+    },
+    "occurrenceID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/occurrenceID"
+    },
+    "subject" : {
+      "@id" : "http://purl.org/dc/terms/subject"
+    },
+    "quantificationMethod" : {
+      "@id" : "http://mmisw.org/ont/ioos/marine_biogeography/quantificationMethod"
+    },
+    "measurementUnit" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/measurementUnit"
+    },
+    "lengthType" : {
+      "@id" : "http://mmisw.org/ont/ioos/marine_biogeography/lengthType"
+    },
+    "HumanObservation" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/HumanObservation"
+    },
+    "associatedSequences" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/associatedSequences"
+    },
+    "phylum" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/phylum"
+    },
+    "fieldNumber" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/fieldNumber"
+    },
+    "relationshipRemarks" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/relationshipRemarks"
+    },
+    "infragenericEpithet" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/infragenericEpithet"
+    },
+    "sampleVolumeInCubicMeters" : {
+      "@id" : "http://mmisw.org/ont/ioos/marine_biogeography/sampleVolumeInCubicMeters"
+    },
+    "resourceRelationshipID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/resourceRelationshipID"
+    },
+    "relationshipOfResource" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/relationshipOfResource"
+    },
+    "habitat" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/habitat"
+    },
+    "userName" : {
+      "@id" : "https://w3id.org/demeter/agri/agriCommon#userName",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "materialSampleID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/materialSampleID"
+    },
+    "isDefinedBy" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+    },
+    "georeferenceVerificationStatus" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/georeferenceVerificationStatus"
+    },
+    "definition" : {
+      "@id" : "http://www.w3.org/2004/02/skos/core#definition"
+    },
+    "bed" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/bed"
+    },
+    "locality" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/locality"
+    },
+    "MaterialCitation" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/MaterialCitation"
+    },
+    "samplingPerformedBy" : {
+      "@id" : "http://rs.tdwg.org/hc/terms/samplingPerformedBy"
+    },
+    "associatedTaxa" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/associatedTaxa"
+    },
+    "measurementDeterminedDate" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/measurementDeterminedDate"
+    },
+    "eventDurationUnit" : {
+      "@id" : "http://rs.tdwg.org/hc/terms/eventDurationUnit"
+    },
+    "order" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/order"
+    },
+    "vitality" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/vitality"
+    },
+    "minimumDepthInMeters" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/minimumDepthInMeters"
+    },
+    "samplingEffort" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/samplingEffort"
+    },
+    "streetAddress" : {
+      "@id" : "https://schema.org/streetAddress"
+    },
+    "title" : {
+      "@id" : "http://purl.org/dc/terms/title"
+    },
+    "eventDate" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/eventDate"
+    },
+    "validTo" : {
+      "@id" : "http://portele.de/ont/inspire/baseInspire#validTo",
+      "@type" : "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "Occurrence" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/Occurrence"
+    },
+    "year" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/year"
+    },
+    "family" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/family"
+    },
+    "source" : {
+      "@id" : "https://smartdatamodels.org/source"
+    },
+    "eppoConcept" : {
+      "@id" : "https://w3id.org/demeter/agri/agriCommon#eppoConcept",
+      "@type" : "@id"
+    },
+    "georeferenceSources" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/georeferenceSources"
+    },
+    "type" : {
+      "@id" : "http://purl.org/dc/terms/type"
+    },
+    "MaterialSample" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/MaterialSample"
+    },
+    "publisher" : {
+      "@id" : "http://purl.org/dc/terms/publisher"
+    },
+    "island" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/island"
+    },
+    "sightingDistanceInMeters" : {
+      "@id" : "http://mmisw.org/ont/ioos/marine_biogeography/sightingDistanceInMeters"
+    },
+    "taxonRank" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/taxonRank"
+    },
+    "locationID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/locationID"
+    },
+    "identificationRemarks" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/identificationRemarks"
+    },
+    "modified" : {
+      "@id" : "http://purl.org/dc/terms/modified"
+    },
+    "eventDuration" : {
+      "@id" : "http://rs.tdwg.org/hc/terms/eventDuration"
+    },
+    "associatedOrganisms" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/associatedOrganisms"
+    },
+    "sampleAreaInSquareMeters" : {
+      "@id" : "http://mmisw.org/ont/ioos/marine_biogeography/sampleAreaInSquareMeters"
+    },
+    "password" : {
+      "@id" : "https://w3id.org/demeter/agri/agriCommon#password",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "subgenus" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/subgenus"
+    },
+    "observedMaxLengthInCm" : {
+      "@id" : "http://mmisw.org/ont/ioos/marine_biogeography/observedMaxLengthInCm"
+    },
+    "accessRights" : {
+      "@id" : "http://purl.org/dc/terms/accessRights"
+    },
+    "aphiaID" : {
+      "@id" : "http://mmisw.org/ont/ioos/marine_biogeography/aphiaID"
+    },
+    "relationshipOfResourceID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/relationshipOfResourceID"
+    },
+    "siteCount" : {
+      "@id" : "http://rs.tdwg.org/hc/terms/siteCount"
+    },
+    "seeAlso" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#seeAlso"
+    },
+    "sampleHeightInMeters" : {
+      "@id" : "http://mmisw.org/ont/ioos/marine_biogeography/sampleHeightInMeters"
+    },
+    "earliestAgeOrLowestStage" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/earliestAgeOrLowestStage"
+    },
+    "kingdom" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/kingdom"
+    },
+    "totalInSample" : {
+      "@id" : "http://mmisw.org/ont/ioos/marine_biogeography/totalInSample"
+    },
+    "latestEonOrHighestEonothem" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/latestEonOrHighestEonothem"
+    },
+    "taxonConceptID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/taxonConceptID"
+    },
+    "islandGroup" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/islandGroup"
+    },
+    "establishmentMeans" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/establishmentMeans"
+    },
+    "relationshipEstablishedDate" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/relationshipEstablishedDate"
+    },
+    "identifiedBy" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/identifiedBy"
+    },
+    "sex" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/sex"
+    },
+    "verbatimLabel" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/verbatimLabel"
+    },
+    "verbatimEventDate" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/verbatimEventDate"
+    },
+    "month" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/month"
+    },
+    "taxonID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/taxonID"
+    },
+    "addressLocality" : {
+      "@id" : "https://schema.org/addressLocality"
+    },
+    "municipality" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/municipality"
+    },
+    "reportedWeather" : {
+      "@id" : "http://rs.tdwg.org/hc/terms/reportedWeather"
+    },
+    "nomenclaturalStatus" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/nomenclaturalStatus"
+    },
+    "observedIndividualLengthInCm" : {
+      "@id" : "http://mmisw.org/ont/ioos/marine_biogeography/observedIndividualLengthInCm"
+    },
+    "samplingProtocol" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/samplingProtocol"
+    },
+    "comment" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#comment"
+    },
+    "earliestPeriodOrLowestSystem" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/earliestPeriodOrLowestSystem"
+    },
+    "lifeStage" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/lifeStage"
+    },
+    "basisOfRecord" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/basisOfRecord"
+    },
+    "day" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/day"
+    },
+    "verticalDatum" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/verticalDatum"
+    },
+    "language" : {
+      "@id" : "http://purl.org/dc/terms/language"
+    },
+    "latestEpochOrHighestSeries" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/latestEpochOrHighestSeries"
+    },
+    "originalNameUsage" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/originalNameUsage"
+    },
+    "cultivarEpithet" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/cultivarEpithet"
+    },
+    "identifiedByID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/identifiedByID"
+    },
+    "reproductiveCondition" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/reproductiveCondition"
+    },
+    "contributor" : {
+      "@id" : "http://purl.org/dc/terms/contributor"
+    },
+    "latestEraOrHighestErathem" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/latestEraOrHighestErathem"
+    },
+    "datasetID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/datasetID"
+    },
+    "scientificNameAuthorship" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/scientificNameAuthorship"
+    },
+    "collectionID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/collectionID"
+    },
+    "pointRadiusSpatialFit" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/pointRadiusSpatialFit"
+    },
+    "nameAccordingToID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/nameAccordingToID"
+    },
+    "subtribe" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/subtribe"
+    },
+    "georeferenceProtocol" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/georeferenceProtocol"
+    },
+    "eventRemarks" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/eventRemarks"
+    },
+    "minimumElevationInMeters" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/minimumElevationInMeters"
+    },
+    "verbatimSRS" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/verbatimSRS"
+    },
+    "degreeOfEstablishment" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/degreeOfEstablishment"
+    },
+    "MeasurementOrFact" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/MeasurementOrFact"
+    },
+    "identificationQualifier" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/identificationQualifier"
+    },
+    "infraspecificEpithet" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/infraspecificEpithet"
+    },
+    "latestAgeOrHighestStage" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/latestAgeOrHighestStage"
+    },
+    "alternateName" : {
+      "@id" : "https://smartdatamodels.org/alternateName"
+    },
+    "prefLabel" : {
+      "@id" : "http://www.w3.org/2004/02/skos/core#prefLabel"
+    },
+    "addressCountry" : {
+      "@id" : "https://schema.org/addressCountry"
+    },
+    "dataGeneralizations" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/dataGeneralizations"
+    },
+    "ResourceRelationship" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/ResourceRelationship"
+    },
+    "eventTime" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/eventTime"
+    },
+    "verbatimIdentification" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/verbatimIdentification"
+    },
+    "PeriodOfTime" : {
+      "@id" : "http://purl.org/dc/terms/PeriodOfTime"
+    },
+    "description" : {
+      "@id" : "http://purl.org/dc/terms/description"
+    },
+    "PreservedSpecimen" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/PreservedSpecimen"
+    },
+    "associatedReferences" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/associatedReferences"
+    },
+    "recordedBy" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/recordedBy"
+    },
+    "specificEpithet" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/specificEpithet"
+    },
+    "formation" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/formation"
+    },
+    "nomenclaturalCode" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/nomenclaturalCode"
+    },
+    "ResponsibleParty" : {
+      "@id" : "http://def.seegrid.csiro.au/isotc211/iso19115/2003/citation#ResponsibleParty"
+    },
+    "observedMeanLengthInCm" : {
+      "@id" : "http://mmisw.org/ont/ioos/marine_biogeography/observedMeanLengthInCm"
+    },
+    "ownerInstitutionCode" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/ownerInstitutionCode"
+    },
+    "temporal" : {
+      "@id" : "http://purl.org/dc/terms/temporal"
+    },
+    "relatedResourceID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/relatedResourceID"
+    },
+    "measurementValue" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/measurementValue"
+    },
+    "occurrenceRemarks" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/occurrenceRemarks"
+    },
+    "Observation" : {
+      "@id" : "http://www.w3.org/ns/sosa/Observation"
+    },
+    "measurementRemarks" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/measurementRemarks"
+    },
+    "georeferenceRemarks" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/georeferenceRemarks"
+    },
+    "organismScope" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/organismScope"
+    },
+    "resourceID" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/resourceID"
+    },
+    "associatedOccurrences" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/associatedOccurrences"
+    },
+    "relationshipAccordingTo" : {
+      "@id" : "http://rs.tdwg.org/dwc/terms/relationshipAccordingTo"
+    }
+  }
+}
