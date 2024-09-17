@@ -1,0 +1,165 @@
+{
+  "@context": [
+    "https://w3id.org/iliad/oim/metadata-context.jsonld",
+    "https://w3id.org/iliad/oim-context.jsonld"
+  ],
+  "@graph": [
+    { 
+      "@type" : "Dataset",
+      "description" : "description",
+      "title" : "title",
+      "contactPoint" : {
+          "@type" : "Kind",
+          "hasEmail" : "mailto:corky@example.com",
+          "fn": "Corky Crystal"
+      },
+      "distribution" : {
+        "@type": "Distribution",
+        "accessURL" : "http://example.org/endpoint",
+        "format": "http://publications.europa.eu/resource/authority/file-type/CSV"
+      },
+      "spatial": {
+        "@type": "Location",
+        "bbox": "POLYGON((-62.9951 70.620781,55.813367 70.620781,55.813367 -21.378367,-62.9951 -21.378367,-62.9951 70.620781))" 
+      },
+      "keyword": "keyword1",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Organization1"
+      },
+      "temporal":{
+        "@type": "PeriodOfTime",
+        "startDate": "2016-01-01",
+        "endDate": "2016-12-31"
+      },
+      "theme" : ["http://www.eionet.europa.eu/gemet/concept/12301", "http://www.eionet.europa.eu/gemet/concept/3780"],
+      "accessRights" : "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
+      "creator" : {
+        "@type": "Organization",
+        "mbox": "mailto:bag@kadaster.nl",
+        "name": "Kadaster"
+      },
+      "page": "https://noise.eea.europa.eu/",
+      "accrualPeriodicity": "http://publications.europa.eu/resource/authority/frequency/DAILY",
+      "identifier": "af4c4fd6-0485-45c8-b6bc-8a8ed12aa3eb",
+      "inSeries": {
+        "@type": "DatasetSeries",
+        "title": "Bee population"
+      },
+      "isReferencedBy": "https://doi.org/10.1038/sdata.2018.22",
+      "landingPage" : "http://dcat.example.org/dataset-002.html",
+      "language": "http://publications.europa.eu/resource/authority/language/ENG",
+      "modified": "2020-03-25",
+      "adms.dentifier": "https://orcid.org/0000-0003-3138-4118",
+      "provenance": {
+        "@type": "ProvenanceStatement",
+        "label": "The raster data sets have been created out of the Noise"
+      },
+      "issued": "2010-12-08",
+      "sample": {
+        "@type": "Distribution",
+        "accessURL" : "http://example.org/endpointSample",
+        "format": "http://publications.europa.eu/resource/authority/file-type/CSV"
+      },
+      "spatialResolutionInMeters":10,
+      "temporalResolution": "PT15M",
+      "version": "1.0",
+      "versionNotes": "First version of the bus stop dataset",
+      "created": "2019-10-31",
+      "conformsTo": "http://www.opengis.net/def/crs/EPSG/0/4258",
+      "rightsHolder": {
+        "@type": "Organization",
+        "mbox": "mailto:bag1@kadaster.nl",
+        "name": "Kadaster1"
+      },
+      "comment": "spatial resolution as text",
+      "distributor": {
+        "@type": "Organization",
+        "mbox": "mailto:bag2@kadaster.nl",
+        "name": "Kadaster2"
+      },
+      "principalInvestigator":{
+        "@type": "Person",
+        "mbox": "mailto:principal@kadaster.nl",
+        "name": "principal"
+      },
+      "processor":{
+        "@type": "Organization",
+        "mbox": "mailto:wisesoe.helpdesk@eionet.europa.eu",
+        "name": "Tracasa"
+      },
+      "hasQualityMeasurement":[
+        {
+          "@type": "QualityMeasurement",
+          "isMeasurementOf":{
+            "@type": "Metric",
+            "definition": "dataset page is available and dereferenceable",
+            "inDimension": "http://www.w3.org/2016/05/ldqd#availability"
+          },          
+          "value": true        
+        },
+        {
+          "@type": "QualityMeasurement",
+          "isMeasurementOf":{
+            "@type": "Metric",
+            "definition": "Spatial resolution of a dataset expressed as distance",
+            "inDimension": "http://www.w3.org/ns/dqv#precision"
+          },
+          "unit": "http://www.qudt.org/vocab/unit/M",
+          "value": 1000        
+        },
+        {
+          "@type": "QualityMeasurement",
+          "isMeasurementOf":{
+            "@type": "Metric",
+            "definition": "Percentage of spatial elements that are found accurate according to methodology XYZ",
+            "inDimension": "http://www.w3.org/2016/05/ldqd#semanticAccuracy"
+          },
+          "unit": "http://www.qudt.org/vocab/unit/PERCENT",
+          "value": 98.2 
+        }
+      ],
+      "hasQualityMetadata" : [
+        {
+          "@type": "QualityCertificate",
+          "hasTarget": "https://certificates.theodi.org/en/datasets/393",
+          "hasBody":"https://certificates.theodi.org/en/datasets/393/certificate"
+        },
+        {
+          "@type": "UserQualityFeedback",
+          "hasTarget": "https://certificates.theodi.org/en/datasets/393",
+          "hasBody": {
+            "@type": "TextualBody",
+            "value": "Could you please provide information about the completeness of your dataset?"
+          }
+        },
+        {
+          "@type": "UserQualityFeedback",
+          "hasTarget": "https://certificates.theodi.org/en/datasets/393",
+          "hasBody": {
+            "@type": "Concept",
+            "prefLabel": "Four stars"
+          }
+        }
+      ],
+      "wasDerivedFrom":"http://data.europa.eu/eli/reg/2010/1089",
+      "structure":{
+        "@type": "DataStructureDefinition",
+        "component":{
+          "measure":[
+            {
+              "@type":"MeasureProperty",
+              "concept":"http://vocab.nerc.ac.uk/standard_name/air_temperature/",
+              "unit": "http://www.qudt.org/vocab/unit/DEG_C"
+            },
+            {
+              "@type":"MeasureProperty",
+              "concept":"http://vocab.nerc.ac.uk/standard_name/air_pressure/",
+              "unit": "http://www.qudt.org/vocab/unit/PA"
+            }
+          ]
+        }        
+      }
+    }
+  ]
+}

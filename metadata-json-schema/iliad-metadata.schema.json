@@ -1,0 +1,464 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "@graph": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "@type": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "contactPoint": {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string"
+                },
+                "hasEmail": {
+                  "type": "string"
+                },
+                "fn": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@type",
+                "hasEmail",
+                "fn"
+              ]
+            },
+            "distribution": {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string"
+                },
+                "accessURL": {
+                  "type": "string"
+                },
+                "format": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@type",
+                "accessURL",
+                "format"
+              ]
+            },
+            "spatial": {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string"
+                },
+                "bbox": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@type",
+                "bbox"
+              ]
+            },
+            "keyword": {
+              "type": "string"
+            },
+            "publisher": {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@type",
+                "name"
+              ]
+            },
+            "temporal": {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string"
+                },
+                "startDate": {
+                  "type": "string"
+                },
+                "endDate": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@type",
+                "startDate",
+                "endDate"
+              ]
+            },
+            "theme": {
+              "type": ["string","array"],
+              "items": [
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "accessRights": {
+              "type": "string"
+            },
+            "creator": {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string"
+                },
+                "mbox": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@type",
+                "mbox",
+                "name"
+              ]
+            },
+            "page": {
+              "type": "string"
+            },
+            "accrualPeriodicity": {
+              "type": "string"
+            },
+            "identifier": {
+              "type": "string"
+            },
+            "inSeries": {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@type",
+                "title"
+              ]
+            },
+            "isReferencedBy": {
+              "type": "string"
+            },
+            "landingPage": {
+              "type": "string"
+            },
+            "language": {
+              "type": "string"
+            },
+            "modified": {
+              "type": "string"
+            },
+            "adms.dentifier": {
+              "type": "string"
+            },
+            "provenance": {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@type",
+                "label"
+              ]
+            },
+            "issued": {
+              "type": "string"
+            },
+            "sample": {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string"
+                },
+                "accessURL": {
+                  "type": "string"
+                },
+                "format": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@type",
+                "accessURL",
+                "format"
+              ]
+            },
+            "spatialResolutionInMeters": {
+              "type": "integer"
+            },
+            "temporalResolution": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            },
+            "versionNotes": {
+              "type": "string"
+            },
+            "created": {
+              "type": "string"
+            },
+            "conformsTo": {
+              "type": "string"
+            },
+            "rightsHolder": {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string"
+                },
+                "mbox": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@type",
+                "mbox",
+                "name"
+              ]
+            },
+            "comment": {
+              "type": "string"
+            },
+            "distributor": {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string"
+                },
+                "mbox": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@type",
+                "mbox",
+                "name"
+              ]
+            },
+            "principalInvestigator": {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string"
+                },
+                "mbox": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@type",
+                "mbox",
+                "name"
+              ]
+            },
+            "processor": {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string"
+                },
+                "mbox": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@type",
+                "mbox",
+                "name"
+              ]
+            },
+            "hasQualityMeasurement": {
+              "type": "array",
+              "items": [                
+                {
+                  "type": "object",
+                  "properties": {
+                    "@type": {
+                      "type": "string"
+                    },
+                    "isMeasurementOf": {
+                      "type": "object",
+                      "properties": {
+                        "@type": {
+                          "type": "string"
+                        },
+                        "definition": {
+                          "type": "string"
+                        },
+                        "inDimension": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@type",
+                        "definition",
+                        "inDimension"
+                      ]
+                    },
+                    "unit": {
+                      "type": "string"
+                    },
+                    "value": {                      
+                    }
+                  },
+                  "required": [
+                    "@type",
+                    "isMeasurementOf",                    
+                    "value"
+                  ]
+                }
+              ]
+            },
+            "hasQualityMetadata": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "@type": {
+                      "type": "string"
+                    },
+                    "hasTarget": {
+                      "type": "string"
+                    },
+                    "hasBody": {                      
+                    }
+                  },
+                  "required": [
+                    "@type",
+                    "hasTarget",
+                    "hasBody"
+                  ]
+                }                                
+              ]
+            },
+            "wasDerivedFrom": {
+              "type": "string"
+            },
+            "structure": {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string"
+                },
+                "component": {
+                  "type": "object",
+                  "properties": {
+                    "measure": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "@type": {
+                              "type": "string"
+                            },
+                            "concept": {
+                              "type": "string"
+                            },
+                            "unit": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@type",
+                            "concept",
+                            "unit"
+                          ]
+                        }                        
+                      ]
+                    }
+                  },
+                  "required": [
+                    "measure"
+                  ]
+                }
+              },
+              "required": [
+                "@type",
+                "component"
+              ]
+            }
+          },
+          "required": [
+            "@type",
+            "description",
+            "title",
+            "contactPoint",
+            "distribution",
+            "spatial",
+            "keyword",
+            "publisher",
+            "temporal",
+            "theme",                                                
+            "identifier",
+            "inSeries",                                                                        
+            "issued",                                    
+            "created",
+            "conformsTo",            
+            "hasQualityMeasurement"            
+          ]
+        }
+      ],
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@context",
+    "@graph"
+  ]
+}
