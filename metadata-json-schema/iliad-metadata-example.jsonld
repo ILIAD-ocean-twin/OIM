@@ -50,7 +50,11 @@
       "landingPage" : "http://dcat.example.org/dataset-002.html",
       "language": "http://publications.europa.eu/resource/authority/language/ENG",
       "modified": "2020-03-25",
-      "adms.dentifier": "https://orcid.org/0000-0003-3138-4118",
+      "adms.dentifier": {
+      	"@type": "Identifier",
+      	"notation": "https://orcid.org/0000-0003-3138-4118",
+      	"schemaAgency": "ORCID"      	
+      },
       "provenance": {
         "@type": "ProvenanceStatement",
         "label": "The raster data sets have been created out of the Noise"

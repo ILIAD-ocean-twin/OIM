@@ -185,7 +185,23 @@
               "type": "string"
             },
             "adms.dentifier": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string"
+                },
+                "notation": {
+                  "type": "string"
+                },
+                "schemaAgency": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@type",
+                "notation",
+                "schemaAgency"
+              ]
             },
             "provenance": {
               "type": "object",
