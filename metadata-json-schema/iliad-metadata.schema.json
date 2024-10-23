@@ -184,7 +184,7 @@
             "modified": {
               "type": "string"
             },
-            "adms.dentifier": {
+            "adms.identifier": {
               "type": "object",
               "properties": {
                 "@type": {
