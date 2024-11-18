@@ -888,9 +888,9 @@
     "format" : {
       "@id" : "http://purl.org/dc/terms/format"
     },
-    "accessURL" : {
-      "@id" : "https://w3id.org/idsa/core/accessURL",
-      "@type" : "http://www.w3.org/2001/XMLSchema#anyURI"
+    "accessURL" : {            
+      "@id" : "http://www.w3.org/ns/dcat#accessURL",
+      "@type" : "@id"
     },
     "credits" : {
       "@id" : "https://w3id.org/iliad/oim/metadata/credits",

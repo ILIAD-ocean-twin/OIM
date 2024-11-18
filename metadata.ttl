@@ -527,6 +527,16 @@ dcat:qualifiedRelation
   					rdfs:label "qualified relation"@en ;  
   					rdfs:range dcat:Relationship .
 
+###  http://www.w3.org/ns/dcat#accessURL  				
+dcat:accessURL
+  					a rdf:Property ;
+  					a owl:ObjectProperty ;
+  					rdfs:comment "A URL of a resource that gives access to a distribution of the dataset. E.g. landing page, feed, SPARQL endpoint. Use for all cases except a simple download link, in which case downloadURL is preferred."@en ;
+  					rdfs:domain dcat:Distribution ;
+  					rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
+  					rdfs:label "access address"@en ;
+  					rdfs:range rdfs:Resource .
+
 ###  http://www.w3.org/ns/dqv#hasQualityMeasurement
 dqv:hasQualityMeasurement a owl:ObjectProperty, rdf:Property ;
                        		rdfs:domain <http://www.w3.org/ns/dcat#Dataset> ;
