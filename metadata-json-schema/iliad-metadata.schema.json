@@ -58,12 +58,16 @@
                 },
                 "format": {
                   "type": "string"
+                },
+                "license": {
+                  "type": "string"
                 }
               },
               "required": [
                 "@type",
                 "accessURL",
-                "format"
+                "format",
+                "license"
               ]
             },
             "spatial": {
@@ -232,12 +236,16 @@
                 },
                 "format": {
                   "type": "string"
+                },
+                "license": {
+                  "type": "string"
                 }
               },
               "required": [
                 "@type",
                 "accessURL",
-                "format"
+                "format",
+                "license"
               ]
             },
             "spatialResolutionInMeters": {

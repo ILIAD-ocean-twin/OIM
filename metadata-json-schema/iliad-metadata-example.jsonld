@@ -16,7 +16,8 @@
       "distribution" : {
         "@type": "Distribution",
         "accessURL" : "http://example.org/endpoint",
-        "format": "http://publications.europa.eu/resource/authority/file-type/CSV"
+        "format": "http://publications.europa.eu/resource/authority/file-type/CSV",
+        "license": "https://creativecommons.org/licenses/by/4.0/"
       },
       "spatial": {
         "@type": "Location",
@@ -63,7 +64,8 @@
       "sample": {
         "@type": "Distribution",
         "accessURL" : "http://example.org/endpointSample",
-        "format": "http://publications.europa.eu/resource/authority/file-type/CSV"
+        "format": "http://publications.europa.eu/resource/authority/file-type/CSV",
+        "license": "https://creativecommons.org/licenses/by/4.0/"
       },
       "spatialResolutionInMeters":10,
       "temporalResolution": "PT15M",
