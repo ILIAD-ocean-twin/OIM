@@ -1,0 +1,342 @@
+@prefix : <https://w3id.org/iliad/oim/metadata/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix schema: <https://schema.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdo: <http://schema.org/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix cis: <http://www.opengis.net/cis/1.1/> .
+@prefix swe: <http://www.opengis.net/swe/2.0/> .
+@prefix sml: <http://www.sensorml.com/sensorML-2.0/> .
+@base <https://w3id.org/iliad/oim/metadata/> .
+
+
+<https://w3id.org/iliad/oim/metadata/cis-extension> rdf:type owl:Ontology ;                                     
+                                     dct:creator [ rdfs:seeAlso <http://orcid.org/0000-0003-4289-4922> ;
+                                                       foaf:name "Raul Palma" ;
+                                                       schema:affiliation [ foaf:name "PSNC"
+                                                                          ]
+                                                     ] ;                                     
+                                     dct:description "ILIAD OIM Metadata schema extension including terms from OGC Coverage Implementation Schema and related OGC Sensor Web Enablement (SWE)"@en ;
+                                     dct:rights "This vocabulary is distributed under Creative Commons Attribution 4.0 License - http://creativecommons.org/licenses/by/4.0"@en ;
+                                     dct:title "ILIAD Metadata Model"@en ;                                     
+                                     rdfs:comment "The ILIAD Ocean Information Model (OIM) metadata ontology is based on the DEMETER Agriculture Information Model (AIM) metadata ontology"@en ;
+                                     owl:versionInfo "1.0" ;
+                                     foaf:maker [ foaf:homepage <https://www.ocean-twin.eu/> ;
+                                                  foaf:name "ILIAD project"
+                                                ] .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+#################################################################
+#    Object Properties
+#################################################################
+
+### CIS and SWE terms
+cis:envelope rdf:type owl:ObjectProperty ;
+							rdfs:range cis:EnvelopeByAxisType ;
+							rdfs:label "envelope"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+
+cis:domainSet rdf:type owl:ObjectProperty ;
+							rdfs:range cis:DomainSetType ;
+							rdfs:label "domainSet"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+							
+cis:rangeSet rdf:type owl:ObjectProperty ;
+							rdfs:range cis:RangeSetType ;
+							rdfs:label "rangeSet"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .							
+
+cis:partitionSet rdf:type owl:ObjectProperty ;
+							rdfs:range cis:PartitionSetType ;
+							rdfs:label "partitionSet"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+							
+cis:rangeType rdf:type owl:ObjectProperty ;
+							rdfs:range swe:DataRecordType ;
+							rdfs:label "rangeType"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+							
+cis:metadata rdf:type owl:ObjectProperty ;
+							rdfs:label "metadata"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .		
+							
+cis:generalGrid rdf:type owl:ObjectProperty ;
+							rdfs:range cis:GeneralGridCoverageType ;
+							rdfs:label "generalGrid"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+							
+cis:axis rdf:type owl:ObjectProperty ;
+							rdfs:range cis:Axis ;
+							rdfs:label "axis"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+
+cis:gridLimits rdf:type owl:ObjectProperty ;
+							rdfs:range cis:GridLimitsType ;
+							rdfs:label "gridLimits"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .																																						
+
+cis:coordinate rdf:type owl:ObjectProperty ;
+							rdfs:label "coordinate"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+							
+cis:displacement rdf:type owl:ObjectProperty ;
+							rdfs:range cis:DisplacementAxisNestType ;
+							rdfs:label "displacement"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+							
+cis:model rdf:type owl:ObjectProperty ;
+							rdfs:label "model"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .								
+
+sml:sensorModelRef rdf:type owl:ObjectProperty ;
+							rdfs:label "sensorModelRef"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+							
+sml:sensorInstanceRef rdf:type owl:ObjectProperty ;
+							rdfs:label "sensorInstanceRef"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .					
+							
+cis:partition rdf:type owl:ObjectProperty ;
+							rdfs:label "partition"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+							
+cis:coverage rdf:type owl:ObjectProperty ;
+							rdfs:label "coverage"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .																		
+
+cis:coverageRef rdf:type owl:ObjectProperty ;
+							rdfs:label "coverageRef"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+							
+cis:positionValuePair rdf:type owl:ObjectProperty ;
+							rdfs:label "positionValuePair"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+							
+cis:dataBlock rdf:type owl:ObjectProperty ;
+							rdfs:range cis:VDataBlockType ;
+							rdfs:label "dataBlock"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+							
+swe:field rdf:type owl:ObjectProperty ;
+							rdfs:label "field"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+							
+swe:uom rdf:type owl:ObjectProperty ;
+							rdfs:range swe:UnitReference ;
+							rdfs:label "uom"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .																																																																											
+
+cis:interpolationRestriction rdf:type owl:ObjectProperty ;
+							rdfs:label "interpolationRestriction"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .																																																																											
+
+swe:constraint rdf:type owl:ObjectProperty ;
+							rdfs:label "constraint"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+							
+swe:interval rdf:type owl:ObjectProperty ;
+							rdfs:label "interval"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .									
+
+#################################################################
+#    Data properties
+#################################################################													
+
+### CIS and SWE terms
+cis:srsName rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:anyURI ;
+							rdfs:label "srsName"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+							
+cis:axisLabel rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "axisLabel"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+							
+cis:axisLabels rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "axisLabels"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .														
+
+cis:uomLabel rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "uomLabel"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+							
+cis:uomLabels rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "uomLabels"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .		
+
+cis:lowerBound rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:integer ;
+							rdfs:label "lowerBound"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+							
+cis:upperBound rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:integer ;
+							rdfs:label "upperBound"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+							
+cis:resolution rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "resolution"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+							
+cis:value rdf:type owl:DatatypeProperty ;
+							rdfs:label "value"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+							
+cis:fileReference rdf:type owl:DatatypeProperty ;
+							rdfs:label "fileReference"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+							
+swe:names rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "names"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+							
+swe:name rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "name"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+							
+swe:code rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "code"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+							
+swe:definition rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "definition"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+							
+cis:allowedInterpolation rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:anyURI ;
+							rdfs:label "allowed­Interpolation"@en ;
+							rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+
+#################################################################
+#    Classes
+#################################################################
+
+### CIS and SWE terms
+cis:CoverageByDomainAndRangeType rdf:type owl:Class ;
+					rdfs:comment "Coverages are represented by some binary or ASCII serialization, specified by some data (en­coding) format"@en ;
+					rdfs:label "CoverageByDomainAndRangeType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+					
+cis:CoverageByPartitioningType rdf:type owl:Class ;
+					rdfs:comment "his class coverage-partitioning establishes an alternative representation for coverages through partitioning into sub-coverages or direct enumeration of position/value pairs."@en ;
+					rdfs:label "CoverageByPartitioningType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .
+					
+cis:DomainSetType rdf:type owl:Class ;
+					rdfs:comment "determines the exact locations of a coverage overall and its set of direct positions."@en ;
+					rdfs:label "DomainSetType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+cis:GeneralGridCoverageType rdf:type owl:Class ;
+					rdfs:comment "lays foundation for the modelling of all possible grid types in CIS. "@en ;
+					rdfs:label "GeneralGridCoverageType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .															
+
+cis:Axis rdf:type owl:Class ;
+					rdfs:comment "grid axis identifiers, all distinct within a grid"@en ;
+					rdfs:label "Axis"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+
+cis:IndexAxisType rdf:type owl:Class ;
+					rdfs:subClassOf cis:Axis ;
+					rdfs:comment "requires an Index CRS as its CRS, as defined in the OGC Name Type Specification for Index CRSs"@en ;
+					rdfs:label "IndexAxisType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+cis:RegularAxisType rdf:type owl:Class ;
+					rdfs:subClassOf cis:Axis ;
+					rdfs:comment "has no restriction on the CRS used; as it is regularly spaced it contains the common distance, i.e.: resolution, as a part of the axis definition"@en ;
+					rdfs:label "RegularAxisType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+cis:IrregularAxisType rdf:type owl:Class ;
+					rdfs:subClassOf cis:Axis ;
+					rdfs:comment "An irregular axis abandons the equidistant spacing of a regular axis. Therefore, all direct positions along such an axis must be enumerated explicitly which is achieved by replacing the lower bound / resolution / upper bound scheme by an ordered list of direct positions."@en ;
+					rdfs:label "IrregularAxisType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .										
+					
+cis:DisplacementAxisNestType rdf:type owl:Class ;
+					rdfs:comment "combines several axes to a single nest where the coordinates are enumerated individually for each direct pos­ition."@en ;
+					rdfs:label "DisplacementAxisNestType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+cis:GridLimitsType rdf:type owl:Class ;
+					rdfs:comment "the limits of the underlying array grid"@en ;
+					rdfs:label "GridLimitsType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+cis:TransformationBySensorModelType rdf:type owl:Class ;
+					rdfs:comment "Has a sensorModel and sensor­Instance"@en ;
+					rdfs:label "TransformationBySensorModelType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+cis:EnvelopeByAxisType rdf:type owl:Class ;
+					rdfs:comment "an envelope type which allows for a convenient handling of any type of coordinates together with a single CRS"@en ;
+					rdfs:label "EnvelopeByAxisType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .																															
+
+cis:AxisExtendType rdf:type owl:Class ;
+					rdfs:comment "Axis Extend Type"@en ;
+					rdfs:label "AxisExtendType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+cis:PartitionSetType rdf:type owl:Class ;
+					rdfs:comment "Set of coverages or single position­ed values which together make up the coverage on hand"@en ;
+					rdfs:label "PartitionSetType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+cis:PVPType rdf:type owl:Class ;
+					rdfs:comment "PVP Type"@en ;
+					rdfs:label "PVPType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+cis:RangeSetType rdf:type owl:Class ;
+					rdfs:comment "Coverage range values, each one  associated with a direct position"@en ;
+					rdfs:label "RangeSetType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+cis:RangeSetRefType rdf:type owl:Class ;
+					rdfs:comment "Range Set Ref Type"@en ;
+					rdfs:label "RangeSetRefType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+cis:VDataBlockType rdf:type owl:Class ;
+					rdfs:comment "VData Block Type"@en ;
+					rdfs:label "VDataBlockType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+swe:DataRecordType rdf:type owl:Class ;
+					rdfs:comment "Description of the common data type of all range values"@en ;
+					rdfs:label "DataRecordType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+swe:QuantityType rdf:type owl:Class ;
+					rdfs:comment "Quantity Type"@en ;
+					rdfs:label "QuantityType"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+swe:UnitReference rdf:type owl:Class ;
+					rdfs:comment "Unit Reference"@en ;
+					rdfs:label "UnitReference"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .	
+					
+swe:AllowedValues rdf:type owl:Class ;
+					rdfs:comment "Allowed Values"@en ;
+					rdfs:label "AllowedValues"@en ;
+					rdfs:isDefinedBy <https://docs.ogc.org/is/09-146r6/09-146r6.html> .						

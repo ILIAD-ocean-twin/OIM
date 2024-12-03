@@ -1,0 +1,126 @@
+@prefix : <https://w3id.org/iliad/oim/metadata/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix schema: <https://schema.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdo: <http://schema.org/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix oim-metadata: <https://w3id.org/iliad/oim/metadata/> .
+@base <https://w3id.org/iliad/oim/metadata/> .
+
+
+<https://w3id.org/iliad/oim/metadata/adam-extension> rdf:type owl:Ontology ;                                     
+                                     dct:creator [ rdfs:seeAlso <http://orcid.org/0000-0003-4289-4922> ;
+                                                       foaf:name "Raul Palma" ;
+                                                       schema:affiliation [ foaf:name "PSNC"
+                                                                          ]
+                                                     ] ;                                     
+                                     dct:description "ILIAD OIM Metadata schema extension including additional terms to cover ADAM platform needs"@en ;
+                                     dct:rights "This vocabulary is distributed under Creative Commons Attribution 4.0 License - http://creativecommons.org/licenses/by/4.0"@en ;
+                                     dct:title "ILIAD Metadata Model"@en ;                                     
+                                     rdfs:comment "The ILIAD Ocean Information Model (OIM) metadata ontology is based on the DEMETER Agriculture Information Model (AIM) metadata ontology"@en ;
+                                     owl:versionInfo "1.0" ;
+                                     foaf:maker [ foaf:homepage <https://www.ocean-twin.eu/> ;
+                                                  foaf:name "ILIAD project"
+                                                ] .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+#################################################################
+#    Object Properties
+#################################################################
+								
+
+#################################################################
+#    Data properties
+#################################################################													
+
+oim-metadata:epsg rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "epsg"@en .								
+							
+oim-metadata:credits rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "credits"@en .
+							
+oim-metadata:maxDate rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:dateTimeStamp ;
+							rdfs:label "maxDate"@en .
+							
+oim-metadata:minDate rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:dateTimeStamp ;
+							rdfs:label "minDate"@en .																						
+							
+oim-metadata:maxValue rdf:type owl:AnnotationProperty ;
+							rdfs:label "maxValue"@en .
+							
+oim-metadata:minValue rdf:type owl:AnnotationProperty ;
+							rdfs:label "minValue"@en .
+							
+oim-metadata:noDataValue rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "noDataValue"@en .							
+
+oim-metadata:numberOfRecords rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:integer ;
+							rdfs:label "numberOfRecords"@en .
+							
+oim-metadata:profileSchema  rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "profileSchema"@en .
+							
+oim-metadata:appliedModel  rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "appliedModel"@en .
+							
+oim-metadata:project  rdf:type owl:AnnotationProperty ;
+							rdfs:label "project"@en .							
+
+oim-metadata:resolutionUnit  rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "resolutionUnit"@en .
+							
+oim-metadata:scaleFactor  rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:float ;
+							rdfs:label "scaleFactor"@en .	
+							
+oim-metadata:subDatasetName  rdf:type owl:DatatypeProperty ;
+							rdfs:label "subDatasetName"@en .														
+
+oim-metadata:unitsDescription   rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "unitsDescription"@en .	
+							
+oim-metadata:searchText   rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "searchText"@en .	
+							
+oim-metadata:colorTable   rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "colorTable"@en .	
+							
+oim-metadata:datasetManagerInfo   rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "datasetManagerInfo"@en .																																			
+
+oim-metadata:technicalManagerInfo   rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "technicalManagerInfo"@en .
+							
+oim-metadata:previewInfo   rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "previewInfo"@en .							
+							
+oim-metadata:filters   rdf:type owl:DatatypeProperty ;
+							rdfs:range xsd:string ;
+							rdfs:label "filters"@en .
+
+#################################################################
+#    Classes
+#################################################################
+
