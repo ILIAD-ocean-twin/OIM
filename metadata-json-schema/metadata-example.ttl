@@ -1,0 +1,165 @@
+@prefix ns0: <http://data.europa.eu/930/> .
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <https://w3id.org/iliad/oim/default-context/> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix ns3: <http://qudt.org/schema/qudt/> .
+@prefix ns4: <http://www.w3.org/ns/adms#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix ns5: <http://www.opengis.net/cis/1.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+[]
+  ns0:distributor [
+    a <https://schema.org/Organization> ;
+    ns1:name "Kadaster2" ;
+    ns2:mbox "mailto:bag2@kadaster.nl"
+  ] ;
+  ns0:principalInvestigator [
+    a ns1:Person ;
+    ns1:name "principal" ;
+    ns2:mbox "mailto:principal@kadaster.nl"
+  ] ;
+  ns0:processor [
+    a ns1:Organization ;
+    ns1:name "Tracasa" ;
+    ns2:mbox "mailto:wisesoe.helpdesk@eionet.europa.eu"
+  ] ;
+  dc:accessRights "http://publications.europa.eu/resource/authority/access-right/PUBLIC" ;
+  dc:accrualPeriodicity "http://publications.europa.eu/resource/authority/frequency/DAILY" ;
+  dc:conformsTo "http://www.opengis.net/def/crs/EPSG/0/4258" ;
+  dc:created "2019-10-31" ;
+  dc:creator [
+    a ns1:Organization ;
+    ns1:name "Kadaster" ;
+    ns2:mbox "mailto:bag@kadaster.nl"
+  ] ;
+  dc:description "description" ;
+  dc:identifier "af4c4fd6-0485-45c8-b6bc-8a8ed12aa3eb" ;
+  dc:issued "2010-12-08" ;
+  dc:language "http://publications.europa.eu/resource/authority/language/ENG" ;
+  dc:modified "2020-03-25" ;
+  dc:provenance [
+    a dc:ProvenanceStatement ;
+    rdfs:label "The raster data sets have been created out of the Noise"
+  ] ;
+  dc:publisher [
+    a ns1:Organization ;
+    ns1:name "Organization1"
+  ] ;
+  dc:rightsHolder [
+    a ns1:Organization ;
+    ns1:name "Kadaster1" ;
+    ns2:mbox "mailto:bag1@kadaster.nl"
+  ] ;
+  dc:spatial [
+    a dc:Location ;
+    dcat:bbox "POLYGON((-62.9951 70.620781,55.813367 70.620781,55.813367 -21.378367,-62.9951 -21.378367,-62.9951 70.620781))"^^rdfs:Literal
+  ] ;
+  dc:temporal [
+    a dc:PeriodOfTime ;
+    ns2:endDate "2016-12-31" ;
+    ns2:startDate "2016-01-01"
+  ] ;
+  dc:title "title" ;
+  qb:structure [
+    qb:component [ qb:measure [
+        qb:concept "http://vocab.nerc.ac.uk/standard_name/air_temperature/" ;
+        ns3:unit <http://www.qudt.org/vocab/unit/DEG_C> ;
+        a qb:MeasureProperty
+      ], [
+        qb:concept "http://vocab.nerc.ac.uk/standard_name/air_pressure/" ;
+        ns3:unit <http://www.qudt.org/vocab/unit/PA> ;
+        a qb:MeasureProperty
+      ] ] ;
+    a qb:DataStructureDefinition
+  ] ;
+  a dcat:Dataset ;
+  rdfs:comment "spatial resolution as text" ;
+  ns4:identifier [
+    a ns4:Identifier ;
+    skos:notation "https://orcid.org/0000-0003-3138-4118" ;
+    ns4:schemaAgency "ORCID"^^rdfs:Literal
+  ] ;
+  ns4:sample [
+    dc:format "http://publications.europa.eu/resource/authority/file-type/CSV" ;
+    dc:license "https://creativecommons.org/licenses/by/4.0/" ;
+    a dcat:Distribution ;
+    dcat:accessURL <http://example.org/endpointSample>
+  ] ;
+  ns4:versionNotes "First version of the bus stop dataset"^^rdfs:Literal ;
+  dcat:contactPoint [
+    a vcard:Kind ;
+    vcard:fn "Corky Crystal" ;
+    vcard:hasEmail <mailto:corky@example.com>
+  ] ;
+  dcat:distribution [
+    dc:format "http://publications.europa.eu/resource/authority/file-type/CSV" ;
+    dc:license "https://creativecommons.org/licenses/by/4.0/" ;
+    a dcat:Distribution ;
+    dcat:accessURL <http://example.org/endpoint>
+  ] ;
+  dcat:inSeries [
+    dc:title "Bee population" ;
+    a ns2:DatasetSeries
+  ] ;
+  dcat:keyword "keyword1"^^rdfs:Literal ;
+  dcat:landingPage <http://dcat.example.org/dataset-002.html> ;
+  dcat:spatialResolutionInMeters 10 ;
+  dcat:temporalResolution "PT15M" ;
+  dcat:theme <http://www.eionet.europa.eu/gemet/concept/12301>, <http://www.eionet.europa.eu/gemet/concept/3780> ;
+  dcat:version "1.0" ;
+  dqv:hasQualityMeasurement [
+    ns5:value true ;
+    a dqv:QualityMeasurement ;
+    ns2:isMeasurementOf [
+      a ns2:Metric ;
+      skos:definition "dataset page is available and dereferenceable" ;
+      ns2:inDimension "http://www.w3.org/2016/05/ldqd#availability"
+    ]
+  ], [
+    ns3:unit <http://www.qudt.org/vocab/unit/M> ;
+    ns5:value 1000 ;
+    a dqv:QualityMeasurement ;
+    ns2:isMeasurementOf [
+      a ns2:Metric ;
+      skos:definition "Spatial resolution of a dataset expressed as distance" ;
+      ns2:inDimension "http://www.w3.org/ns/dqv#precision"
+    ]
+  ], [
+    ns3:unit <http://www.qudt.org/vocab/unit/PERCENT> ;
+    ns5:value 9.820000e+1 ;
+    a dqv:QualityMeasurement ;
+    ns2:isMeasurementOf [
+      a ns2:Metric ;
+      skos:definition "Percentage of spatial elements that are found accurate according to methodology XYZ" ;
+      ns2:inDimension "http://www.w3.org/2016/05/ldqd#semanticAccuracy"
+    ]
+  ] ;
+  dqv:hasQualityMetadata [
+    a ns2:QualityCertificate ;
+    ns2:hasBody "https://certificates.theodi.org/en/datasets/393/certificate" ;
+    ns2:hasTarget "https://certificates.theodi.org/en/datasets/393"
+  ], [
+    a ns2:UserQualityFeedback ;
+    ns2:hasBody [
+      ns5:value "Could you please provide information about the completeness of your dataset?" ;
+      a ns2:TextualBody
+    ] ;
+    ns2:hasTarget "https://certificates.theodi.org/en/datasets/393"
+  ], [
+    a ns2:UserQualityFeedback ;
+    ns2:hasBody [
+      a skos:Concept ;
+      skos:prefLabel "Four stars"
+    ] ;
+    ns2:hasTarget "https://certificates.theodi.org/en/datasets/393"
+  ] ;
+  prov:wasDerivedFrom <http://data.europa.eu/eli/reg/2010/1089> ;
+  foaf:page <https://noise.eea.europa.eu/> ;
+  ns2:isReferencedBy "https://doi.org/10.1038/sdata.2018.22" .
