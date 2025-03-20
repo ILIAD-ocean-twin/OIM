@@ -149,7 +149,8 @@
       "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#Concentration"
     },
     "dataSet" : {
-      "@id" : "http://purl.org/linked-data/cube#dataSet"
+      "@id" : "http://purl.org/linked-data/cube#dataSet",
+      "@type" : "@id"
     },
     "Period" : {
       "@id" : "http://def.seegrid.csiro.au/isotc211/iso19108/2002/temporal#Period"
@@ -477,6 +478,10 @@
     },
     "measure" : {
       "@id" : "http://purl.org/linked-data/cube#measure",
+      "@type" : "@id"
+    },
+    "attribute" : {
+      "@id" : "http://purl.org/linked-data/cube#attribute",
       "@type" : "@id"
     },
     "identificationVerificationStatus" : {
