@@ -484,6 +484,10 @@
       "@id" : "http://purl.org/linked-data/cube#attribute",
       "@type" : "@id"
     },
+    "structure" : {
+      "@id" : "http://purl.org/linked-data/cube#structure",
+      "@type" : "@id"
+    },
     "identificationVerificationStatus" : {
       "@id" : "http://rs.tdwg.org/dwc/terms/identificationVerificationStatus"
     },
