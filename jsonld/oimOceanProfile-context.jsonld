@@ -1094,7 +1094,7 @@
       "@id" : "https://smartdatamodels.org/dataModel.Weather/dewPoint"
     },
     "hasFeatureOfInterest" : {
-      "@id" : "https://saref.etsi.org/core/hasFeatureOfInterest",
+      "@id" : "http://www.w3.org/ns/sosa/hasFeatureOfInterest",
       "@type" : "@id"
     },
     "NumberPerLength" : {
