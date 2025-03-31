@@ -139,13 +139,6 @@ oim-ch:accessibility	a owl:DatatypeProperty ;
 #################################################################
 #    Classes
 #################################################################
-
-### https://w3id.org/iliad/oim/ext/jellyfish/JellyFishAbundance
-oim-jf:JellyFishAbundance	a owl:Class ;
-			rdfs:subClassOf sosa:Result ;
-			rdfs:label "JellyFishAbundance" ;
-			rdfs:comment "Class definition of the JellyFish abundance observation result" ;
-			rdfs:isDefinedBy oim-jf: .
 			
 ### https://w3id.org/arco/ontology/arco/ComplexCulturalProperty
 <https://w3id.org/arco/ontology/arco/ComplexCulturalProperty>
