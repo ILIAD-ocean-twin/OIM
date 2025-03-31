@@ -1,0 +1,165 @@
+@prefix : <https://w3id.org/iliad/> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix stat: <http://data.europa.eu/m8g/> .
+@prefix schema: <https://schema.org/> .
+@prefix af-inspire:	<http://inspire.ec.europa.eu/schemas/af/3.0#> .
+@prefix act-inspire:	<http://inspire.ec.europa.eu/schemas/act-core/3.0#> .
+@prefix foodie: <http://foodie-cloud.com/model/foodie#> .
+@prefix saref4agri: <https://saref.etsi.org/saref4agri/> .
+@prefix common: <http://portele.de/ont/inspire/baseInspire#> .
+@prefix fiware-agrifood: <https://smartdatamodels.org/dataModel.Agrifood/> .
+@prefix fiware: <https://smartdatamodels.org/> .
+@prefix iso19109: <http://def.seegrid.csiro.au/isotc211/iso19109/2005/feature#> .
+@prefix iso19150-2: <http://def.seegrid.csiro.au/isotc211/iso19150/-2/2012/basic#> .
+@prefix iso19103: <http://def.seegrid.csiro.au/isotc211/iso19103/2005/basic#> .
+@prefix iso19115-citation: <http://def.seegrid.csiro.au/isotc211/iso19115/2003/citation#> .
+@prefix geo:   <http://www.opengis.net/ont/geosparql#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix saref: <https://saref.etsi.org/core/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix oceanCommon: <https://w3id.org/iliad/oim/oceamCommon/> .
+@prefix oceanProperty: <https://w3id.org/iliad/oim/oceanProperty/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix dwc:  <http://rs.tdwg.org/dwc/terms/> .
+@prefix oim-ch: <https://w3id.org/iliad/oim/ext/culturalheritage/> .
+@base <https://w3id.org/iliad/oim/ext/culturalheritage/> .
+
+<https://w3id.org/iliad/oim/ext/culturalheritage> a owl:Ontology ;
+                            dct:contributor [ schema:affiliation [ foaf:name "PSNC"
+                                                                 ] ;
+                                              foaf:name "Bogusz Janiak"
+                                            ] ;
+                            dct:creator [ schema:affiliation [ foaf:name "PSNC"
+                                                             ] ;
+                                          rdfs:seeAlso <http://orcid.org/0000-0003-4289-4922> ;
+                                          foaf:name "Raul Palma"
+                                        ] ;
+                            owl:imports <https://w3id.org/iliad/oim/oceanCommon> , <https://w3id.org/iliad/oim/oceanProperty> ;
+                            dct:description "OIM extension for Cultural Heritage"@en ;
+                            dct:rights "This vocabulary is distributed under Creative Commons Attribution 4.0 License - http://creativecommons.org/licenses/by/4.0"@en ;
+                            dct:title "OIM culturalheritage"@en ;
+                            rdfs:label "OIM culturalheritage" ;
+                            rdfs:comment "The Ocean Information Model (OIM) is the common vocabulary in ILIAD project providing the basis for semantic interoperability across smart ocean solutions"@en ;
+                            owl:versionInfo "1.0" ;
+                            foaf:maker [ foaf:homepage <https://www.ocean-twin.eu/> ;
+                                         foaf:name "ILIAD project"
+                                       ] .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+### https://w3id.org/iliad/oim/ext/culturalheritage/declaration
+oim-ch:declaration	a owl:ObjectProperty ;
+			rdfs:label "Declaration" ;
+			rdfs:comment "declaration reference" ;
+			rdfs:isDefinedBy oim-ch: .
+
+### https://w3id.org/iliad/oim/ext/culturalheritage/survey
+### replace by arco hasSurvey
+oim-ch:survey	a owl:ObjectProperty ;
+			rdfs:label "Survey" ;
+			rdfs:comment "survey reference" ;
+			rdfs:isDefinedBy oim-ch: .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+### https://w3id.org/arco/ontology/arco/catalogueNumber
+<https://w3id.org/arco/ontology/arco/catalogueNumber>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;  
+  rdfs:domain <https://w3id.org/arco/ontology/arco/CulturalProperty> ;
+  rdfs:range rdfs:Literal ;
+  rdfs:comment "Questa proprietà permette di associare il numero di catalogo generale a un bene culturale descritto in una scheda catalografica."@it, "This property represents the general catalogue number associated to a cultural property described by a catalogue record."@en ;
+  rdfs:isDefinedBy <https://w3id.org/arco/ontology/arco> ;
+  rdfs:label "catalogue number"@en, "numero catalogo generale"@it ;
+  owl:deprecated true ;
+  owl:versionInfo "stabile"@it, "stable"@en ;
+  rdfs:isDefinedBy <https://w3id.org/arco/ontology/arco/> .
+
+### https://w3id.org/iliad/oim/ext/culturalheritage/assemblyNumber
+oim-ch:assemblyNumber	a owl:DatatypeProperty ;
+			rdfs:label "Assembly Number" ;
+			rdfs:comment "Number of Assembly" ;
+			rdfs:isDefinedBy oim-ch: .
+
+### https://w3id.org/iliad/oim/ext/culturalheritage/assemblyNumber
+oim-ch:assemblyNumber	a owl:DatatypeProperty ;
+			rdfs:label "Assembly Number" ;
+			rdfs:comment "Number of Assembly" ;
+			rdfs:isDefinedBy oim-ch: .
+
+### https://w3id.org/iliad/oim/ext/culturalheritage/risk
+oim-ch:risk	a owl:DatatypeProperty ;
+			rdfs:label "Risk" ;
+			rdfs:comment "risk" ;
+			rdfs:isDefinedBy oim-ch: .	
+
+### https://w3id.org/iliad/oim/ext/culturalheritage/seabedType
+oim-ch:seabedType	a owl:DatatypeProperty ;
+			rdfs:label "Seabed Type" ;
+			rdfs:comment "seabed type" ;
+			rdfs:isDefinedBy oim-ch: .	
+
+### https://w3id.org/iliad/oim/ext/culturalheritage/siteProtection
+oim-ch:siteProtection	a owl:DatatypeProperty ;
+			rdfs:label "Site Protection" ;
+			rdfs:comment "site protection" ;
+			rdfs:isDefinedBy oim-ch: .
+
+### https://w3id.org/iliad/oim/ext/culturalheritage/accessibility
+oim-ch:accessibility	a owl:DatatypeProperty ;
+			rdfs:label "Accessibility" ;
+			rdfs:comment "accessibility" ;
+			rdfs:isDefinedBy oim-ch: .												
+
+#################################################################
+#    Classes
+#################################################################
+
+### https://w3id.org/iliad/oim/ext/jellyfish/JellyFishAbundance
+oim-jf:JellyFishAbundance	a owl:Class ;
+			rdfs:subClassOf sosa:Result ;
+			rdfs:label "JellyFishAbundance" ;
+			rdfs:comment "Class definition of the JellyFish abundance observation result" ;
+			rdfs:isDefinedBy oim-jf: .
+			
+### https://w3id.org/arco/ontology/arco/ComplexCulturalProperty
+<https://w3id.org/arco/ontology/arco/ComplexCulturalProperty>
+  a owl:Class ;  
+  rdfs:subClassOf <https://w3id.org/arco/ontology/arco/CulturalProperty> ;  
+  rdfs:comment "Questa classe rappresenta un bene culturale complesso, cioè costituito da più parti componenti."@it, "This class represents a complex cultural property, that consists of different components."@en ;
+  rdfs:isDefinedBy <https://w3id.org/arco/ontology/arco> ;
+  rdfs:label "Bene Culturale Complesso"@it, "Complex Cultural Property"@en ;
+  rdfs:isDefinedBy <https://w3id.org/arco/ontology/arco/> .	
+
+### https://w3id.org/arco/ontology/context-description/Survey
+<https://w3id.org/arco/ontology/context-description/Survey>
+  a owl:Class ;    
+  rdfs:comment "Questa classe rappresenta un'indagine effettuata su un'entità (per es: un bene culturale). Nel dominio dei beni culturali, per indagine si intende un'attività che riguarda il bene, effettuata per la sua individuazione (nel caso dei beni archeologici), per il suo studio e per l'approfondimento delle sue caratteristiche tecniche (indagini di scavo, di ricognizione, indagini geognostiche, analisi di vario genere e tipo, etc.). Questa classe viene specializzata in sottoclassi, per la rappresentazione di tipologie di indagini specifiche."@it, "This class represents a survey carried out on an entity (e.g. a cultural property). In the cultural heritage perspective, it is an activity related to a cultural property and carried out for its identification, study or observation of its technical characteristics."@en ;
+  rdfs:isDefinedBy <https://w3id.org/arco/ontology/context-description/> ;
+  rdfs:label "Indagine"@it, "Survey"@en ;
+  owl:versionInfo "stabile"@it, "stable"@en .  

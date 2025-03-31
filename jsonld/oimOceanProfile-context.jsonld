@@ -297,6 +297,10 @@
       "@id" : "http://www.opengis.net/ont/geosparql#asWKT",
       "@type" : "http://www.opengis.net/ont/geosparql#wktLiteral"
     },
+    "asGeoJSON" : {
+      "@id" : "http://www.opengis.net/ont/geosparql#asGeoJSON",
+      "@type" : "http://www.opengis.net/ont/geosparql#geoJSONLiteral"
+    },
     "measurementDeterminedBy" : {
       "@id" : "http://rs.tdwg.org/dwc/terms/measurementDeterminedBy"
     },
@@ -386,7 +390,12 @@
       "@id" : "http://purl.oclc.org/NET/ssnx/cf/cf-feature#Medium"
     },
     "sfWithin" : {
-      "@id" : "http://www.opengis.net/ont/geosparql#sfWithin"
+      "@id" : "http://www.opengis.net/ont/geosparql#sfWithin",
+      "@type" : "@id"    
+    },
+    "hasBoundingBox" : {
+      "@id" : "http://www.opengis.net/ont/geosparql#hasBoundingBox",
+      "@type" : "@id"
     },
     "ThermalConductivity" : {
       "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#ThermalConductivity"
@@ -1575,6 +1584,9 @@
     "isFeatureOfInterestOf" : {
       "@id" : "http://www.w3.org/ns/sosa/isFeatureOfInterestOf",
       "@type" : "@id"
+    },
+    "FeatureCollection" : {
+      "@id" : "http://www.opengis.net/ont/geosparql#FeatureCollection"
     }
   }
 }
