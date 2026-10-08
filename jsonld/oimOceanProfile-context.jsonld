@@ -911,6 +911,9 @@
     "Duration" : {
       "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#Duration"
     },
+    "TemporalPosition" : {
+      "@id" : "http://www.w3.org/2006/time#TemporalPosition"
+    },
     "associatedSequences" : {
       "@id" : "http://rs.tdwg.org/dwc/terms/associatedSequences"
     },
